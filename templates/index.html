@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+<section class="login">
+<div>
+              (For Testing)  Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+            </div>
+<h2 class="text-center">Login</h2>
+<p class="text-center pb-5">EMR Medical Practioner Login for Redemption Medical Center</p>
+<div class="container d-flex justify-content-center">
+      <form method=POST action="{{ url_for('login') }}">
+      <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+        <ul>
+          <li>
+            <input type="checkbox" id="myCheckbox1" name="profession" class="radio"/>
+            <label for="myCheckbox1" class="text-center"><img class="img-fluid" src="../static/images/drs.svg"/><br>Doctor</label>
+          </li>
+          <li>
+            <input type="checkbox" id="myCheckbox2" name="profession" class="radio"/>
+            <label for="myCheckbox2" class="text-center"><img class="img-fluid" src="../static/images/nurse.svg"/><br>Nurse</label>
+          </li>
+          <li>
+            <input type="checkbox" id="myCheckbox3" name="profession" class="radio"/>
+            <label for="myCheckbox3" class="text-center"><img class="img-fluid" src="../static/images/ADMIN.svg"/><br>Adminstrator</label>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <label for = "username" class="text-center">Username</label>
+      <input class="w-100" id="username" type="text" name="username">
+      <label for = "password" class="text-center">Password</label>
+      <input class="w-100" id="password" type="password" name="password">
+      <button type="submit" class="btn btn-mdb-color mt-5">Login</button>
+      </form>
+</div>
+</section>
+{% endblock %}
