@@ -19,6 +19,12 @@
 .section {
     padding: 3rem 0rem 2rem 0rem;
 }
+.column-small {
+    width:30%;
+}
+.column-big {
+    width:60%;
+}
 .role {
     height: 80px;
     width:80px;
@@ -42,4 +48,29 @@
 }
 .icon.active {
     color:#95adbe;
+}
+.new-user {
+    color:#574f7d;
+    font-size:1.3rem;
+    margin-top:2rem;
+}
+.new-user:hover {
+    color:#95adbe;
+}
+.link {
+    color:#574f7d;
+    font-family: "Montserrat";
+    font-size:0.7rem;
+}
+.link:hover {
+    color:#95adbe;
+    text-decoration:underline;
+}
+
+
+
+.page-head {
+    font-family:"Montserrat";
+    font-weight:500;
+    color:#574f7d;
 }
