@@ -66,11 +66,22 @@
     color:#95adbe;
     text-decoration:underline;
 }
-
+.dashboard-icon {
+    height:100px;
+    width:100px;
+    text-align:center;
+}
+.nav-cards:hover {
+    background-color:#95adbe;
+}
 
 
 .page-head {
     font-family:"Montserrat";
     font-weight:500;
     color:#574f7d;
+}
+.card-text {
+    padding-top:2em;
+    color:#503a65;
 }
