@@ -1,7 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+body {
+    background-color:#e0f0ea;
+}
+.overlay {
+    background-color:white;
+}
+.md-form .input-prefix{
+    color:#574f7d!important;
+}
+.md-form .input-prefix.active {
+    color:#95adbe!important;
+}
+.md-form input[type='text']:not(.broswer-default):focus:not([readonly]){
+    color:#95adbe!important;
+    border-bottom:1px solid #95adbe!important;
+    box-shadow: 0 1px 0 0 #95adbe!important;
+}
+.label:focus {
+    color:#95adbe!important;
+}
 .section {
-    padding: 6rem 0rem 6rem 0rem;
+    padding: 3rem 0rem 2rem 0rem;
 }
 .role {
     height: 80px;
