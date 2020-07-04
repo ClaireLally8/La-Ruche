@@ -1,74 +1,26 @@
-.login {
-    padding-top:10rem;
-    margin: 5rem 5rem 5rem 5rem;
-    padding-bottom:10rem;
-    border-radius:10%;
-}
-html{
-    background-color:antiquewhite;
-}
-body{
-    margin-left:8rem;
-    margin-right:8rem;
-}
-ul {
-  list-style-type: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-li {
-  display: inline-block;
+.section {
+    padding: 6rem 0rem 6rem 0rem;
 }
-
-input[type="checkbox"][id^="myCheckbox"] {
-  display: none;
+.role {
+    height: 80px;
+    width:80px;
 }
-
-label {
-  border: 1px solid #fff;
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
+.btn-style {
+    background-color:#3c2a4d;
+    color:#e0f0ea;
+    letter-spacing:1.3px;
 }
-
-label:before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
+.btn-style:hover {
+    background-color:#95adbe;
+    color:#3c2a4d;
+    letter-spacing:1.3px;
+    text-decoration:underline;
 }
-
-label img {
-  height: 100px;
-  width: 100px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
-}
-
-:checked + label {
-  border-color: #ddd;
-}
-
-:checked + label:before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-}
-
-:checked + label img {
-  transform: scale(0.9);
-  /* box-shadow: 0 0 5px #333; */
-  z-index: -1;
+.job-label {
+    font-family: Montserrat;
+    font-weight:200;
+    letter-spacing:1px;
+    color:#503a65;
 }
