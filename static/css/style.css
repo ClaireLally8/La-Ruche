@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-body {
-    background-color:#e0f0ea;
-}
 .overlay {
-    background-color:white;
+    background-color:#e0f0ea;
 }
 .md-form .input-prefix{
     color:#574f7d!important;
@@ -42,4 +39,7 @@ body {
     font-weight:200;
     letter-spacing:1px;
     color:#503a65;
+}
+.icon.active {
+    color:#95adbe;
 }
