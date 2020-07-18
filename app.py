@@ -26,6 +26,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dasboard.html')
+
+
 @app.route('/login', methods=['POST'])
 def login():
     users = mongo.db.users
@@ -67,9 +72,35 @@ def profile():
 def history():
     return render_template('history.html')
 
+
 @app.route('/medication')
 def medication():
     return render_template('medication.html')
+
+
+@app.route('/symptoms')
+def symptoms():
+    return render_template('symptoms.html')
+
+
+@app.route('/care-plan')
+def care_plan():
+    return render_template('care-plan.html')
+
+
+@app.route('/tests')
+def tests():
+    return render_template('tests.html')
+
+
+@app.route('/reports')
+def reports():
+    return render_template('reports.html')
+
+
+@app.route('/analytics')
+def analytics():
+    return render_template('analytics.html')
 
 
 if __name__ == '__main__':
