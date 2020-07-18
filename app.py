@@ -1,7 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, session, request, redirect
-from flask import url_for, flash, session
+from flask import Flask, render_template, session, request, redirect, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -62,6 +61,15 @@ def register():
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+
+
+@app.route('/history')
+def history():
+    return render_template('history.html')
+
+@app.route('/medication')
+def medication():
+    return render_template('medication.html')
 
 
 if __name__ == '__main__':
