@@ -21,8 +21,8 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    # if 'username' in session:
-    # return 'You are logged in as ' + session['username']
+    if 'username' in session:
+        return render_template('dashboard.html')
 
     return render_template('index.html')
 
@@ -59,8 +59,14 @@ def register():
     return render_template('register.html')
 
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+

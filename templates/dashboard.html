@@ -1,5 +1,56 @@
 {% extends "layout.html" %}
 {% block body %}
+    <!-- Sidebar  -->
+    <!-- <nav id="sidebar">
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    Profile
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-briefcase"></i>History</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Medication
+                </a>
+            </li>
+                        <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Symptoms
+                </a>
+            </li>
+                        <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Plan of Care
+                </a>
+            </li>
+                        <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Tests
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Reports
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Analytics
+                </a>
+            </li>
+        </ul>
+    </nav> -->
 <section class="section">
 <h1 class="page-head text-center">Dashboard</h1>
 </section>
@@ -26,7 +77,7 @@
 <section class="section">
 <div class="row d-flex justify-content-center my-5">
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex justify-content-center">
-<a href='#'><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Profile</h6></a>
+<a href="{{ url_for('profile') }}"><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Profile</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex justify-content-center">
 <a href='#'><img src="../static/images/history.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient History</h6></a>
