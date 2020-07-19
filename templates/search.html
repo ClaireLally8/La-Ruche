@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="section">
+<h2 class="text-center">Welcome</h2>
+<!-- Search form -->
+<div class="container d-flex justify-content-center section">
+<input class="form-control w-50 pt-2" type="text" placeholder="Search Patient" aria-label="Search">
+<a href="{{ url_for('dashboard') }}" class="btn btn-primary">Search Now</a>
+</div>
+</div>
+<div class="container d-flex justify-content-center">
+<a href="#">New Patient</a>
+</div>
+{% endblock %}

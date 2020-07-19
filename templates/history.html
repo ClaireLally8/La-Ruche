@@ -1,4 +1,27 @@
 {% extends "layout.html" %}
 {% block body %}
-<h2>Hello</h2>
+<section clas="section mx-5">
+<hr>
+<div class="container">
+<div class="row d-flex justify-content-between">
+<div class="col-lg-3 col-md-3 col-sm-3 column-small">
+<a href="{{ url_for('dashboard') }}">Go back</a>
+<a href="#" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
+</div>
+<div class="col-lg-5 col-md-6 col-sm-6 column-big">
+<div class="md-form">
+<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+  <i class="fas fa-search icon" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient"
+    aria-label="Search">
+</form>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<div class="container section">
+
+</div>
 {% endblock %}
