@@ -31,6 +31,11 @@ def dashboard():
     return render_template('dashboard.html')
 
 
+@app.route('/new')
+def new_patient():
+    return render_template('new-patient.html')
+
+
 @app.route('/login', methods=['POST'])
 def login():
     users = mongo.db.users
