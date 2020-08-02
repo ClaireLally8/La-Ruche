@@ -3,34 +3,34 @@
 <section class="section">
 <h2> New Patient</h2>
 <div class="container">
-<form>
-<input type="text" name="full_name" placeholder="Full_name">
-<input type="email" name="email" placeholder="email">
-<input type="tel" name="phone_number" placeholder="phone_number">
-<input type = "text" name="AddressLine1" placeholder="AddressLine1">
+<form class="new-patient" method="POST" action="{{ url_for('new_patient') }}">
+<input type="text" name="full_name" placeholder="Full_name" requiredd>
+<input type="email" name="email" placeholder="email" required>
+<input type="tel" name="phone_number" placeholder="phone_number" required>
+<input type = "text" name="AddressLine1" placeholder="AddressLine1" required>
 <input type = "text" name="AddressLine2" placeholder="AddressLine2">
-<input type="text" name="Town" placeholder="town">
-<input type="text" name="postcode" placeholder="postcode">
-<select id="gender" name="gender">
-<option value="gender" disabled selected>Gender</option>
+<input type="text" name="Town" placeholder="town" required>
+<input type="text" name="postcode" placeholder="postcode" required>
+<select id="gender" name="gender" required>
+<option value="default" disabled selected>Gender</option>
     <option value="Male">Male</option>
     <option value="Female">Female</option>
     <option value="Other">Other</option>
   </select>
-<input type="date" name="dob" placeholder="Date of Birth">
-<select id="bloody_type" name="blood-type">
-    <option value="blood-type" disabled selected>Blood Type</option>
+<input type="date" name="dob" placeholder="Date of Birth" required>
+<select id="blood_type" name="blood-type" required>
+    <option value="default" disabled selected>Blood Type</option>
     <option value="A">A</option>
     <option value="AB">AB</option>
     <option value="O">O</option>
   </select>
-<input type="text" name="ethnicity" placeholder="ethnicity">
-<input type= "text" name="smoking-habits" placeholder="smoking-habits">
-<input type = "text" name="drinking-habits" placeholder="drinking-habits">
-<input type = "text" name="exercise-frequency" placeholder="exercise-frequency">
-<input type = "text" name="health-cover" placeholder="health-cover">
-<input type = "text" name="allergies" placeholder="allergies">
-<input type = "text" name="conditions" placeholder="conditions">
+<input type="text" name="ethnicity" placeholder="ethnicity" required>
+<input type= "text" name="smoking-habits" placeholder="smoking-habits" required>
+<input type = "text" name="drinking-habits" placeholder="drinking-habits" required>
+<input type = "text" name="exercise-frequency" placeholder="exercise-frequency" required>
+<input type = "text" name="allergies" placeholder="allergies" required>
+<input type = "text" name="conditions" placeholder="conditions" required>
+<button type="submit">Save</button>
 </form>
 </div>
 </section>

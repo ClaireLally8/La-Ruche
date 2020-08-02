@@ -31,8 +31,28 @@ def dashboard():
     return render_template('dashboard.html')
 
 
-@app.route('/new')
+@app.route('/new', methods=['POST', 'GET'])
 def new_patient():
+    if request.method == 'POST':
+        mongo.db.patients.insert(
+        {
+            'full_name': request.form['full_name'],
+            'email': request.form['email'],
+            'phone_number': request.form['phone_number'],
+            'AddressLine1': request.form['AddressLine1'],
+            'AddressLine2': request.form['AddressLine2'],
+            'Town': request.form['Town'],
+            'postcode': request.form['postcode'],
+            'gender': request.form['gender'],
+            'dob': request.form['dob'],
+            'blood-type': request.form['blood-type'],
+            'ethnicity': request.form['ethnicity'],
+            'smoking-habits': request.form['smoking-habits'],
+            'drinking-habits': request.form['drinking-habits'],
+            'exercise-frequency': request.form['exercise-frequency'],
+            'allergies': request.form['allergies'],
+            'conditions': request.form['conditions'],
+            })
     return render_template('new-patient.html')
 
 
