@@ -211,8 +211,8 @@
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-  background-color: #ccc;
+.accordion:hover {
+  background-color: #503a65;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -228,7 +228,7 @@
 }
 #sidebar-container {
     min-height: 100vh;   
-    background-color: #333;
+    background-color: #95adbe;
     padding: 0;
 }
 
@@ -237,13 +237,13 @@
     width: 230px;
 }
 .sidebar-collapsed {
-    width: 60px;
+    width: 100px;
 }
 
 /* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
-    color: white;
+    color: #3c2a4d;
 }
 
 /* Submenu item*/
@@ -254,21 +254,9 @@
 .sidebar-submenu {
     font-size: 0.9rem;
 }
-
-/* Separators */
-.sidebar-separator-title {
-    background-color: #333;
-    height: 35px;
-}
 .sidebar-separator {
-    background-color: #333;
-    height: 25px;
+    background-color:#95adbe;
 }
-.logo-separator {
-    background-color: #333;    
-    height: 60px;
-}
-
 /* Closed submenu icon */
 #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
   content: " \f0d7";
