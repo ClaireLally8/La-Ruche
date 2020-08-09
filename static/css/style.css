@@ -273,3 +273,9 @@
   text-align: right;
   padding-left: 10px;
 }
+.margin-left {
+    margin-left:10rem;
+}
+.padding {
+    padding-top:8rem!important;
+}
