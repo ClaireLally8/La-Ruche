@@ -87,6 +87,10 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/logout')
+def logout():
+    session['email'] = None
+    return render_template('index.html')
 
 @app.route('/profile')
 def profile():
