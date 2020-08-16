@@ -23,6 +23,23 @@
   </head>
 
   <body>
+  <!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark purple-bkgd purple-font">
+  <img class="img-fluid" src="../static/images/Logo-text.svg" height=130 width=130>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link montserrat-200 eggshell-font font-medium" href="{{ url_for('login') }}">
+          <i class="fab active"></i>Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
     <div class="px-5 col-12">
     {% block body %}{% endblock %}
     </div>

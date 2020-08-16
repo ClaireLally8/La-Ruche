@@ -2,25 +2,25 @@
 {% block body %}
 
 <section class="section">
-	<h1 class="page-head text-center">Login Here</h1>
-	<h4 class="page-sub py-3 text-center">EMR Medical Practioner Login for Redemption Medical Center</h4>
+	<h1 class="montserrat-600 brown-font font-large text-center pt-5">Login Here</h1>
+	<h4 class="montserrat-300 brown-font font-medium text-center pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
 </section>
-<div class="container overlay z-depth-2 mb-5 pb-3">
+<div class="container eggshell-bkgd z-depth-2 mb-5 pt-3 pb-5">
 	<section class="section">
 		<div class="container">
 			<form method="POST" action="{{ url_for('login') }}">
 				<div class="row d-flex justify-content-center">
 					<div class="row-3 p-3">
 						<input type="radio" id="doctor" name="profession" class="radio">
-						<label for="doctor" class="text-center job-label"><img class="img-fluid role" src="../static/images/drs.svg" /><br>Doctor</label>
+						<label for="doctor" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/drs.svg" /><br>Doctor</label>
 					</div>
 					<div class="row-3 p-3">
 						<input type="radio" id="nurse" name="profession" class="radio">
-						<label for="nurse" class="text-center job-label"><img class="img-fluid role" src="../static/images/nurse.svg" /><br>Nurse</label>
+						<label for="nurse" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/nurse.svg" /><br>Nurse</label>
 					</div>
 					<div class="row-3 p-3">
 						<input type="radio" id="admin" name="profession" class="radio">
-						<label for="admin" class="text-center job-label"><img class="img-fluid role" src="../static/images/admin.svg" /><br>Adminstrator</label>
+						<label for="admin" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/admin.svg" /><br>Adminstrator</label>
 					</div>
 				</div>
 				<div class="row d-flex justify-content-center">
@@ -43,7 +43,7 @@
 				</div>
 				<div class="row d-flex justify-content-center">
 					<div class="col-sm-12 col-md-6 col-lg-6">
-						<button class="btn-block mt-5 btn btn-style" type="submit">Login</button>
+						<button class="btn-block mt-5 btn montserrat-500 font-small eggshell-font purple-bkgd hover" type="submit">Login</button>
 					</div>
 				</div>
 			</form>

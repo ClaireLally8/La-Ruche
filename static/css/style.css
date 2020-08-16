@@ -1,261 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-.overlay {
-    background-color:#e0f0ea;
+
+/* FONT STLYING */
+
+.montserrat-100 {
+    font-weight:100;
+    font-family:Montserrat;
 }
+.montserrat-200 {
+    font-weight:200;
+    font-family:Montserrat;
+}
+.montserrat-300 {
+    font-weight:300;
+    font-family:Montserrat;
+}
+.montserrat-400 {
+    font-weight:400;
+    font-family:Montserrat;
+}
+.montserrat-500 {
+    font-weight:500;
+    font-family:Montserrat;
+}
+.montserrat-600 {
+    font-weight:600;
+    font-family:Montserrat;
+}
+.montserrat-700 {
+    font-weight:700;
+    font-family:Montserrat;
+}
+.montserrat-800 {
+    font-weight:800;
+    font-family:Montserrat;
+}
+.montserrat-900 {
+    font-weight:900;
+    font-family:Montserrat;
+}
+
+/* FONT COLOURS */
+
+.brown-font {
+    color: #452316;
+}
+.orange-font {
+    color:#f6850a;
+}
+.cream-font {
+    color: #ecc498;
+}
+.purple-font {
+    color:#846464;
+}
+.eggshell-font {
+    color:#fcefeb;
+}
+
+
+/* BACKGROUND COLOURS */
+
+.brown-bkgd {
+    background-color: #452316;
+}
+.orange-bkgd {
+    background-color:#f6850a;
+}
+.cream-bkgd {
+    background-color: #ecc498;
+}
+.purple-bkgd {
+    background-color:#846464;
+}
+.eggshell-bkgd {
+    background-color:#fcefeb;
+}
+/* 
+FONT SIZES  */
+.font-small {
+    font-size:1.2rem;
+}
+.font-medium {
+    font-size:1.4rem;
+}
+.font-large {
+    font-size:3.2rem;
+}
+
+/* PRIMARY BUTTON  */
+.hover:hover {
+    text-decoration: underline;
+    background-color:#452316;
+    color:#fcefeb;
+}
+
+/* SECONDARY BUTTON  */
+
+
+/* MDBOOSTRAP ICONS & FORMS */
+
 .md-form .input-prefix{
-    color:#584053!important;
+    color:#846464!important;
 }
 .md-form .input-prefix.active {
-    color:#8DC6BF!important;
+    color:#f6850a!important;
 }
 .md-form input[type='text']:not(.broswer-default):focus:not([readonly]){
-    color:#8DC6BF!important;
-    border-bottom:1px solid #8DC6BF!important;
-    box-shadow: 0 1px 0 0 #8DC6BF!important;
+    color:#f6850a!important;
+    border-bottom:1px solid #f6850a!important;
+    box-shadow: 0 1px 0 0 #f6850a!important;
 }
 .label:focus {
-    color:#8DC6BF!important;
-}
-.section {
-    padding: 3rem 0rem 2rem 0rem;
-}
-.column-small {
-    width:30%;
-}
-.column-big {
-    width:60%;
-}
-.role {
-    height: 80px;
-    width:80px;
-}
-.btn-style {
-    background-color:#584053;
-    color:#e0f0ea;
-    letter-spacing:1.3px;
-}
-.btn-style:hover {
-    background-color:#8DC6BF;
-    color:#584053;
-    letter-spacing:1.3px;
-    text-decoration:underline;
-}
-.job-label {
-    font-family: Montserrat;
-    font-weight:200;
-    letter-spacing:1px;
-    color:#503a65;
-}
-.icon.active {
-    color:#8DC6BF;
-}
-.new-user {
-    color:#584053;
-    font-size:1.3rem;
-    margin-top:2rem;
-}
-.new-user:hover {
-    color:#8DC6BF;
-}
-.link {
-    color:#584053;
-    font-family: "Montserrat";
-    font-size:0.7rem;
-}
-.link:hover {
-    color:#8DC6BF;
-    text-decoration:underline;
-}
-.dashboard-icon {
-    height:100px;
-    width:100px;
-    text-align:center;
-}
-.nav-cards:hover {
-    background-color:#8DC6BF;
-}
-.page-head {
-    font-family:"Montserrat";
-    font-weight:500;
-    color:#584053;
-}
-.card-text {
-    padding-top:2em;
-    color:#503a65;
-}
-.border-box {
-    border:1px dashed black!important;
-}
-#sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
-    text-align: center;
+    color:#f6850a!important;
 }
 
-/* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
-#sidebar .sidebar-header strong {
-    display: none;
-}
-#sidebar.active .sidebar-header h3 {
-    display: none;
-}
-#sidebar.active .sidebar-header strong {
-    display: block;
-}
+/* COLLAPSABLE SIDEBAR */
 
-#sidebar ul li a {
-    text-align: left;
-}
-
-#sidebar.active ul li a {
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 0.85em;
-}
-
-#sidebar.active ul li a i {
-    margin-right:  0;
-    display: block;
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
-
-/* Same dropdown links padding*/
-#sidebar.active ul ul a {
-    padding: 10px !important;
-}
-
-/* Changing the arrow position to bottom center position, 
-   translateX(50%) works with right: 50% 
-   to accurately  center the arrow */
-#sidebar.active .dropdown-toggle::after {
-    top: auto;
-    bottom: 10px;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
-}
-@media (max-width: 768px) {
-    /* 80px and its content aligned to centre. Pushing it off the screen with the
-       negative left margin
-    */
-    #sidebar.active {
-        min-width: 80px;
-        max-width: 80px;
-        text-align: center;
-        margin-left: -80px !important;
-    }
-
-
-    /* Reappearing the sidebar on toggle button click */
-    #sidebar {
-        margin-left: 0; 
-    }
-
-
-    /* Toggling the sidebar header content, 
-       hide the big heading [h3] and showing the small heading [strong] and vice versa
-    */
-    #sidebar .sidebar-header strong {
-        display: none;
-    }
-    #sidebar.active .sidebar-header h3 {
-        display: none;
-    }
-    #sidebar.active .sidebar-header strong {
-        display: block;
-    }
-
-    /* Downsize the navigation links font size */
-    #sidebar.active ul li a {
-        padding: 20px 10px;
-        font-size: 0.85em;
-    }
-
-    #sidebar.active ul li a i {
-        margin-right:  0;
-        display: block;
-        font-size: 1.8em;
-        margin-bottom: 5px;
-    }
-
-    /* Adjust the dropdown links padding*/
-    #sidebar.active ul ul a {
-        padding: 10px !important;
-    }
-
-    /* Changing the arrow position to bottom center position, 
-      translateX(50%) works with right: 50% 
-      to accurately  center the arrow */
-    .dropdown-toggle::after {
-        top: auto;
-        bottom: 10px;
-        right: 50%;
-        -webkit-transform: translateX(50%);
-        -ms-transform: translateX(50%);
-        transform: translateX(50%);
-    }
-}
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.accordion:hover {
-  background-color: #503a65;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-  padding: 0 18px;
-  background-color: black;
-  display: none;
-  overflow: hidden;
-}
-#body-row {
-    margin-left:0;
-    margin-right:0;
-}
 #sidebar-container {
-    min-height: 100vh;   
-    background-color: #8DC6BF;
+    min-height: 100vh!important;   
     padding: 0;
 }
-
-/* Sidebar sizes when expanded and expanded */
-.sidebar-expanded {
-    width: 230px;
-}
 .sidebar-collapsed {
-    width: 80px;
+    width: 100px;
 }
-
-/* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
-    color: #584053;
 }
-
-/* Submenu item*/
 #sidebar-container .list-group .sidebar-submenu a {
     height: 45px;
     padding-left: 30px;
 }
 .sidebar-submenu {
     font-size: 0.9rem;
-}
-.sidebar-separator {
-    background-color:#8DC6BF;
 }
 /* Closed submenu icon */
 #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
@@ -273,10 +149,14 @@
   text-align: right;
   padding-left: 10px;
 }
-.margin-left {
-    margin-left:10rem;
+.list-group-item-action:hover {
+    background-color: #846464;
+    text-decoration: underline;
+    color:#fcefeb;
 }
-.padding {
-    margin-bottom:1rem!important;
-    margin-top:1rem!important;
+/* LOGIN PAGE */
+
+.role {
+    height: 95px;
+    width:95px;
 }

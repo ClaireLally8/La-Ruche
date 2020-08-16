@@ -56,17 +56,21 @@ def new_patient():
     return render_template('new-patient.html')
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-    users = mongo.db.users
-    login_user = users.find_one({'name': request.form['username']})
+    if request.method == 'POST':
+        users = mongo.db.users
+        login_user = users.find_one({'name': request.form['username']})
 
-    if login_user:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
-            session['username'] = request.form['username']
-            return render_template('dashboard.html')
+        if login_user:
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+                session['username'] = request.form['username']
+                return render_template('dashboard.html')
 
-    return 'Invalid username/password combination'
+        return 'Invalid username/password combination'
+
+    else:
+        return render_template('index.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -87,10 +91,12 @@ def register():
 
     return render_template('register.html')
 
+
 @app.route('/logout')
 def logout():
-    session['email'] = None
+    session['username'] = None
     return render_template('index.html')
+
 
 @app.route('/profile')
 def profile():

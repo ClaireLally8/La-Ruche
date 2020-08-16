@@ -27,76 +27,74 @@
 <!-- Bootstrap row -->
 <div class="row" id="body-row">
     <!-- Sidebar -->
-    <div id="sidebar-container" class="sidebar-expanded fixed-top col-4">
+    <div id="sidebar-container" class="sidebar-expanded fixed-top col-2 eggshell-bkgd">
         <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
         <!-- Bootstrap List Group -->
-                <div class = "d-flex justify-content-center padding">
+                <div class = "d-flex justify-content-center padding eggshell-bkgd">
                 <a href="{{ url_for('dashboard') }}"> 
-                   <img src="../static/images/logo.svg" height=70 width=70>
+                   <img src="../static/images/Logo-text.svg" height=90 width=90>
             </a>
                 </div>
             <ul class="list-group">
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
-        
-                    <a href="{{ url_for('profile') }}" class="list-group-item list-group-item-action">
+                    <a href="{{ url_for('profile') }}" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/patient.svg"></span>
                     <span class="menu-collapsed">Patient Profile</span>
                 </div>
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa-fw mr-3"><img src="../static/images/history.svg"></span>
                     <span class="menu-collapsed">History</span>
-                </div>
+                </div>`
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/medication.svg"></span>
                     <span class="menu-collapsed">Medication</span>
                 </div>
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/symptoms.svg"></span>
                     <span class="menu-collapsed">Symptoms</span>
                 </div>
             </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/plan.svg"></span>
                     <span class="menu-collapsed">Plan of Care</span>
                 </div>
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/tests.svg"></span>
                     <span class="menu-collapsed">Tests</span>
                 </div>
             </a>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/reports.svg"></span>
                     <span class="menu-collapsed">Reports</span>
                 </div>
             </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/analytics.svg"></span>
                     <span class="menu-collapsed">Analytics</span>
                 </div>
             </a>
             <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
+            <li class="list-group-item sidebar-separator menu-collapsed eggshell-bkgd"></li>
             <!-- /END Separator -->
-                <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action">
+                <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/logout.svg"></span>
                     <span class="menu-collapsed">Logout</span>
                 </div>
             </a>
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
-            <a href="#top" data-toggle="sidebar-colapse" class="list-group-item list-group-item-action d-flex align-items-center">
+            <li class="list-group-item sidebar-separator menu-collapsed eggshell-bkgd"></li>
+            <a href="#top" data-toggle="sidebar-colapse" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500 d-flex align-items-center">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fa fa-2x mr-3"></span>
                     <span id="collapse-text" class="menu-collapsed">Collapse</span>
