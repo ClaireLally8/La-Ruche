@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>La Rouche</title>
+    <title>La Ruche</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -25,9 +25,10 @@
   <body>
 <!-- Bootstrap NavBar -->
 <!-- Bootstrap row -->
-<div class="row" id="body-row">
+<div class="container-fluid">
+<div class="row">
     <!-- Sidebar -->
-    <div id="sidebar-container" class="sidebar-expanded fixed-top col-2 eggshell-bkgd">
+    <div id="sidebar-container" class="sidebar-expanded fixed-tope eggshell-bkgd">
         <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
         <!-- Bootstrap List Group -->
                 <div class = "d-flex justify-content-center padding eggshell-bkgd">
@@ -46,7 +47,7 @@
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa-fw mr-3"><img src="../static/images/history.svg"></span>
                     <span class="menu-collapsed">History</span>
-                </div>`
+                </div>
             </a>
             <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
@@ -54,7 +55,7 @@
                     <span class="menu-collapsed">Medication</span>
                 </div>
             </a>
-            <a href="#" class="list-group-item cream-bkgd brown-font montserrat-500">
+            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-fw mr-3"><img src="../static/images/symptoms.svg"></span>
                     <span class="menu-collapsed">Symptoms</span>
@@ -102,10 +103,12 @@
             </a>
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
-    <div class="px-5 col-10 offset-2">
+    <div class="col-10">
     {% block body %}{% endblock %}
     </div>
 </div>
+</div>
+
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->

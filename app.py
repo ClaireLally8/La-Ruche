@@ -1,11 +1,11 @@
 import os
 import json
+import uuid
 from flask import Flask, render_template, session, request, redirect, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 import bcrypt
-
 if path.exists("env.py"):
     import env
 
@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('search.html')
+        return render_template('search.html', patients=mongo.db.patients.find())
 
     return render_template('index.html')
 
@@ -34,8 +34,10 @@ def dashboard():
 @app.route('/new', methods=['POST', 'GET'])
 def new_patient():
     if request.method == 'POST':
+        id = uuid.uuid4().hex[:8]
         mongo.db.patients.insert(
         {
+            'patient_id': id,
             'full_name': request.form['full_name'],
             'email': request.form['email'],
             'phone_number': request.form['phone_number'],
@@ -143,4 +145,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-

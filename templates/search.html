@@ -1,14 +1,28 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="section">
-<h2 class="text-center">Welcome</h2>
-<!-- Search form -->
-<div class="container d-flex justify-content-center section">
-<input class="form-control w-50 pt-2" type="text" placeholder="Search Patient" aria-label="Search">
-<a href="{{ url_for('dashboard') }}" class="btn btn-primary">Search Now</a>
-</div>
-</div>
-<div class="container d-flex justify-content-center">
-<a href="#">New Patient</a>
+<div class="container w-100">
+<form class="form-inline md-form mr-auto mb-4">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+  <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+</form>
+
+<table class="table table-bordered table-striped">
+<thead class="mb-5">
+<tr>
+<th>Full Name</th>
+<th>Email Address</th>
+<th>Patient ID</th>
+</tr>
+</thead>
+<tbody>
+{% for patient in patients %}
+<tr>
+<td>{{patient.full_name}}</td>
+<td>{{patient.email}}</td>
+<td>{{patient.patient_id}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
 </div>
 {% endblock %}
