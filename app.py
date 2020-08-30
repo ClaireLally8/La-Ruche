@@ -26,6 +26,13 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    patients = list(mongo.db.patients.find({"$text": {"$search": query}}))
+    return render_template("search.html", patients=patients)
+
+
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
