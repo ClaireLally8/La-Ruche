@@ -33,9 +33,12 @@ def search():
     return render_template("search.html", patients=patients)
 
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
+@app.route('/dashboard/<patient_id>', methods = ['POST', 'GET'])
+def dashboard(patient_id):
+    if request.method == 'GET':
+        this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+        return render_template('dashboard.html', patient=this_patient)
+    return redirect(url_for('index'))
 
 
 @app.route('/new', methods=['POST', 'GET'])

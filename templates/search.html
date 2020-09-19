@@ -11,7 +11,7 @@
                     <label for="query">Search Patients</label>
                 </div>
                 <div class="col s12 m4">
-                    <a href="{{ url_for('dashboard') }}" class="red btn text-shadow">Reset</a>
+                    <a href="#" class="red btn text-shadow">Reset</a>
                     <button type="submit" class="light-blue darken-1 btn text-shadow">
                         <i class="fas fa-search left"></i> Search
                     </button>
@@ -30,11 +30,11 @@
 </tr>
 </thead>
 <tbody>
-{% for patient in patients %}
+{% for patients in patients %}
 <tr>
-<td>{{patient.full_name}}</td>
-<td>{{patient.email}}</td>
-<td>{{patient.patient_id}}</td>
+<td><a href="{{url_for('dashboard', patient_id=patients._id)}}">{{patients.full_name}}</a></td>
+<td>{{patients.email}}</td>
+<td>{{patients.patient_id}}</td>
 </tr>
 {% endfor %}
 </tbody>
