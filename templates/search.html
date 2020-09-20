@@ -3,6 +3,7 @@
 <div class="container w-100">
 
     <div class="row card-panel grey lighten-5">
+    <a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center"><i class="fas fa-user-plus new-user"></i></a>
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
