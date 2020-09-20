@@ -5,15 +5,14 @@
 <div class="container">
 <div class="row d-flex justify-content-between">
 <div class="col-lg-3 col-md-3 col-sm-3 column-small">
-<a href="{{ url_for('dashboard') }}">Go back</a>
+<a href="{{ url_for('index') }}">Go back</a>
 <a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
 </div>
 <div class="col-lg-5 col-md-6 col-sm-6 column-big">
 <div class="md-form">
 <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
   <i class="fas fa-search icon" aria-hidden="true"></i>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient Name"
-    aria-label="Search">
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient Name" aria-label="Search">
 </form>
 </div>
 </div>
@@ -24,64 +23,61 @@
 <div class="container section">
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Image: </h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Current Patient ID - {{ID}} XXXXXX </h6>
+<h6 class="text-center">Current Patient ID - {{patient.id}} </h6>
 </div>
 </div>
 <hr>
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Full Name: </h6>
+<h6 class="text-center">Full Name: {{patient.full_name}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Email Address: </h6>
+<h6 class="text-center">Email Address: {{patient.email}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Phone Number: </h6>
+<h6 class="text-center">Phone Number: {{patient.phone_number}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Address: </h6>
+<h6 class="text-center">Address: {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}},</h6>
 </div>
 </div>
 <hr>
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Gender: </h6>
+<h6 class="text-center">Gender: {{patient.gender}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Date of Birth: </h6>
+<h6 class="text-center">Date of Birth: {{patient.dob}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Blood Type: </h6>
+<h6 class="text-center">Blood Type: {{patient.blood_type}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Ethnicity: </h6>
+<h6 class="text-center">Ethnicity: {{patient.ethnicity}}</h6>
 </div>
 </div>
 <hr>
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Smoking Habits: </h6>
+<h6 class="text-center">Smoking Habits: {{patient.smoking_habits}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Alcohol Intake: </h6>
+<h6 class="text-center">Alcohol Intake: {{patient.drinking_habits}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Exercise Frequency: </h6>
+<h6 class="text-center">Exercise Frequency: {{patient.exercise_frequency}}</h6>
 </div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Health Cover: </h6>
-</div>
+<!-- <div class="col-sm-12 col-md-12 col-lg-6">
+<h6 class="text-center">Health Cover: {{patient.full_name}}</h6>
+</div> -->
 </div>
 <hr>
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Allergies: </h6>
+<h6 class="text-center">Allergies: {{patient.allergies}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Conditions: </h6>
+<h6 class="text-center">Conditions: {{patient.conditions}}</h6>
 </div>
 </div>
 </div>
