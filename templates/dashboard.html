@@ -20,7 +20,7 @@
 <section class="section">
 <div class="row d-flex justify-content-center my-5">
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
-<a href="{{ url_for('profile') }}"><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Profile</h6></a>
+<a href="{{url_for('profile', patient_id=patient._id)}}"><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Profile</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
 <a href="{{ url_for('history') }}"><img src="../static/images/history.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient History</h6></a>
