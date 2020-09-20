@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 <section class="section">
-<h1 class="page-head text-center">Dashboard</h1>
+<h1 class="page-head text-center">Dashboard for {{patient.full_name}}</h1>
 </section>
 <section clas="section mx-5">
 <hr>
@@ -11,7 +11,7 @@
 <a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center"><i class="fas fa-user-plus new-user"></i></a>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3">
-<a href="{{ url_for('index') }}" class="mb-1 d-flex justify-content-center">Search Patient</a>
+<a href="{{ url_for('index') }}" class="mb-1 d-flex justify-content-center">Search new Patient</a>
 </div>
 </div>
 </div>
@@ -20,16 +20,16 @@
 <section class="section">
 <div class="row d-flex justify-content-center my-5">
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
-<a href="{{url_for('profile', patient_id=patient._id)}}"><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Profile</h6></a>
+<a href="{{url_for('profile', patient_id=patient._id)}}"><img src="../static/images/patient.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Profile</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
-<a href="{{ url_for('history') }}"><img src="../static/images/history.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient History</h6></a>
+<a href="{{ url_for('history') }}"><img src="../static/images/history.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">History</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
 <a href="{{ url_for('medication') }}"><img src="../static/images/medication.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Medication</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 my-3 d-flex my-3 justify-content-center">
-<a href="{{ url_for('symptoms') }}"><img src="../static/images/symptoms.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Patient Symptoms</h6></a>
+<a href="{{ url_for('symptoms') }}"><img src="../static/images/symptoms.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Symptoms</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 my-3 d-flex justify-content-center">
 <a href="{{ url_for('care_plan') }}"><img src="../static/images/plan.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Plan of Care</h6></a>
