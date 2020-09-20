@@ -17,7 +17,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
-
+# The initial page that is loaded upon first accessing the application
 @app.route('/')
 def index():
     if 'username' in session:
@@ -25,49 +25,7 @@ def index():
 
     return render_template('index.html')
 
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    patients = list(mongo.db.patients.find({"$text": {"$search": query}}))
-    return render_template("search.html", patients=patients)
-
-
-@app.route('/dashboard/<patient_id>', methods = ['POST', 'GET'])
-def dashboard(patient_id):
-    if request.method == 'GET':
-        this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-        return render_template('dashboard.html', patient=this_patient)
-    return redirect(url_for('index'))
-
-
-@app.route('/new', methods=['POST', 'GET'])
-def new_patient():
-    if request.method == 'POST':
-        id = uuid.uuid4().hex[:8]
-        mongo.db.patients.insert(
-        {
-            'patient_id': id,
-            'full_name': request.form['full_name'],
-            'email': request.form['email'],
-            'phone_number': request.form['phone_number'],
-            'AddressLine1': request.form['AddressLine1'],
-            'AddressLine2': request.form['AddressLine2'],
-            'Town': request.form['Town'],
-            'postcode': request.form['postcode'],
-            'gender': request.form['gender'],
-            'dob': request.form['dob'],
-            'blood_type': request.form['blood_type'],
-            'ethnicity': request.form['ethnicity'],
-            'smoking_habits': request.form['smoking_habits'],
-            'drinking_habits': request.form['drinking_habits'],
-            'exercise_frequency': request.form['exercise_frequency'],
-            'allergies': request.form['allergies'],
-            'conditions': request.form['conditions'],
-            })
-    return render_template('new-patient.html')
-
-
+# Core Login functionality. Checks password matches the username.  Stored in DB the under the users collection 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -77,7 +35,7 @@ def login():
         if login_user:
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
-                return render_template('dashboard.html')
+                return render_template('search.html', patients=mongo.db.patients.find())
 
         return 'Invalid username/password combination'
 
@@ -103,11 +61,26 @@ def register():
 
     return render_template('register.html')
 
-
+# Kills the session and renders the login page. 
 @app.route('/logout')
 def logout():
     session['username'] = None
     return render_template('index.html')
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    patients = list(mongo.db.patients.find({"$text": {"$search": query}}))
+    return render_template("search.html", patients=patients)
+
+
+@app.route('/dashboard/<patient_id>', methods = ['POST', 'GET'])
+def dashboard(patient_id):
+    if request.method == 'GET':
+        this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+        return render_template('dashboard.html', patient=this_patient)
+    return redirect(url_for('index'))
 
 
 @app.route('/profile/<patient_id>', methods=['POST', 'GET'])
@@ -149,6 +122,31 @@ def reports():
 def analytics():
     return render_template('analytics.html')
 
+@app.route('/new', methods=['POST', 'GET'])
+def new_patient():
+    if request.method == 'POST':
+        id = uuid.uuid4().hex[:8]
+        mongo.db.patients.insert(
+        {
+            'patient_id': id,
+            'full_name': request.form['full_name'],
+            'email': request.form['email'],
+            'phone_number': request.form['phone_number'],
+            'AddressLine1': request.form['AddressLine1'],
+            'AddressLine2': request.form['AddressLine2'],
+            'Town': request.form['Town'],
+            'postcode': request.form['postcode'],
+            'gender': request.form['gender'],
+            'dob': request.form['dob'],
+            'blood_type': request.form['blood_type'],
+            'ethnicity': request.form['ethnicity'],
+            'smoking_habits': request.form['smoking_habits'],
+            'drinking_habits': request.form['drinking_habits'],
+            'exercise_frequency': request.form['exercise_frequency'],
+            'allergies': request.form['allergies'],
+            'conditions': request.form['conditions'],
+            })
+    return render_template('new-patient.html')
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
