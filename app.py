@@ -41,7 +41,7 @@ def login():
         return 'Invalid username/password combination'
 
     else:
-        #otherwise this returns the login page.
+        # otherwise this returns the login page.
         return render_template('index.html')
 
 
