@@ -57,11 +57,11 @@ def new_patient():
             'postcode': request.form['postcode'],
             'gender': request.form['gender'],
             'dob': request.form['dob'],
-            'blood-type': request.form['blood-type'],
+            'blood_type': request.form['blood_type'],
             'ethnicity': request.form['ethnicity'],
-            'smoking-habits': request.form['smoking-habits'],
-            'drinking-habits': request.form['drinking-habits'],
-            'exercise-frequency': request.form['exercise-frequency'],
+            'smoking_habits': request.form['smoking_habits'],
+            'drinking_habits': request.form['drinking_habits'],
+            'exercise_frequency': request.form['exercise_frequency'],
             'allergies': request.form['allergies'],
             'conditions': request.form['conditions'],
             })
@@ -110,10 +110,10 @@ def logout():
     return render_template('index.html')
 
 
-@app.route('/profile')
-def profile():
-    return render_template('profile.html')
-
+@app.route('/profile/<patient_id>', methods=['POST', 'GET'])
+def profile(patient_id): 
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('profile.html', patient=this_patient)
 
 @app.route('/history')
 def history():
