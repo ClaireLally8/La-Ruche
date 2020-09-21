@@ -1,6 +1,34 @@
 {% extends "layout.html" %}
 {% block body %}
 <section clas="section mx-5">
+<style>
+    table, th, td {
+        border: 2px solid gray;
+        padding: 10px;
+    }
+    #gender, #ethnicity, #dob, #smoking_habits,  #alcohol, #conditions, #exercise, #allergies {
+        width: 95%;
+        height: 50px;
+        border-spacing: 20px;
+        padding: 20px;
+        table-layout: fixed;
+        margin: 10px;
+        color: solid gray;
+    }
+    #address {
+        width: 95%;
+        height: 175px;
+        border-spacing: 20px;
+        padding: 20px;
+        table-layout: fixed;
+        margin: 10px;
+        color: solid gray;
+    }
+    .floatLeft { width: 50%; float: left; }
+    .floatRight {width: 50%; float: right; }
+    .container { overflow: hidden; }
+
+</style>
 <hr>
 <div class="container">
 <div class="row d-flex justify-content-between">
@@ -38,48 +66,88 @@
 <h6 class="text-center">Phone Number: {{patient.phone_number}}</h6>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Address: {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}},</h6>
-</div>
-</div>
-<hr>
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Gender: {{patient.gender}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Date of Birth: {{patient.dob}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
 <h6 class="text-center">Blood Type: {{patient.blood_type}}</h6>
 </div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Ethnicity: {{patient.ethnicity}}</h6>
-</div>
-</div>
-<hr>
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Smoking Habits: {{patient.smoking_habits}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Alcohol Intake: {{patient.drinking_habits}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Exercise Frequency: {{patient.exercise_frequency}}</h6>
-</div>
 <!-- <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Health Cover: {{patient.full_name}}</h6>
+<h6 class="text-center">Address: {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}},</h6>
 </div> -->
 </div>
 <hr>
+<div class="container">
+<div class="floatLeft">
+<table id="gender">
+  <tr>
+    <th>Gender</th>
+    <th> {{patient.gender}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatRight">
+<table id="smoking_habits">
+  <tr>
+    <th>Smoking Habits</th>
+    <th> {{patient.smoking_habits}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="ethnicity">
+  <tr>
+    <th>Ethnicity</th>
+    <th> {{patient.ethnicity}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="alcohol">
+  <tr>
+    <th>Alcohol Intake</th>
+    <th> {{patient.drinking_habits}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="dob">
+  <tr>
+    <th>DOB</th>
+    <th> {{patient.dob}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatRight">
+<table id="exercise">
+  <tr>
+    <th>Exercise Frequency</th>
+    <th> {{patient.exercise_frequency}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="allergies">
+  <tr>
+    <th>Allergies</th>
+    <th> {{patient.allergies}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="conditions">
+  <tr>
+    <th>Conditions</th>
+    <th> {{patient.conditions}} </th>
+  </tr>
+</table>
+</div>
+<div class="floatLeft">
+<table id="address">
+  <tr>
+    <th valign="top">Address:</th>
+    <th> {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}} </th>
+  </tr>
+</table>
+</div>
 <div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Allergies: {{patient.allergies}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Conditions: {{patient.conditions}}</h6>
-</div>
-</div>
-</div>
+
+
 
 {% endblock %}
