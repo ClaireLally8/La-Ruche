@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
-<section clas="section mx-5">
 <style>
-    table, th, td {
+    th, td {
         border: 2px solid gray;
         padding: 10px;
     }
@@ -24,18 +23,48 @@
         margin: 10px;
         color: solid gray;
     }
+    #top_table{
+    /* #languages, #name, #phone_number, #dob_age, #phone_number, #email, #blood_type { */
+        width: 35%;
+        height: 25px;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+        padding: 5px;
+        table-layout: fixed;
+        margin: 0px;
+        color: solid gray; 
+    }
+    #top_table th{
+        font-size: 12px;
+        width: 15%;
+        padding: 5px;
+        word-wrap: break-word;
+    }
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
-    .container { overflow: hidden; }
+    .floatRight_upper{
+        float: left;
+        width: 85%;
+        padding: 5px;
+        
+    }
+    .floatLeft_upper {
+        float: left;
+        width: 13%;
+        padding: 5px;
+    }
+    .upper::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 
 </style>
+<section clas="section mx-5">
 <hr>
 <div class="container">
 <div class="row d-flex justify-content-between">
-<div class="col-lg-3 col-md-3 col-sm-3 column-small">
-<a href="{{ url_for('index') }}">Go back</a>
-<a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
-</div>
+<h6 >Current Patient ID - {{patient.id}} </h6>
 <div class="col-lg-5 col-md-6 col-sm-6 column-big">
 <div class="md-form">
 <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
@@ -44,36 +73,39 @@
 </form>
 </div>
 </div>
+<div class="col-lg-3 col-md-3 col-sm-3 column-small">
+<a href="{{ url_for('index') }}">Go back</a>
+<a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
+</div>
+
 </div>
 </div>
 <hr>
 </section>
-<div class="container section">
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Current Patient ID - {{patient.id}} </h6>
+<div class="upper">
+<!-- <div id="header" style="height:15%;width:100%;"> -->
+<div class="floatLeft_upper">
+<img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/picture_holder.jpg" alt="Pic" width="115" height="115">
+</div>
+<div class="floatRight_upper">
+<table id="top_table">
+  <tr>
+    <th>Languages</th>
+    <th>{{patient.full_name}}</th>
+  </tr>
+  <tr>
+     <th>{{patient.phone_number}}</th>
+    <th>{{patient.dob}}</th>
+  </tr>
+  <tr>
+    <th>{{patient.email}}</th>
+    <th>Blood Type {{patient.blood_type}}</th>
+  </tr>
+</table>
 </div>
 </div>
 <hr>
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Full Name: {{patient.full_name}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Email Address: {{patient.email}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Phone Number: {{patient.phone_number}}</h6>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Blood Type: {{patient.blood_type}}</h6>
-</div>
-<!-- <div class="col-sm-12 col-md-12 col-lg-6">
-<h6 class="text-center">Address: {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}},</h6>
-</div> -->
-</div>
-<hr>
-<div class="container">
+<div class="container_table">
 <div class="floatLeft">
 <table id="gender">
   <tr>
@@ -98,7 +130,7 @@
   </tr>
 </table>
 </div>
-<div class="floatLeft">
+<div class="floatRight">
 <table id="alcohol">
   <tr>
     <th>Alcohol Intake</th>
