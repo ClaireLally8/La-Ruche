@@ -7,25 +7,25 @@
     }
     #gender, #ethnicity, #dob, #smoking_habits,  #alcohol, #conditions, #exercise, #allergies {
         width: 95%;
-        height: 50px;
-        border-spacing: 20px;
+        height: 40px;
+        border-spacing: 15px;
         padding: 20px;
         table-layout: fixed;
-        margin: 10px;
+        margin: 3px;
         color: solid gray;
     }
     #address {
         width: 95%;
-        height: 175px;
+        height: 185px;
         border-spacing: 20px;
         padding: 20px;
         table-layout: fixed;
-        margin: 10px;
+        margin: 3px;
         color: solid gray;
     }
     #top_table{
     /* #languages, #name, #phone_number, #dob_age, #phone_number, #email, #blood_type { */
-        width: 35%;
+        width: 40%;
         height: 25px;
         border-collapse: separate;
         border-spacing: 5px 5px;
@@ -40,24 +40,58 @@
         padding: 5px;
         word-wrap: break-word;
     }
+    #bottom_table{
+        width: 80%;
+        height: 25px;
+        border-collapse: separate;
+        border-spacing: 3px 3px;
+        padding: 5px;
+        table-layout: fixed;
+        margin: 5px;
+        color: solid gray; 
+    }
+    #bottom_table th{
+        font-size: 17px;
+        width: 45%;
+        padding: 3px;
+        border: transparent;
+        /* word-wrap: break-word; */
+    }
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
     .floatRight_upper{
         float: left;
         width: 85%;
-        padding: 5px;
+        /* padding: -5px; */
         
     }
     .floatLeft_upper {
         float: left;
         width: 13%;
-        padding: 5px;
+        /* padding: -5px; */
     }
     .upper::after {
         content: "";
         clear: both;
         display: table;
     }
+    .floatRight_lower{
+        float: left;
+        width: 65%;
+        /* padding: 5px; */
+        
+    }
+    .floatLeft_lower {
+        float: left;
+        width: 25%;
+        /* padding: 5px; */
+    }
+    .lower::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
 
 </style>
 <section clas="section mx-5">
@@ -77,15 +111,14 @@
 <a href="{{ url_for('index') }}">Go back</a>
 <a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
 </div>
+</div>
+</div>
 
-</div>
-</div>
-<hr>
 </section>
 <div class="upper">
 <!-- <div id="header" style="height:15%;width:100%;"> -->
 <div class="floatLeft_upper">
-<img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/picture_holder.jpg" alt="Pic" width="115" height="115">
+<img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/picture_holder.jpg" alt="Pic" width="115" height="105">
 </div>
 <div class="floatRight_upper">
 <table id="top_table">
@@ -178,7 +211,36 @@
   </tr>
 </table>
 </div>
-<div class="row">
+</div>
+<!-- <div class="row"> -->
+<hr>
+<div class="floatRight">
+    <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/symbols.jpg" alt="symbols">
+</div>
+<div class="floatRight">
+<div class="lower">
+<div class="floatLeft_lower">
+    <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/heart.jpg" alt="heart" height="100" width="100">
+</div>
+
+<div class="floatRight_lower">
+<table id="bottom_table">
+    <tr>
+    <th>SYS mmhg</th>
+    <th>0</th>
+  </tr>
+  <tr>
+     <th>DIA mmhg</th>
+     <th>0</th>
+  </tr>
+  <tr>
+    <th>PULSE/min</th>
+    <th>0</th>
+  </tr>
+</table>
+</div>
+</div>
+</div>
 
 
 
