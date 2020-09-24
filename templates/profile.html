@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
 <style>
+    body{
+        background-color: #E4DBCD;
+    }
+    #search{
+        background-color: #FFFFFF;
+    }
     th, td {
         border: 2px solid gray;
         padding: 10px;
@@ -16,7 +22,7 @@
     }
     #address {
         width: 95%;
-        height: 185px;
+        height: 225px;
         border-spacing: 20px;
         padding: 20px;
         table-layout: fixed;
@@ -24,7 +30,6 @@
         color: solid gray;
     }
     #top_table{
-    /* #languages, #name, #phone_number, #dob_age, #phone_number, #email, #blood_type { */
         width: 40%;
         height: 25px;
         border-collapse: separate;
@@ -37,7 +42,7 @@
     #top_table th{
         font-size: 12px;
         width: 15%;
-        padding: 5px;
+        padding: 5px 5px;
         word-wrap: break-word;
     }
     #bottom_table{
@@ -55,20 +60,25 @@
         width: 45%;
         padding: 3px;
         border: transparent;
-        /* word-wrap: break-word; */
     }
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
     .floatRight_upper{
-        float: left;
+        /* float: left; */
         width: 85%;
+        display: inline-block;
         /* padding: -5px; */
-        
     }
     .floatLeft_upper {
-        float: left;
+        /* float: left; */
         width: 13%;
+        display: inline-block;
         /* padding: -5px; */
+    }
+    .upper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .upper::after {
         content: "";
@@ -92,18 +102,64 @@
         display: table;
     }
 
+input[type=number] {
+    height: 40px;
+    /* line-height: 40px; */
+    font-size: 16px;
+    padding: 10px 10px;
+    outline:none;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-top-style: hidden;
+    border-bottom-style: hidden;
+    margin: -3px;
+    background-color: transparent;
+
+}
+input[type=number]:hover{
+    border-right-style: groove;
+    border-left-style: groove;
+    border-top-style: groove;
+    border-bottom-style: groove;
+    background-color:  #FFFFFF;
+    border-color: #F39C12;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:30px;
+    color: #333;
+    text-align:center;
+    position:relative;
+
+}    
+input[type=number]:hover::-webkit-inner-spin-button{ 
+    background:  url("https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/plusminus.png") no-repeat 47% 16%;
+    height: 30px;
+    weight: 50px;
+    /* background:  url("https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/updown.png") no-repeat 49% 6%;  
+    width: 25px;
+    height: 30px; */
+    padding: 4px;
+    position: relative;
+    right: 4px; */
+    border-radius: 28px;
+
+}
+
 
 </style>
 <section clas="section mx-5">
 <hr>
 <div class="container">
 <div class="row d-flex justify-content-between">
-<h6 >Current Patient ID - {{patient.id}} </h6>
+<h6 >Current Patient ID: {{patient.id}} </h6>
 <div class="col-lg-5 col-md-6 col-sm-6 column-big">
 <div class="md-form">
 <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
   <i class="fas fa-search icon" aria-hidden="true"></i>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient Name" aria-label="Search">
+  <input id="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient Name" aria-label="Search">
 </form>
 </div>
 </div>
@@ -116,23 +172,22 @@
 
 </section>
 <div class="upper">
-<!-- <div id="header" style="height:15%;width:100%;"> -->
 <div class="floatLeft_upper">
 <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/picture_holder.jpg" alt="Pic" width="115" height="105">
 </div>
 <div class="floatRight_upper">
 <table id="top_table">
   <tr>
-    <th>Languages</th>
-    <th>{{patient.full_name}}</th>
+    <th>Languages <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/talking.png" alt="talking" align="right" width="25" height="25"></th>
+    <th>{{patient.full_name}} <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/name.png" alt="name" align="right" width="25" height="25"></th>
   </tr>
   <tr>
-     <th>{{patient.phone_number}}</th>
-    <th>{{patient.dob}}</th>
+     <th>{{patient.phone_number}} <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/phone.png" alt="talking" align="right" width="20" height="20"></th>
+    <th>{{patient.dob}} <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/birthdaycake.png" alt="birthday" align="right" width="25" height="25"></th>
   </tr>
   <tr>
-    <th>{{patient.email}}</th>
-    <th>Blood Type {{patient.blood_type}}</th>
+    <th>{{patient.email}} <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/mail.png" alt="talking" align="right" width="17" height="17"></th>
+    <th>Blood Type {{patient.blood_type}} <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/needle.png" alt="needle" align="right" width="25" height="25"></th>
   </tr>
 </table>
 </div>
@@ -212,7 +267,6 @@
 </table>
 </div>
 </div>
-<!-- <div class="row"> -->
 <hr>
 <div class="floatRight">
     <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/symbols.jpg" alt="symbols">
@@ -220,22 +274,28 @@
 <div class="floatRight">
 <div class="lower">
 <div class="floatLeft_lower">
-    <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/heart.jpg" alt="heart" height="100" width="100">
+    <img src="https://aac9512a-9fe6-4842-b11f-146346af8bef.ws-us02.gitpod.io/mini-browser/workspace/La-Ruche/static/images/heart.jpg" alt="heart" height="150" width="100">
 </div>
 
 <div class="floatRight_lower">
 <table id="bottom_table">
     <tr>
     <th>SYS mmhg</th>
-    <th>0</th>
+    <th><input
+       type="number"
+       value="0" ></th>
   </tr>
   <tr>
      <th>DIA mmhg</th>
-     <th>0</th>
+     <th><input
+       type="number"
+       value="0" ></th>
   </tr>
   <tr>
     <th>PULSE/min</th>
-    <th>0</th>
+    <th><input
+       type="number"
+       value="0" ></th>
   </tr>
 </table>
 </div>
