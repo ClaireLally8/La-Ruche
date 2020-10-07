@@ -1,9 +1,50 @@
-{% extends "base.html" %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>La Ruche</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+  </head>
+
+  <body>
+  <!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark purple-bkgd purple-font">
+  <img class="img-fluid" src="../static/images/logo.svg" height=80 width=80>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link montserrat-200 eggshell-font font-medium" href="{{ url_for('login') }}">
+          <i class="fab active"></i>Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+    <div class="px-5 col-12">
+    
 <section class="section">
-	<h1 class="montserrat-600 brown-font font-large text-center pt-5">Login Here</h1>
-	<h4 class="montserrat-300 brown-font font-medium text-center pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
+	<h1 class="montserrat-600 darkgreen-font font-large text-center pt-5">Login Here</h1>
+	<h4 class="montserrat-300 teal-font font-medium text-center pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
 </section>
 <div class="container eggshell-bkgd z-depth-2 mb-5 pt-3 pb-5">
 	<section class="section">
@@ -43,7 +84,7 @@
 				</div>
 				<div class="row d-flex justify-content-center">
 					<div class="col-sm-12 col-md-6 col-lg-6">
-						<button class="btn-block mt-5 btn montserrat-500 font-small eggshell-font purple-bkgd hover" type="submit">Login</button>
+						<button class="btn-block mt-5 btn montserrat-500 font-small primary-button" type="submit">Login</button>
 					</div>
 				</div>
 			</form>
@@ -53,4 +94,18 @@
 		<small>(For Testing)</small> Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
 	</div>
 </div>
-{% endblock %}
+    </div>
+</div>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+    <!-- Custom JS for base functionality -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+
+</html>
