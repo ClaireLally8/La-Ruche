@@ -41,40 +41,44 @@
 
 /* FONT COLOURS */
 
-.brown-font {
-    color: #452316;
+.turquoise-font {
+    color: #7fb5b5;
 }
-.orange-font {
-    color:#f6850a;
-}
-.cream-font {
-    color: #ecc498;
+.teal-font {
+    color:#597f7f;
 }
 .purple-font {
-    color:#846464;
+    color: #7f8db5;
 }
-.eggshell-font {
-    color:#fcefeb;
+.green-font {
+    color:#7fb57f;
+}
+.darkgreen-font {
+    color:#597f59;
+}
+.white-font {
+    color: #f5f5f5;
 }
 
 
 /* BACKGROUND COLOURS */
 
-.brown-bkgd {
-    background-color: #452316;
+.turquoise-bkgd {
+    background-color: #7fb5b5;
 }
-.orange-bkgd {
-    background-color:#f6850a;
-}
-.cream-bkgd {
-    background-color: #ecc498;
+.teal-bkgd {
+    background-color:#597f7f;
 }
 .purple-bkgd {
-    background-color:#846464;
+    background-color: #7f8db5;
 }
-.eggshell-bkgd {
-    background-color:#fcefeb;
+.green-bkgd {
+    background-color:#7fb57f;
 }
+.darkgreen-bkgd {
+    background-color:#597f59;
+}
+
 /* 
 FONT SIZES  */
 .font-small {
@@ -88,30 +92,54 @@ FONT SIZES  */
 }
 
 /* PRIMARY BUTTON  */
-.hover:hover {
-    text-decoration: underline;
-    background-color:#452316;
-    color:#fcefeb;
+.primary-button {
+    color:#f5f5f5;
+    background-color:#7f8db5;
+}
+.primary-button:hover {
+    text-decoration:underline;
+    background-color:#7fb57f;
+    color:#f5f5f5
 }
 
-/* SECONDARY BUTTON  */
 
+/* SECONDARY BUTTON  */
+.secondary-button {
+    color:#f5f5f5;
+    background-color:#7fb57f;
+}
+.secondary-button:hover {
+    text-decoration:underline;
+    background-color:#7f8db5;
+    color:#f5f5f5
+}
+
+/* TERTIARY BUTTON  */
+.tertiary-button {
+    color:#f5f5f5;
+    background-color:#7fb5b5;
+}
+.tertiary-button:hover {
+    text-decoration:underline;
+    background-color:#597f59;
+    color:#f5f5f5
+}
 
 /* MDBOOSTRAP ICONS & FORMS */
 
 .md-form .input-prefix{
-    color:#846464!important;
+    color:#7fb5b5!important;
 }
 .md-form .input-prefix.active {
-    color:#f6850a!important;
+    color:#7fb5b5!important;
 }
 .md-form input[type='text']:not(.broswer-default):focus:not([readonly]){
-    color:#f6850a!important;
-    border-bottom:1px solid #f6850a!important;
-    box-shadow: 0 1px 0 0 #f6850a!important;
+    color:#7fb5b5!important;
+    border-bottom:1px solid #7fb5b5!important;
+    box-shadow: 0 1px 0 0 #7fb5b5!important;
 }
 .label:focus {
-    color:#f6850a!important;
+    color:#7fb5b5!important;
 }
 
 /* COLLAPSABLE SIDEBAR */
@@ -159,4 +187,10 @@ FONT SIZES  */
 .role {
     height: 95px;
     width:95px;
+}
+.section {
+    margin-top:10rem;
+}
+.height {
+    height:40px!important;
 }
