@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block body %}
+<section class="section">
+<h2 class="text-center">Medication for {{patient.full_name}}</h2>
+</section>
+<section>
+<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="mb-1 d-flex justify-content-center"><i class="fas fa-user-plus new-user"></i></a>
+</section>
+<section class="section">
+<div class="accordion" id="accordionExample">
+  <div class="card z-depth-0 bordered">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          Morning
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+      data-parent="#accordionExample">
+      
+      {% for medication in medications %}
+      <p>{{medication.patient_id}}</p>
+      <p>{{patient._id}}</p>
+      {% if patient._id == medication.patient_id %}
+      <div class="card-body">
+      <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <i class="fas fa-tablets"></i>
+        <h5 class="text-center">Medication Name: {{medication.medication_name}}</h5>
+        <p>Frequency:</p>
+        <p>Dosage:</p>
+        <p>Notes:</p>
+      </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card z-depth-0 bordered">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Afternoon
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+      <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <i class="fas fa-tablets"></i>
+        <h5 class="text-center">Medication Name</h5>
+        <p>Frequency:</p>
+        <p>Dosage:</p>
+        <p>Notes:</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card z-depth-0 bordered">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Evening
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+      <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <i class="fas fa-tablets"></i>
+        <h5 class="text-center">Medication Name</h5>
+        <p>Frequency:</p>
+        <p>Dosage:</p>
+        <p>Notes:</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+{% endblock %}

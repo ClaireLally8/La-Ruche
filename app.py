@@ -33,7 +33,7 @@ def login():
         login_user = users.find_one({'name': request.form['username']})
 
         if login_user:
-            #if the user is correct it renders the base page which allows users to search
+            # if the user is correct it renders the base page which allows users to search
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return render_template('search.html', patients=mongo.db.patients.find())
@@ -125,9 +125,28 @@ def history():
     return render_template('history.html')
 
 
-@app.route('/medication')
-def medication():
-    return render_template('medication.html')
+@app.route('/medication/<patient_id>')
+def medication(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    patient_meds = list(mongo.db.medication.find())
+    return render_template('medication.html', medications=patient_meds, patient=this_patient)
+
+@app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
+def new_medicine(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    if request.method == 'POST':
+        mongo.db.medication.insert(
+        {
+            'patient_id': request.form['id'],
+            'medication_name': request.form['medication_name'],
+            'dosage': request.form['dosage'],
+            'length': request.form['length'],
+            'frequency': request.form['frequency'],
+            'amount': request.form['amount'],
+            'method': request.form['method'],
+            'type': request.form['type'],
+            })
+    return render_template('new-medication.html', patient=this_patient)
 
 
 @app.route('/symptoms')

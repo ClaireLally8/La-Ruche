@@ -26,7 +26,7 @@
 <a href="{{ url_for('history') }}"><img src="../static/images/history.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">History</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 d-flex my-3 justify-content-center">
-<a href="{{ url_for('medication') }}"><img src="../static/images/medication.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Medication</h6></a>
+<a href="{{ url_for('medication', patient_id=patient._id) }}"><img src="../static/images/medication.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Medication</h6></a>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-3 z-depth-1 nav-cards mx-3 py-5 my-3 d-flex my-3 justify-content-center">
 <a href="{{ url_for('symptoms') }}"><img src="../static/images/symptoms.svg" class="img-fluid dashboard-icon"><br><h6 class="text-center card-text">Symptoms</h6></a>
