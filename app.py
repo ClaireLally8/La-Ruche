@@ -18,14 +18,21 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 
 # The initial page that is loaded upon first accessing the application
+
+
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('search.html', patients=mongo.db.patients.find())
+        return render_template(
+            'search.html',
+            patients=mongo.db.patients.find())
 
     return render_template('index.html')
 
-# Core Login functionality. Checks password matches the username.  Stored in DB the under the users collection 
+# Core Login functionality. Checks password matches the username.  Stored
+# in DB the under the users collection
+
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -33,10 +40,14 @@ def login():
         login_user = users.find_one({'name': request.form['username']})
 
         if login_user:
-            # if the user is correct it renders the base page which allows users to search
-            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+            # if the user is correct it renders the base page which allows
+            # users to search
+            if bcrypt.hashpw(
+                    request.form['password'].encode('utf-8'),
+                    login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
-                return render_template('search.html', patients=mongo.db.patients.find())
+                return render_template(
+                    'search.html', patients=mongo.db.patients.find())
 
         return 'Invalid username/password combination'
 
@@ -63,63 +74,74 @@ def register():
 
     return render_template('register.html')
 
-# Kills the session and renders the login page. 
+# Kills the session and renders the login page.
+
+
 @app.route('/logout')
 def logout():
     session['username'] = None
     return render_template('index.html')
 
 
-# Allows users to search for patients.  Done via mongoDB indexing. 
+# Allows users to search for patients.  Done via mongoDB indexing.
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     patients = list(mongo.db.patients.find({"$text": {"$search": query}}))
     return render_template("search.html", patients=patients)
 
-# Enables the logged in user to create a new patient.  Stores this in the DB under the collection Patients
+# Enables the logged in user to create a new patient.  Stores this in the
+# DB under the collection Patients
+
+
 @app.route('/new', methods=['POST', 'GET'])
 def new_patient():
     if request.method == 'POST':
         id = uuid.uuid4().hex[:8]
         mongo.db.patients.insert(
-        {
-            'patient_id': id,
-            'full_name': request.form['full_name'],
-            'email': request.form['email'],
-            'phone_number': request.form['phone_number'],
-            'AddressLine1': request.form['AddressLine1'],
-            'AddressLine2': request.form['AddressLine2'],
-            'Town': request.form['Town'],
-            'postcode': request.form['postcode'],
-            'gender': request.form['gender'],
-            'dob': request.form['dob'],
-            'blood_type': request.form['blood_type'],
-            'ethnicity': request.form['ethnicity'],
-            'smoking_habits': request.form['smoking_habits'],
-            'drinking_habits': request.form['drinking_habits'],
-            'exercise_frequency': request.form['exercise_frequency'],
-            'allergies': request.form['allergies'],
-            'conditions': request.form['conditions'],
+            {
+                'patient_id': id,
+                'full_name': request.form['full_name'],
+                'email': request.form['email'],
+                'phone_number': request.form['phone_number'],
+                'AddressLine1': request.form['AddressLine1'],
+                'AddressLine2': request.form['AddressLine2'],
+                'Town': request.form['Town'],
+                'postcode': request.form['postcode'],
+                'gender': request.form['gender'],
+                'dob': request.form['dob'],
+                'blood_type': request.form['blood_type'],
+                'ethnicity': request.form['ethnicity'],
+                'smoking_habits': request.form['smoking_habits'],
+                'drinking_habits': request.form['drinking_habits'],
+                'exercise_frequency': request.form['exercise_frequency'],
+                'allergies': request.form['allergies'],
+                'conditions': request.form['conditions'],
             })
     return render_template('new-patient.html')
 
 
-# Renders the unique patients dashboard.  
-@app.route('/dashboard/<patient_id>', methods = ['POST', 'GET'])
+# Renders the unique patients dashboard.
+@app.route('/dashboard/<patient_id>', methods=['POST', 'GET'])
 def dashboard(patient_id):
     if request.method == 'GET':
-        this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+        this_patient = mongo.db.patients.find_one(
+            {"_id": ObjectId(patient_id)})
         return render_template('dashboard.html', patient=this_patient)
     return redirect(url_for('index'))
 
-# Renders the unique patients profile which displays their personal information  
+# Renders the unique patients profile which displays their personal information
+
+
 @app.route('/profile/<patient_id>', methods=['POST', 'GET'])
-def profile(patient_id): 
+def profile(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('profile.html', patient=this_patient)
 
-# INCOMPLETE - PLAN IS TO STORE INFORMATION IN A DB COLLECTION LINKED BY USERS ._ID AND SHOW THEIR HISTORY. 
+# INCOMPLETE - PLAN IS TO STORE INFORMATION IN A DB COLLECTION LINKED BY
+# USERS ._ID AND SHOW THEIR HISTORY.
+
+
 @app.route('/history')
 def history():
     return render_template('history.html')
@@ -129,22 +151,26 @@ def history():
 def medication(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     patient_meds = list(mongo.db.medication.find())
-    return render_template('medication.html', medications=patient_meds, patient=this_patient)
+    return render_template(
+        'medication.html',
+        medications=patient_meds,
+        patient=this_patient)
+
 
 @app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
 def new_medicine(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     if request.method == 'POST':
         mongo.db.medication.insert(
-        {
-            'patient_id': request.form['id'],
-            'medication_name': request.form['medication_name'],
-            'dosage': request.form['dosage'],
-            'length': request.form['length'],
-            'frequency': request.form['frequency'],
-            'amount': request.form['amount'],
-            'method': request.form['method'],
-            'type': request.form['type'],
+            {
+                'patient_id': request.form['id'],
+                'medication_name': request.form['medication_name'],
+                'dosage': request.form['dosage'],
+                'length': request.form['length'],
+                'frequency': request.form['frequency'],
+                'amount': request.form['amount'],
+                'method': request.form['method'],
+                'type': request.form['type'],
             })
     return render_template('new-medication.html', patient=this_patient)
 
