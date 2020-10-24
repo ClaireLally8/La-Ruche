@@ -19,7 +19,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}" type="text/css" />
   </head>
 
   <body>
@@ -27,82 +27,22 @@
 <!-- Bootstrap row -->
 <div class="container-fluid">
 <div class="row">
-    <!-- Sidebar -->
-    <div id="sidebar-container" class="sidebar-expanded fixed-tope eggshell-bkgd">
-        <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-        <!-- Bootstrap List Group -->
-                <div class = "d-flex justify-content-center padding eggshell-bkgd">
-                <a href="{{ url_for('index') }}"> 
-                   <img src="../static/images/logo.svg" height=90 width=90>
-            </a>
-                </div>
-            <ul class="list-group">
-                    <a href="{{url_for('profile', patient_id=patient._id)}}" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/patient.svg"></span>
-                    <span class="menu-collapsed">Patient Profile</span>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa-fw mr-3"><img src="../static/images/history.svg"></span>
-                    <span class="menu-collapsed">History</span>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/medication.svg"></span>
-                    <span class="menu-collapsed">Medication</span>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/symptoms.svg"></span>
-                    <span class="menu-collapsed">Symptoms</span>
-                </div>
-            </a>
-                        <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/plan.svg"></span>
-                    <span class="menu-collapsed">Plan of Care</span>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/tests.svg"></span>
-                    <span class="menu-collapsed">Tests</span>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/reports.svg"></span>
-                    <span class="menu-collapsed">Reports</span>
-                </div>
-            </a>
-                        <a href="#" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/analytics.svg"></span>
-                    <span class="menu-collapsed">Analytics</span>
-                </div>
-            </a>
-            <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed eggshell-bkgd"></li>
-            <!-- /END Separator -->
-                <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-fw mr-3"><img src="../static/images/logout.svg"></span>
-                    <span class="menu-collapsed">Logout</span>
-                </div>
-            </a>
-            <li class="list-group-item sidebar-separator menu-collapsed eggshell-bkgd"></li>
-            <a href="#top" data-toggle="sidebar-colapse" class="list-group-item list-group-item-action cream-bkgd brown-font montserrat-500 d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                </div>
-            </a>
-        </ul><!-- List Group END-->
-    </div><!-- sidebar-container END -->
+<div class="container">
+      <div id="hamburgerBtn">&#9776;</div>
+      <div id="sidemenunav">
+        <div class="navbarbrand">
+          <h5>La Ruche</h5>
+        </div>
+        <ul class="side">
+        <li><a class="navbaritems text-center" href="{{url_for('dashboard', patient_id=patient._id)}}">Dashboard</a></li>
+        <li><a class="navbaritems text-center" href="{{url_for('profile', patient_id=patient._id)}}">Patient Profile</a></li>
+        <li><a class="navbaritems text-center" href="{{ url_for('medication', patient_id=patient._id) }}">Medication</a></li>
+        </ul>
+        <div class="menubarfooter">
+          <p><strong><a class="underlink" href="{{ url_for('logout') }}">Logout</a></strong></p>
+        </div>
+      </div>
+    </div>
     <div class="col-10">
     {% block body %}{% endblock %}
     </div>
