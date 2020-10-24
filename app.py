@@ -97,10 +97,10 @@ def search():
 @app.route('/new', methods=['POST', 'GET'])
 def new_patient():
     if request.method == 'POST':
-        id = uuid.uuid4().hex[:8]
+        pid = uuid.uuid4().hex.upper()
         mongo.db.patients.insert(
             {
-                'patient_id': id,
+                'patient_id': pid,
                 'full_name': request.form['full_name'],
                 'email': request.form['email'],
                 'phone_number': request.form['phone_number'],
@@ -149,12 +149,12 @@ def history():
 
 @app.route('/medication/<patient_id>')
 def medication(patient_id):
-    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    patient_meds = list(mongo.db.medication.find())
+    patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    meds = list(mongo.db.medication.find())
     return render_template(
         'medication.html',
-        medications=patient_meds,
-        patient=this_patient)
+        medications=meds,
+        patient=patient)
 
 
 @app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
