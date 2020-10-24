@@ -124,3 +124,37 @@ h6 {
     color: #1ac0c6;
     font-weight:700;
 }
+/* BUTTONS */
+.primary-button {
+    color:#dee0e6;
+    background-color:#1ac0c6;
+    font-family: "Open Sans";
+    font-size:0.9rem;
+    font-weight:800;
+}
+.primary-button:hover {
+    background-color:#134e6f;
+    transition: background-color 0.8s ease;
+    color: #dee0e6;
+}
+.secondary-button {
+    color:#dee0e6;
+    background-color:#134e6f;
+    font-family: "Open Sans";
+    font-size:0.9rem;
+    font-weight:800;
+}
+.secondary-button:hover {
+    background-color:#1ac0c6;
+    transition: background-color 0.8s ease;
+    color: #dee0e6;
+}
+.w-10{
+    width:10vw;
+}
+.meds {
+    color: #134e6f;
+    font-family:"Open Sans";
+    font-size:0.9rem;
+    font-weight:500;
+}
