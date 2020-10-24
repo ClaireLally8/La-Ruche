@@ -3,6 +3,12 @@ body {
   margin-left: 15.625rem!important;
   position: relative;
 }
+/* HEADINGS */
+h2 {
+    font-family: "Raleway";
+    font-size:2.6rem;
+    font-weight:700;
+}
 /* SIDE NAVBAR STYLING */
 .container {
   padding: 2.5rem;
@@ -12,38 +18,40 @@ body {
 }
 
 #sidemenunav {
-  width: 10.625rem;
+  width: 11.625rem;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: #253443;
-  color: #FBFCFB!important;
+  background-color: #dee0e6;
+  color: #134e6f!important;
   padding: 1.875rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   opacity: 0.99;
   z-index: 1000;
-  font-family: "Montserrat";
 }
 .navbaritems {
-  color: #F1F2EF!important;
-    list-style-type: none;
-  margin-bottom: 0.625rem;
-  text-align: center;
+    font-family: "Raleway";
+    font-weight:600;
+    color: #134e6f!important;
+    margin-bottom: 0.625rem;
+    text-align: center;
 }
-
+.navbaritems ul {
+    list-style: none;
+}
 .navbaritems:hover {
   transform: scale(1.01);
-  color: #CDA21F!important;
+  color: #ffa822!important;
   transition: background-color 0.5s linear;
 }
 .underlink{
-  color: #CDA21F!important;
+  color: #ff6150!important;
 }
 .underlink:hover{
-  color: #F1F2EF!important;
+  color: #1ac0c6!important;
   text-decoration: underline;
   transition: background-color 0.2s linear;
 }
@@ -56,4 +64,38 @@ body {
 }
 #hamburgerBtn:hover {
   cursor: pointer;
+}
+/* NAVBAR MEDIA QUERY */
+@media only screen and (max-width: 768px) {
+
+  body {
+    margin-left: 0!important;
+    width:100%;
+  }
+
+  #sidemenunav {
+    width: 100vw;
+    transform: translateX(-1000px);
+    transition: 500ms transform;
+  }
+
+  #sidemenunav.open {
+    transform: translateX(0);
+  }
+
+  .navbaritems>li {
+    list-style-type: none;
+    margin-bottom: 0.625rem;
+    text-align: center;
+  }
+
+  #hamburgerBtn {
+    display: inline-block;
+    z-index: 2000;
+  }
+
+  .accordioncontainer {
+    margin-left: 0;
+    width: 100%
+  }
 }
