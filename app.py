@@ -120,7 +120,7 @@ def new_patient():
             })
         this_patient = mongo.db.patients.find_one({"patient_id": pid})
         return render_template('dashboard.html', patient=this_patient)
-        
+
     return render_template('new-patient.html')
 
 
@@ -170,9 +170,11 @@ def new_medicine(patient_id):
                 'medication_name': request.form['medication_name'],
                 'dosage': request.form['dosage'],
                 'length': request.form['length'],
-                'frequency': request.form['frequency'],
                 'amount': request.form['amount'],
-                'method': request.form['method'],
+                'morning': request.form['morning'],
+                'afternoon': request.form['afternoon'],
+                'evening': request.form['evening'],
+                'notes': request.form['notes'],
                 'type': request.form['type'],
             })
     return render_template('new-medication.html', patient=this_patient)
