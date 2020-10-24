@@ -1,27 +1,28 @@
 {% extends "layout.html" %}
 {% block body %}
 <h2 class="text-center my-5">Medication for {{patient.full_name}}</h2>
-<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3"><h6 class="heading-6">Add Medication</h6></a>
+<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <h6 class="heading-6 mb-4">Add Medication</h6>
+</a>
 <div class="accordion" id="accordionExample">
   <div class="card z-depth-0 bordered">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Morning
         </button>
       </h5>
     </div>
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       {% for medication in medications %}
       {% if medication.patient_id == patient.patient_id %}
-      {% if medication.morning == True %}
+      {% if medication.morning == 'True' %}
       <div class="card-body">
-        <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <div class="z-depth-1 pb-5 pt-3 px-5">
+          <h4 class="text-center"><strong>{{medication.medication_name}}</strong><small> {{medication.dosage}}</small></h4>
           <i class="fas fa-tablets"></i>
-          <h5 class="text-center">Medication Name</h5>
-          <p>Frequency:</p>
-          <p>Dosage:</p>
-          <p>Notes:</p>
+          <p class="text-center pt-2">Take {{medication.amount}} in the Morning for {{medication.length}}</p>
+          <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
         </div>
       </div>
       {% endif %}
@@ -38,15 +39,20 @@
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      {% for medication in medications %}
+      {% if medication.patient_id == patient.patient_id %}
+      {% if medication.afternoon == 'True' %}
       <div class="card-body">
-        <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <div class="z-depth-1 pb-5 pt-3 px-5">
+          <h4 class="text-center"><strong>{{medication.medication_name}}</strong><small> {{medication.dosage}}</small></h4>
           <i class="fas fa-tablets"></i>
-          <h5 class="text-center">Medication Name</h5>
-          <p>Frequency:</p>
-          <p>Dosage:</p>
-          <p>Notes:</p>
+          <p class="text-center pt-2">Take {{medication.amount}} in the Afternoon for {{medication.length}}</p>
+          <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
         </div>
       </div>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
     </div>
   </div>
   <div class="card z-depth-0 bordered">
@@ -58,15 +64,20 @@
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      {% for medication in medications %}
+      {% if medication.patient_id == patient.patient_id %}
+      {% if medication.evening == 'True' %}
       <div class="card-body">
-        <div class="col-sm-12 col-md-4 col-lg-4 z-depth-1 py-5 px-5">
+        <div class="z-depth-1 pb-5 pt-3 px-5">
+          <h4 class="text-center"><strong>{{medication.medication_name}}</strong><small> {{medication.dosage}}</small></h4>
           <i class="fas fa-tablets"></i>
-          <h5 class="text-center">Medication Name</h5>
-          <p>Frequency:</p>
-          <p>Dosage:</p>
-          <p>Notes:</p>
+          <p class="text-center pt-2">Take {{medication.amount}} in the Evening for {{medication.length}}</p>
+          <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
         </div>
       </div>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>

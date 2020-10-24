@@ -175,8 +175,10 @@ def new_medicine(patient_id):
                 'afternoon': request.form['afternoon'],
                 'evening': request.form['evening'],
                 'notes': request.form['notes'],
-                'type': request.form['type'],
             })
+        meds = list(mongo.db.medication.find())
+        return render_template('medication.html', medications=meds, patient=this_patient)
+
     return render_template('new-medication.html', patient=this_patient)
 
 

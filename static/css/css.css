@@ -10,6 +10,12 @@ h2 {
     font-weight:700;
     color:#134e6f;
 }
+h4 {
+    font-family: "Raleway";
+    font-size: 1rem;
+    font-weight:700;
+    color:#1ac0c6;
+}
 h5 {
     font-family: "Raleway";
     font-size:0.9rem;
@@ -149,6 +155,16 @@ h6 {
     transition: background-color 0.8s ease;
     color: #dee0e6;
 }
+.btn-link {
+    font-family: "Raleway";
+    font-size: 1rem;
+    font-weight:700;
+    color: #ffa822;
+}
+.btn-link:hover {
+    color:#1ac0c6;
+    text-decoration: underline;
+}
 .w-10{
     width:10vw;
 }
@@ -157,4 +173,13 @@ h6 {
     font-family:"Open Sans";
     font-size:0.9rem;
     font-weight:500;
+}
+i {
+    color:#ff6150;
+}
+strong {
+    color:#ff6150;
+}
+.card-header{
+    background-color:#dee0e6;
 }
