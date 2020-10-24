@@ -1,151 +1,42 @@
 {% extends "layout.html" %}
 {% block body %}
-<section class="section mx-5">
-<hr>
-<div class="container">
-<div class="row d-flex justify-content-between">
-<h6 >Current Patient ID: {{patient.id}} </h6>
-<div class="col-lg-5 col-md-6 col-sm-6 column-big">
-<div class="md-form">
-<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-  <i class="fas fa-search icon" aria-hidden="true"></i>
-  <input id="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search Patient Name" aria-label="Search">
-</form>
+<h2 class="text-center">{{patient.full_name}}'s Profile</h2>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <h5 class="mt-5 profile">Patient Contact Information</h5>
+    <p>Full Name: <strong>{{patient.full_name}}</strong><br>
+      Phone Number: <strong>{{patient.phone_number}}</strong><br>
+      Email Address: <strong>{{patient.email}}</strong><br>
+      Address Line 1: <strong>{{patient.AddressLine1}},</strong><br>
+      {% if patient.AddressLine2 %}
+      Address Line 2: <strong>{{patient.AddressLine2}},</strong><br>
+      {% endif %}
+      Town: <strong>{{patient.Town}},</strong><br>
+      {% if patient.postcode %}
+      Postcode: <strong>{{patient.postcode}}</strong><br>
+      {% endif %}</p>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <h5 class="mt-5 profile">Medical Information</h5>
+    <p>Blood Type: <strong>{{patient.blood_type}},</strong><br>
+      Smoking Habits: <strong>{{patient.smoking_habits}},</strong><br>
+      Drinking Habits: <strong>{{patient.drinking_habits}},</strong><br>
+      Exercise Habits: <strong>{{patient.exercise_habits}},</strong><br>
+    </p>
+  </div>
 </div>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <h5 class="mt-3 profile">Personal Information</h5>
+    <p>Date of Birth: <strong>{{patient.dob}}</strong><br>
+      Ethnicity: <strong>{{patient.ethnicity}}</strong><br>
+      Gender: <strong>{{patient.gender}}</strong></p>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <h5 class="mt-5 profile">Allergies & Conditions</h5>
+    <p>Allergies: <strong>{{patient.allergies}},</strong><br>
+      Conditions: <strong>{{patient.conditions}},</strong><br>
+    </p>
+  </div>
 </div>
-<div class="col-lg-3 col-md-3 col-sm-3 column-small">
-<a href="{{ url_for('index') }}">Go back</a>
-<a href="{{ url_for('new_patient') }}" class="mb-1 d-flex justify-content-center" id="hide"><i class="fas fa-user-plus new-user"></i></a>
-</div>
-</div>
-</div>
-<!-- table with languages, name, phone number, dob, email, and blood type -->
-</section>
-<div class="upper">
-<div class="floatLeft_upper">
-</div>
-<div class="floatRight_upper">
-<table id="top_table">
-  <tr>
-    <th>Languages </th>
-    <th>{{patient.full_name}} </th>
-  </tr>
-  <tr>
-     <th>{{patient.phone_number}} </th>
-    <th>{{patient.dob}} </th>
-  </tr>
-  <tr>
-    <th>{{patient.email}} </th>
-    <th>Blood Type {{patient.blood_type}} </th>
-  </tr>
-</table>
-</div>
-</div>
-<hr>
-<!-- set of tables with gender, smoking habits, ethnicity, alcohol, dob, exercise, allergies, conditions and address-->
-<div class="container_table">
-<div class="floatLeft">
-<table id="gender">
-  <tr>
-    <th>Gender</th>
-    <th> {{patient.gender}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatRight">
-<table id="smoking_habits">
-  <tr>
-    <th>Smoking Habits</th>
-    <th> {{patient.smoking_habits}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatLeft">
-<table id="ethnicity">
-  <tr>
-    <th>Ethnicity</th>
-    <th> {{patient.ethnicity}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatRight">
-<table id="alcohol">
-  <tr>
-    <th>Alcohol Intake</th>
-    <th> {{patient.drinking_habits}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatLeft">
-<table id="dob">
-  <tr>
-    <th>DOB</th>
-    <th> {{patient.dob}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatRight">
-<table id="exercise">
-  <tr>
-    <th>Exercise Frequency</th>
-    <th> {{patient.exercise_frequency}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatLeft">
-<table id="allergies">
-  <tr>
-    <th>Allergies</th>
-    <th> {{patient.allergies}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatLeft">
-<table id="conditions">
-  <tr>
-    <th>Conditions</th>
-    <th> {{patient.conditions}} </th>
-  </tr>
-</table>
-</div>
-<div class="floatLeft">
-<table id="address">
-  <tr>
-    <th valign="top">Address:</th>
-    <th> {{patient.AddressLine1}},{{patient.AddressLine2}},{{patient.town}},{{patient.postcode}} </th>
-  </tr>
-</table>
-</div>
-</div>
-<hr>
-<div class="floatRight">
-<div class="lower">
-<!-- table with sys, dia, and pulse -->
-<!-- TODO: the input values are not being stored anywhere -->
-<div class="floatRight_lower">
-<table id="bottom_table">
-    <tr>
-    <th>SYS mmhg</th>
-    <th><input
-       type="number"
-       value="0" ></th>
-  </tr>
-  <tr>
-     <th>DIA mmhg</th>
-     <th><input
-       type="number"
-       value="0" ></th>
-  </tr>
-  <tr>
-    <th>PULSE/min</th>
-    <th><input
-       type="number"
-       value="0" ></th>
-  </tr>
-</table>
-</div>
-</div>
-</div>
-
-
 {% endblock %}

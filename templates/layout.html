@@ -31,7 +31,7 @@
       <div id="hamburgerBtn">&#9776;</div>
       <div id="sidemenunav">
         <div class="navbarbrand">
-          <h5>La Ruche</h5>
+        <a href="{{ url_for('index') }}"><h5>La Ruche</h5></a>
         </div>
         <ul class="side">
         <li><a class="navbaritems text-center" href="{{url_for('dashboard', patient_id=patient._id)}}">Dashboard</a></li>
