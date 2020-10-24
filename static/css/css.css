@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+body {
+  margin-left: 15.625rem!important;
+  position: relative;
+}
+/* SIDE NAVBAR STYLING */
+.container {
+  padding: 2.5rem;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+#sidemenunav {
+  width: 10.625rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #253443;
+  color: #FBFCFB!important;
+  padding: 1.875rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0.99;
+  z-index: 1000;
+  font-family: "Montserrat";
+}
+.navbaritems {
+  color: #F1F2EF!important;
+    list-style-type: none;
+  margin-bottom: 0.625rem;
+  text-align: center;
+}
+
+.navbaritems:hover {
+  transform: scale(1.01);
+  color: #CDA21F!important;
+  transition: background-color 0.5s linear;
+}
+.underlink{
+  color: #CDA21F!important;
+}
+.underlink:hover{
+  color: #F1F2EF!important;
+  text-decoration: underline;
+  transition: background-color 0.2s linear;
+}
+#hamburgerBtn {
+  display: none;
+  position: absolute;
+  top: 1.875rem;
+  right: 1.875rem;
+
+}
+#hamburgerBtn:hover {
+  cursor: pointer;
+}

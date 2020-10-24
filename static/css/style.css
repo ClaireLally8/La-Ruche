@@ -1,72 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
+/* NAVBAR */
+.navbar {
+background-color: #dee0e6;
+}
+.nav-link {
+    color:#134e6f;
+    font-family: "Raleway";
+    font-weight: 600;
+    font-size:1.2rem;
+}
+.nav-link:hover {
+    color:#134e6f;
+    text-decoration:underline;
+}
 
+/* HEADINGS */
+h1 {
+    font-family: "Raleway";
+    font-size:3rem;
+    font-weight:700;
+}
+h4 {
+    font-family: "Open Sans";
+    font-weight:500;
+    font-size: 1.1rem;
+}
+/* COLOURS */
+.peachy {
+    color:#ff6150;
+}
+.navy {
+    color:#134e6f;
+}
 /* MDBOOSTRAP ICONS & FORMS */
 
 .md-form .input-prefix{
-    color:#7fb5b5!important;
+    color:#ffa822!important;
 }
 .md-form .input-prefix.active {
-    color:#7fb5b5!important;
+    color:#ffa822!important;
 }
 .md-form input[type='text']:not(.broswer-default):focus:not([readonly]){
-    color:#7fb5b5!important;
-    border-bottom:1px solid #7fb5b5!important;
-    box-shadow: 0 1px 0 0 #7fb5b5!important;
+    color:#134e6f!important;
+    border-bottom:1px solid #ffa822!important;
+    box-shadow: 0 1px 0 0 #ffa822!important;
 }
 .label:focus {
-    color:#7fb5b5!important;
+    color:#ffa822!important;
 }
 
-/* COLLAPSABLE SIDEBAR */
-
-#sidebar-container {
-    min-height: 100vh!important;   
-    padding: 0;
+/* BUTTONS */
+.primary-button {
+    color:#dee0e6;
+    background-color:#1ac0c6;
+    font-family: "Open Sans";
+    font-size:0.9rem;
+    font-weight:800;
 }
-.sidebar-collapsed {
-    width: 100px;
-}
-#sidebar-container .list-group a {
-    height: 50px;
-}
-#sidebar-container .list-group .sidebar-submenu a {
-    height: 45px;
-    padding-left: 30px;
-}
-.sidebar-submenu {
-    font-size: 0.9rem;
-}
-/* Closed submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
-  content: " \f0d7";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
-}
-/* Opened submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
-  content: " \f0da";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
-}
-.list-group-item-action:hover {
-    background-color: #846464;
-    text-decoration: underline;
-    color:#fcefeb;
-}
-/* LOGIN PAGE */
-
-.role {
-    height: 95px;
-    width:95px;
-}
-.section {
-    margin-top:10rem;
-}
-.height {
-    height:40px!important;
+.primary-button:hover {
+    background-color:#134e6f;
+    transition: background-color 0.8s ease;
+    color: #dee0e6;
 }
