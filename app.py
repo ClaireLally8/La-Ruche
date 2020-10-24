@@ -120,6 +120,7 @@ def new_patient():
             })
         this_patient = mongo.db.patients.find_one({"patient_id": pid})
         return render_template('dashboard.html', patient=this_patient)
+        
     return render_template('new-patient.html')
 
 
