@@ -6,8 +6,23 @@ body {
 /* HEADINGS */
 h2 {
     font-family: "Raleway";
-    font-size:2.6rem;
+    font-size:2.5rem;
     font-weight:700;
+}
+h5 {
+    font-family: "Raleway";
+    font-size:0.9rem;
+    font-weight:700;
+    color: #1ac0c6;
+}
+h6 {
+    color: #1ac0c6;
+    font-family: "Raleway";
+    font-weight:600;
+}
+.heading-6:hover {
+    color:#ff6150;
+    text-decoration:underline;
 }
 /* SIDE NAVBAR STYLING */
 .container {
@@ -16,7 +31,6 @@ h2 {
   max-width: 800px;
   text-align: center;
 }
-
 #sidemenunav {
   width: 11.625rem;
   position: fixed;
@@ -36,11 +50,9 @@ h2 {
     font-family: "Raleway";
     font-weight:600;
     color: #134e6f!important;
-    margin-bottom: 0.625rem;
-    text-align: center;
 }
-.navbaritems ul {
-    list-style: none;
+.side {
+    list-style:none;
 }
 .navbaritems:hover {
   transform: scale(1.01);
@@ -60,7 +72,6 @@ h2 {
   position: absolute;
   top: 1.875rem;
   right: 1.875rem;
-
 }
 #hamburgerBtn:hover {
   cursor: pointer;
@@ -98,4 +109,10 @@ h2 {
     margin-left: 0;
     width: 100%
   }
+}
+
+/* DASHBOARD */
+.dashboard-icon{
+    height:4rem;
+    width:4rem;
 }
