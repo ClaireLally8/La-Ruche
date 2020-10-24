@@ -23,79 +23,62 @@
   </head>
 
   <body>
-  <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark purple-bkgd purple-font">
-  <img class="img-fluid" src="../static/images/logo.svg" height=80 width=80>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link montserrat-200 eggshell-font font-medium" href="{{ url_for('login') }}">
-          <i class="fab active"></i>Login</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!--/.Navbar -->
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg">
+      <img class="img-fluid" src="../static/images/logo.svg" height=80 width=80>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link pr-4" href="{{ url_for('login') }}">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--/.Navbar -->
     <div class="px-5 col-12">
-    
-<section class="section">
-	<h1 class="montserrat-600 darkgreen-font font-large text-center pt-5">Login Here</h1>
-	<h4 class="montserrat-300 teal-font font-medium text-center pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
-</section>
-<div class="container eggshell-bkgd z-depth-2 mb-5 pt-3 pb-5">
-	<section class="section">
-		<div class="container">
-			<form method="POST" action="{{ url_for('login') }}">
-				<div class="row d-flex justify-content-center">
-					<div class="row-3 p-3">
-						<input type="radio" id="doctor" name="profession" class="radio">
-						<label for="doctor" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/drs.svg" /><br>Doctor</label>
-					</div>
-					<div class="row-3 p-3">
-						<input type="radio" id="nurse" name="profession" class="radio">
-						<label for="nurse" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/nurse.svg" /><br>Nurse</label>
-					</div>
-					<div class="row-3 p-3">
-						<input type="radio" id="admin" name="profession" class="radio">
-						<label for="admin" class="text-center brown-font montserrat-400 font-small"><img class="img-fluid role" src="../static/images/admin.svg" /><br>Adminstrator</label>
-					</div>
-				</div>
-				<div class="row d-flex justify-content-center">
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="md-form input-with-post-icon icon">
-							<i class="fas fa-user input-prefix"></i>
-							<input type="text" id="username" name="username" class="form-control" required>
-							<label for="username" class="label">Username</label>
-						</div>
-					</div>
-				</div>
-				<div class="row d-flex justify-content-center">
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="md-form input-with-post-icon icon">
-							<i class="fas fa-lock input-prefix"></i>
-							<input type="password" id="password" name="password" class="form-control" required>
-							<label for="password" class="label">Password</label>
-						</div>
-					</div>
-				</div>
-				<div class="row d-flex justify-content-center">
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<button class="btn-block mt-5 btn montserrat-500 font-small primary-button" type="submit">Login</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</section>
-	<div class="text-center">
-		<small>(For Testing)</small> Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
-	</div>
-</div>
+      <section class="section">
+        <h1 class="text-center peachy pt-5">Login Here</h1>
+        <h4 class="text-center navy pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
+      </section>
+      <div class="container  z-depth-2 mb-5 pt-3 pb-5">
+        <section class="section">
+          <div class="container">
+            <form method="POST" action="{{ url_for('login') }}">
+              <div class="row d-flex justify-content-center pt-5">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <div class="md-form input-with-post-icon icon">
+                    <i class="fas fa-user input-prefix"></i>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                    <label for="username" class="label">Username</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <div class="md-form input-with-post-icon icon">
+                    <i class="fas fa-lock input-prefix"></i>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <label for="password" class="label">Password</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <button class="btn-block mt-5 mb-3 btn primary-button" type="submit">Login</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div class="text-center">
+          <small>(For Testing)</small> Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+        </div>
+      </div>
     </div>
-</div>
+    </div>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
