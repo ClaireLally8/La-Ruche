@@ -14,17 +14,29 @@ background-color: #dee0e6;
     color:#134e6f;
     text-decoration:underline;
 }
-
+/* WIDTH */
+.w-10 {
+    width: 10vw;
+}
 /* HEADINGS */
 h1 {
     font-family: "Raleway";
     font-size:3rem;
     font-weight:700;
 }
+h2 {
+    font-family: "Raleway";
+    font-size:2.6rem;
+    font-weight:700;
+}
 h4 {
     font-family: "Open Sans";
     font-weight:500;
     font-size: 1.1rem;
+}
+p {
+    font-family: "Open Sans";
+    font-weight:500;
 }
 /* COLOURS */
 .peachy {
@@ -33,6 +45,7 @@ h4 {
 .navy {
     color:#134e6f;
 }
+
 /* MDBOOSTRAP ICONS & FORMS */
 
 .md-form .input-prefix{
@@ -62,4 +75,39 @@ h4 {
     background-color:#134e6f;
     transition: background-color 0.8s ease;
     color: #dee0e6;
+}
+.secondary-button {
+    color:#dee0e6;
+    background-color:#134e6f;
+    font-family: "Open Sans";
+    font-size:0.9rem;
+    font-weight:800;
+}
+.secondary-button:hover {
+    background-color:#1ac0c6;
+    transition: background-color 0.8s ease;
+    color: #dee0e6;
+}
+
+/* TABLE INFORMATION */
+th {
+    font-family: "Raleway";
+    font-weight: 700!important;
+    font-size: 1.4rem;
+    color: #ff6150;
+}
+td {
+    font-family: "Open Sans";
+    font-weight:500!important;
+    font-size:1.2rem;
+    color:#134e6f;
+}
+.td-link:hover {
+    color: #1ac0c6;
+    text-decoration:underline;
+}
+
+/* NEW PATIENT PAGE */
+.form {
+    color:#1ac0c6;
 }
