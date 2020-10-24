@@ -183,3 +183,7 @@ strong {
 .card-header{
     background-color:#dee0e6;
 }
+p {
+    font-family: "Open Sans";
+    font-size:0.9rem;
+}
