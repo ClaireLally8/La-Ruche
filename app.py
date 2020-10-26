@@ -47,7 +47,7 @@ def login():
                     login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return render_template(
-                    'search.html', patients=mongo.db.patients.find())
+                    'search.html', patients=mongo.db.patients.find().sort("_id",-1))
 
         return 'Invalid username/password combination'
 

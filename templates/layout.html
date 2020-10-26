@@ -30,16 +30,26 @@
 <div class="container">
       <div id="hamburgerBtn">&#9776;</div>
       <div id="sidemenunav">
-        <div class="navbarbrand">
+        <div class="navbarbrand text-center">
         <a href="{{ url_for('index') }}"><h5>La Ruche</h5></a>
         </div>
-        <ul class="side">
-        <li><a class="navbaritems text-center" href="{{url_for('dashboard', patient_id=patient._id)}}">Dashboard</a></li>
-        <li><a class="navbaritems text-center" href="{{url_for('profile', patient_id=patient._id)}}">Patient Profile</a></li>
-        <li><a class="navbaritems text-center" href="{{ url_for('medication', patient_id=patient._id) }}">Medication</a></li>
-        </ul>
+        <div class="side">
+        <a class="navbaritems" href="{{url_for('index')}}">Search</a><br>
+        <a class="navbaritems" href="{{url_for('new_patient')}}">New Patient</a>
+        </div>
+        <div class="side">
+        <a class="navbaritems" href="{{url_for('dashboard', patient_id=patient._id)}}">Dashboard</a><br>
+        <a class="navbaritems" href="{{url_for('profile', patient_id=patient._id)}}">Patient Profile</a><br>
+        <a class="navbaritems" href="#">History</a><br>
+        <a class="navbaritems" href="{{ url_for('medication', patient_id=patient._id) }}">Medication</a><br>
+        <a class="navbaritems" href="#">Symptoms</a><br>
+        <a class="navbaritems" href="#">Plan of Care</a><br>
+        <a class="navbaritems" href="#">Tests</a><br>
+        <a class="navbaritems" href="#">Reports</a><br>
+        <a class="navbaritems" href="#">Analytics</a><br>
+        </div>
         <div class="menubarfooter">
-          <p><strong><a class="underlink" href="{{ url_for('logout') }}">Logout</a></strong></p>
+          <p><strong><a class="underlink text-center" href="{{ url_for('logout') }}">Logout</a></strong></p>
         </div>
       </div>
     </div>
