@@ -169,12 +169,14 @@ def new_medicine(patient_id):
                 'patient_id': request.form['id'],
                 'medication_name': request.form['medication_name'],
                 'dosage': request.form['dosage'],
-                'length': request.form['length'],
+                'start': request.form['start'],
+                'end': request.form['end'],
                 'amount': request.form['amount'],
                 'morning': request.form['morning'],
                 'afternoon': request.form['afternoon'],
                 'evening': request.form['evening'],
                 'notes': request.form['notes'],
+                'complete': False
             })
         meds = list(mongo.db.medication.find())
         return render_template('medication.html', medications=meds, patient=this_patient)
