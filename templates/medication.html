@@ -21,8 +21,90 @@
         <div class="z-depth-1 pb-5 pt-3 px-5">
           <h4 class="text-center"><strong>{{medication.medication_name}}</strong><small> {{medication.dosage}}</small></h4>
           <i class="fas fa-tablets"></i>
-          <p class="text-center pt-2">Take {{medication.amount}} in the Morning for {{medication.length}}</p>
-          <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
+          <p class="text-center pt-2">Take {{medication.amount}} in the Morning.<br>
+            Start: {{medication.start}}. End: {{medication.end}}</p>
+          <p class="text-center"><strong>Instructions:</strong> {{medication.notes}}</p>
+          <div class="d-flex justify-content-between">
+            <a class="heading-6 text-right" href="{{ url_for('delete_medication', patient_id=patient._id, medication_id=medication._id) }}">Delete</a>
+            <a href="" class="heading-6 text-right" data-toggle="modal" data-target="#modalMorningEdit">Edit</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalMorningEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Edit Medication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ url_for('edit_medication', patient_id=patient._id, medication_id=medication._id) }}">
+              <div class="modal-body mx-3">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="medication_name" value="{{medication.medication_name}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="dosage" value="{{medication.dosage}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-6">
+                    <input type="text" name="amount" value="{{medication.amount}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="start" value="{{medication.start}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="end" value="{{medication.end}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="morning" name="morning" class="form-control mb-4" required>
+                      <option value="{{medication.morning}}" selected>{{medication.morning}}</option>
+                      {% if medication.morning == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="afternoon" name="afternoon" class="form-control mb-4" required>
+                      <option value="{{medication.afternoon}}" selected>{{medication.afternoon}}</option>
+                      {% if medication.afternoon == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="evening" name="evening" class="form-control mb-4" required>
+                      <option value="{{medication.evening}}" selected>{{medication.evening}}</option>
+                      {% if medication.evening == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                </div>
+                {% if medication.notes %}
+                <input type="text" name="notes" value="{{medication.notes}}" class="form-control mb-4">
+                {% else %}
+                <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
+                {% endif %}
+                <input type="hidden" name="id" value="{{patient.patient_id}}">
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-default" type="submit">Save</button>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
       {% endif %}
@@ -48,6 +130,87 @@
           <i class="fas fa-tablets"></i>
           <p class="text-center pt-2">Take {{medication.amount}} in the Afternoon for {{medication.length}}</p>
           <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
+          <div class="d-flex justify-content-between">
+            <a class="heading-6 text-right" href="{{ url_for('delete_medication', patient_id=patient._id, medication_id=medication._id) }}">Delete</a>
+            <a href="" class="heading-6 text-right" data-toggle="modal" data-target="#modalAfternoonEdit">Edit</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalAfternoonEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Edit Medication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ url_for('edit_medication', patient_id=patient._id, medication_id=medication._id) }}">
+              <div class="modal-body mx-3">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="medication_name" value="{{medication.medication_name}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="dosage" value="{{medication.dosage}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-6">
+                    <input type="text" name="amount" value="{{medication.amount}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="start" value="{{medication.start}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="end" value="{{medication.end}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="morning" name="morning" class="form-control mb-4" required>
+                      <option value="{{medication.morning}}" selected>{{medication.morning}}</option>
+                      {% if medication.morning == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="afternoon" name="afternoon" class="form-control mb-4" required>
+                      <option value="{{medication.afternoon}}" selected>{{medication.afternoon}}</option>
+                      {% if medication.afternoon == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="evening" name="evening" class="form-control mb-4" required>
+                      <option value="{{medication.evening}}" selected>{{medication.evening}}</option>
+                      {% if medication.evening == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                </div>
+                {% if medication.notes %}
+                <input type="text" name="notes" value="{{medication.notes}}" class="form-control mb-4">
+                {% else %}
+                <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
+                {% endif %}
+                <input type="hidden" name="id" value="{{patient.patient_id}}">
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-default" type="submit">Save</button>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
       {% endif %}
@@ -73,6 +236,87 @@
           <i class="fas fa-tablets"></i>
           <p class="text-center pt-2">Take {{medication.amount}} in the Evening for {{medication.length}}</p>
           <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
+<div class="d-flex justify-content-between">
+            <a class="heading-6 text-right" href="{{ url_for('delete_medication', patient_id=patient._id, medication_id=medication._id) }}">Delete</a>
+            <a href="" class="heading-6 text-right" data-toggle="modal" data-target="#modalEveningEdit">Edit</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modalEveningEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Edit Medication</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ url_for('edit_medication', patient_id=patient._id, medication_id=medication._id) }}">
+              <div class="modal-body mx-3">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="medication_name" value="{{medication.medication_name}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" name="dosage" value="{{medication.dosage}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-6">
+                    <input type="text" name="amount" value="{{medication.amount}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="start" value="{{medication.start}}" class="form-control mb-4" required>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3">
+                    <input type="date" name="end" value="{{medication.end}}" class="form-control mb-4" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="morning" name="morning" class="form-control mb-4" required>
+                      <option value="{{medication.morning}}" selected>{{medication.morning}}</option>
+                      {% if medication.morning == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="afternoon" name="afternoon" class="form-control mb-4" required>
+                      <option value="{{medication.afternoon}}" selected>{{medication.afternoon}}</option>
+                      {% if medication.afternoon == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <select id="evening" name="evening" class="form-control mb-4" required>
+                      <option value="{{medication.evening}}" selected>{{medication.evening}}</option>
+                      {% if medication.evening == 'False' %}
+                      <option value="True">True</option>
+                      {% else %}
+                      <option value="False">False</option>
+                      {% endif %}
+                    </select>
+                  </div>
+                </div>
+                {% if medication.notes %}
+                <input type="text" name="notes" value="{{medication.notes}}" class="form-control mb-4">
+                {% else %}
+                <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
+                {% endif %}
+                <input type="hidden" name="id" value="{{patient.patient_id}}">
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-default" type="submit">Save</button>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
       {% endif %}

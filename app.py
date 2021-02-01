@@ -27,7 +27,7 @@ def index():
             'search.html',
             patients=mongo.db.patients.find())
 
-    return render_template('index.html')
+    return render_template('login.html')
 
 # Core Login functionality. Checks password matches the username.  Stored
 # in DB the under the users collection
@@ -47,13 +47,14 @@ def login():
                     login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return render_template(
-                    'search.html', patients=mongo.db.patients.find().sort("_id",-1))
+                    'search.html', patients=mongo.db.patients.find().sort(
+                        "_id", -1))
 
         return 'Invalid username/password combination'
 
     else:
         # otherwise this returns the login page.
-        return render_template('index.html')
+        return render_template('login.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -65,7 +66,7 @@ def register():
         if existing_user is None:
             hashpass = bcrypt.hashpw(
                 request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert(
+            users.insert_one(
                 {'name': request.form['username'], 'password': hashpass})
             session['username'] = request.form['username']
             return redirect(url_for('index'))
@@ -80,7 +81,7 @@ def register():
 @app.route('/logout')
 def logout():
     session['username'] = None
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 # Allows users to search for patients.  Done via mongoDB indexing.
@@ -164,7 +165,7 @@ def medication(patient_id):
 def new_medicine(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     if request.method == 'POST':
-        mongo.db.medication.insert(
+        mongo.db.medication.insert_one(
             {
                 'patient_id': request.form['id'],
                 'medication_name': request.form['medication_name'],
@@ -179,9 +180,48 @@ def new_medicine(patient_id):
                 'complete': False
             })
         meds = list(mongo.db.medication.find())
-        return render_template('medication.html', medications=meds, patient=this_patient)
+        return render_template(
+            'medication.html',
+            medications=meds,
+            patient=this_patient)
 
     return render_template('new-medication.html', patient=this_patient)
+
+
+@app.route('/updated/<patient_id>/<medication_id>', methods=['POST'])
+def edit_medication(medication_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    meds = list(mongo.db.medication.find())
+    medication = mongo.db.medication
+    medication.update({'_id': ObjectId(medication_id)},
+    {
+        'patient_id': request.form['id'],
+        'medication_name': request.form['medication_name'],
+        'dosage': request.form['dosage'],
+        'start': request.form['start'],
+        'end': request.form['end'],
+        'amount': request.form['amount'],
+        'morning': request.form['morning'],
+        'afternoon': request.form['afternoon'],
+        'evening': request.form['evening'],
+        'notes': request.form['notes'],
+        'complete': False
+    })
+    return render_template(
+        'medication.html',
+        medications=meds,
+        patient=this_patient)
+
+
+@app.route('/delete/<patient_id>/<medication_id>')
+def delete_medication(medication_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    meds = list(mongo.db.medication.find())
+    mongo.db.medication.remove({'_id': ObjectId(medication_id)})
+    return render_template(
+        'medication.html',
+        medications=meds,
+        patient=this_patient)
 
 
 @app.route('/symptoms')

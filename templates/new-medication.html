@@ -27,27 +27,27 @@
 <div class="row">
 <div class="col-sm-12 col-md-4 col-lg-4">
 <select id="morning" name="morning" class="form-control mb-4" required>
-<option value="None" disabled selected>Morning?</option>
+<option value="False" disabled selected>Morning?</option>
     <option value="True">True</option>
     <option value="False">False</option>
 </select>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-4">
 <select id="afternoon" name="afternoon" class="form-control mb-4" required>
-<option value="None" disabled selected>Afternoon?</option>
+<option value="False" disabled selected>Afternoon?</option>
     <option value="True">True</option>
     <option value="False">False</option>
 </select>
 </div>
 <div class="col-sm-12 col-md-4 col-lg-4">
 <select id="evening" name="evening" class="form-control mb-4" required>
-<option value="None" disabled selected>Evening?</option>
+<option value="False" disabled selected>Evening?</option>
     <option value="True">True</option>
     <option value="False">False</option>
 </select>
 </div>
 </div>
-<input type="text" name="notes" placeholder="Notes" class="form-control mb-4" required>
+<input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
 <input type="hidden" name="id" value="{{patient.patient_id}}">
 <div class="d-flex justify-content-between mt-3">
 <a href="{{ url_for('medication', patient_id=patient._id) }}" class="btn secondary-button btn-block w-10">Back</a>
