@@ -1,7 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@font-face {
+  font-family: Gilroy Light;
+  src: url(../fonts/Gilroy-Light.otf);
+}
+@font-face {
+  font-family: Gilroy ExtraBold;
+  src: url(../fonts/Gilroy-ExtraBold.otf);
+}
 :root {
   /*p for primary, s for secondary, t for tertiary*/
   --p-blue: #02014f;
-  --p-navy: #6236FF;
+  --p-purple: #6236FF;
   --p-teal: #5cc9ca;
   --s-teal:#9CE9EA;
+  --bk-grey: #F2F7FA;
+}
+* {
+ box-sizing: border-box;
+}
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+html,
+body {
+ height: 100%;
+ position: relative;
+ background-color: var(--bk-grey);
+}
+.main-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 100px; /* height of your footer */
+}
+footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ background-color: var(--p-blue);
+ color:white;
+ font-family: Roboto;
+}
+footer div {
+    font-size:0.8rem;
+    padding-top: 80em!important;
+
 }

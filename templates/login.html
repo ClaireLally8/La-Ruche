@@ -1,43 +1,4 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class="px-5 col-12">
-      <section class="section">
-        <h1 class="text-center peachy pt-5">Login Here</h1>
-        <h4 class="text-center navy pb-5">EMR Medical Practioner Login for Redemption Medical Center</h4>
-      </section>
-      <div class="container  z-depth-2 mb-5 pt-3 pb-5">
-        <section class="section">
-          <div class="container">
-            <form method="POST" action="{{ url_for('login') }}">
-              <div class="row d-flex justify-content-center pt-5">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                  <div class="md-form input-with-post-icon icon">
-                    <i class="fas fa-user input-prefix"></i>
-                    <input type="text" id="username" name="username" class="form-control" required>
-                    <label for="username" class="label">Username</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row d-flex justify-content-center">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                  <div class="md-form input-with-post-icon icon">
-                    <i class="fas fa-lock input-prefix"></i>
-                    <input type="password" id="password" name="password" class="form-control" required>
-                    <label for="password" class="label">Password</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row d-flex justify-content-center">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                  <button class="btn-block mt-5 mb-3 btn primary-button" type="submit">Login</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </section>
-        <div class="text-center">
-          <small>(For Testing)</small> Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
-        </div>
-      </div>
-    </div>
+    <h2>Hello</h2>
 {% endblock %}
