@@ -47,5 +47,48 @@ footer {
 footer div {
     font-size:0.8rem;
     padding-top: 80em!important;
-
+}
+h1 {
+  color: #02014f;
+  letter-spacing: 0.4px;
+  font-size: 40px;
+  font-family: "Gilroy ExtraBold";
+  text-align: left;
+  vertical-align: middle;
+}
+p {
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 16px;
+    color: #02014f;
+    text-align: left;
+    vertical-align: top;
+}
+label {
+    font-family:"Roboto";
+    color:var(--p-blue);
+    font-size:14px;
+    font-weight:400;
+}
+input {
+    border-radius:0;
+}
+.primary-button {
+    background-color: var(--p-blue);
+    font-family:Roboto;
+    color:white;
+    font-weight:300;
+}
+.primary-button:hover {
+    background-color: var(--p-blue);
+    color:white;
+    text-decoration:underline;
+}
+a {
+    color:var(--p-teal);
+    font-weight:400;
+}
+a:hover {
+    color:var(--p-teal);
+    text-decoration:underline;
 }
