@@ -123,8 +123,8 @@ table.table th, table.table td {
     border-top:none;
     padding:0;
 }
-.table-body {
+.patient-row {
     background-color:white;
-    padding-top:10px;
-    padding-bottom:10px;
+    border-radius: 5px;
+    vertical-align: middle;
 }

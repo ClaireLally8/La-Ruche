@@ -35,19 +35,20 @@
     </tr>
   </thead>
 </table>
-<div class="row">
+
 {% for patients in patients %}
-    <div class="col-lg-3 offset-lg-3">
-        {{patients.full_name}}
+<div class="row patient-row my-3 py-3 z-depth-1">
+    <div class="col-lg-3 offset-lg-3 ">
+        <p>{{patients.full_name}}</p>
     </div>
     <div class="col-lg-3">
-        {{patients.email}}
+        <p>{{patients.email}}</p>
     </div>
     <div class="col-lg-3">
-        {{patients.phone_number}}
+        <p>{{patients.phone_number}}</p>
+    </div>
     </div>
     {% endfor %}
 </div>
     </div>
-</div>
 {% endblock %}
