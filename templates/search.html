@@ -10,9 +10,11 @@
         <input class="form-control z-depth-1" type="text" placeholder="firstname lastname" aria-label="Search" name="query" id="query" minlength="3" required>
     </div>
     <div class="col-2">
+        <a href="{{ url_for('new_patient') }}">
         <div class="overlay z-depth-1">
         <img src="../static/images/new-patient.png" alt="New Patient Icon" height="35"/>
     </div>
+    </a>
     </div>
         <div class="col-10 d-flex justify-content-center mt-2">
           <button type="submit" class="btn primary-button">Search</button>
