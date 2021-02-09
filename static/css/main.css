@@ -92,3 +92,16 @@ a:hover {
     color:var(--p-teal);
     text-decoration:underline;
 }
+.form-control {
+    border-radius: 0;
+}
+.overlay {
+    height:45px;
+    width:45px;
+    background-color:white;
+    border-radius: 50%;
+}
+.overlay img {
+    margin-left: 5px;
+    margin-top:3px;
+}
