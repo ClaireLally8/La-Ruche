@@ -1,4 +1,24 @@
 {% extends "layout.html" %}
 {% block body %}
-
+<div class="row mt-5 mb-3">
+  <div class="col-lg-5 col-md-8 col-sm-10 offset-lg-3 offset-md-1 offset-sm-1 mt-5">
+    <h1>Patient Search</h1>
+    <p>Search for your patient using their first or last name</p>
+    <form action="{{ url_for('search') }}" method="POST">
+      <div class="row">
+        <div class="col-10">
+        <input class="form-control z-depth-1" type="text" placeholder="firstname lastname" aria-label="Search" name="query" id="query" minlength="3" required>
+    </div>
+    <div class="col-2">
+        <div class="overlay z-depth-1">
+        <img src="../static/images/new-patient.png" alt="New Patient Icon" height="35"/>
+    </div>
+    </div>
+        <div class="col-10 d-flex justify-content-center mt-2">
+          <button type="submit" class="btn primary-button">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}
