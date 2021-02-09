@@ -23,4 +23,31 @@
     </form>
   </div>
 </div>
+<div class="row mt-5">
+    <div class="col-12 container-fluid">
+        <table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col" class="main-head">Results</th>
+      <th scope="col" class="light-head">Firstname</th>
+      <th scope="col" class="light-head">Lastname</th>
+      <th scope="col" class="light-head">Status</th>
+    </tr>
+  </thead>
+</table>
+<div class="row">
+{% for patients in patients %}
+    <div class="col-lg-3 offset-lg-3">
+        {{patients.full_name}}
+    </div>
+    <div class="col-lg-3">
+        {{patients.email}}
+    </div>
+    <div class="col-lg-3">
+        {{patients.phone_number}}
+    </div>
+    {% endfor %}
+</div>
+    </div>
+</div>
 {% endblock %}

@@ -105,3 +105,26 @@ a:hover {
     margin-left: 5px;
     margin-top:3px;
 }
+.main-head {
+    font-family: "Gilroy ExtraBold";;
+    color: var(--p-blue);
+    font-size:1.2rem;
+}
+.light-head{
+    font-family: Roboto;
+    font-weight:300;
+    color: var(--p-blue);
+    font-size:0.8rem;
+}
+table.table th, table.table td {
+    padding:0;
+}
+.table td, .table th {
+    border-top:none;
+    padding:0;
+}
+.table-body {
+    background-color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+}
