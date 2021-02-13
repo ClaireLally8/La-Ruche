@@ -29,10 +29,10 @@
     </div>
 </div>
 <div class="row patient-headings mt-5">
-    <div class="col-lg-2 col-md-2 offset-lg-2">
+    <div class="col-lg-2 col-md-2 offset-lg-1">
         <p class="light-head d-none d-md-block">Full Name</p>
     </div>
-    <div class="col-lg-2 col-md-2">
+    <div class="col-lg-3 col-md-3">
         <p class="light-head d-none d-md-block">Email</p>
     </div>
          <div class="col-lg-2 col-md-2">
@@ -47,10 +47,10 @@
     </div>
 {% for patients in patients %}
 <div class="row patient-row my-2 py-3 z-depth-1">
-    <div class="col-lg-2 col-md-2 offset-lg-2">
+    <div class="col-lg-2 col-md-2 offset-lg-1">
         <p><a class="td-link" href="{{url_for('dashboard', patient_id=patients._id)}}">{{patients.full_name}}</a></p>
     </div>
-    <div class="col-lg-2 col-md-3">
+    <div class="col-lg-3 col-md-3">
         <p>{{patients.email}}</p>
     </div>
     <div class="col-lg-2 col-md-2">
