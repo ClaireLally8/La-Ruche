@@ -23,32 +23,45 @@
     </form>
   </div>
 </div>
-<div class="row mt-5">
-    <div class="col-12 container-fluid">
-        <table class="table table-borderless">
-  <thead>
-    <tr>
-      <th scope="col" class="main-head">Results</th>
-      <th scope="col" class="light-head">Firstname</th>
-      <th scope="col" class="light-head">Lastname</th>
-      <th scope="col" class="light-head">Status</th>
-    </tr>
-  </thead>
-</table>
-
-{% for patients in patients %}
-<div class="row patient-row my-3 py-3 z-depth-1">
-    <div class="col-lg-3 offset-lg-3 ">
-        <p>{{patients.full_name}}</p>
+<div class="row patient-headings mt-5">
+        <div class="col-lg-2 col-md-2">
+        <p class="main-head">Results</p>
     </div>
-    <div class="col-lg-3">
+</div>
+<div class="row patient-headings mt-5">
+    <div class="col-lg-2 col-md-2 offset-lg-2">
+        <p class="light-head d-none d-md-block">Full Name</p>
+    </div>
+    <div class="col-lg-2 col-md-2">
+        <p class="light-head d-none d-md-block">Email</p>
+    </div>
+         <div class="col-lg-2 col-md-2">
+        <p class="light-head d-none d-md-block">D.O.B</p>
+    </div>
+            <div class="col-lg-2 col-md-2">
+        <p class="light-head d-none d-md-block">Gender</p>
+    </div>
+            <div class="col-lg-2 col-md-2">
+        <p class="light-head d-none d-md-block">Status</p>
+    </div>
+    </div>
+{% for patients in patients %}
+<div class="row patient-row my-2 py-3 z-depth-1">
+    <div class="col-lg-2 col-md-2 offset-lg-2">
+        <p><a class="td-link" href="{{url_for('dashboard', patient_id=patients._id)}}">{{patients.full_name}}</a></p>
+    </div>
+    <div class="col-lg-2 col-md-3">
         <p>{{patients.email}}</p>
     </div>
-    <div class="col-lg-3">
-        <p>{{patients.phone_number}}</p>
+    <div class="col-lg-2 col-md-2">
+        <p>{{patients.dob}}</p>
+    </div>
+        <div class="col-lg-2 col-md-2">
+        <p>{{patients.gender}}</p>
+    </div>
+        <div class="col-lg-2 col-md-2">
+        <p>XYZ</p>
     </div>
     </div>
     {% endfor %}
-</div>
-    </div>
 {% endblock %}

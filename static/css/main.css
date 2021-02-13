@@ -109,19 +109,14 @@ a:hover {
     font-family: "Gilroy ExtraBold";;
     color: var(--p-blue);
     font-size:1.2rem;
+    line-height:0;
 }
 .light-head{
     font-family: Roboto;
     font-weight:300;
     color: var(--p-blue);
     font-size:0.8rem;
-}
-table.table th, table.table td {
-    padding:0;
-}
-.table td, .table th {
-    border-top:none;
-    padding:0;
+    line-height:1;
 }
 .patient-row {
     background-color:white;
