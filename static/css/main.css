@@ -14,7 +14,7 @@
   --p-purple: #6236FF;
   --p-teal: #5cc9ca;
   --s-teal:#9CE9EA;
-  --bk-grey: #F2F7FA;
+  --bk-grey: #F3F7FA;
 }
 * {
  box-sizing: border-box;
@@ -36,6 +36,75 @@ body {
  position: relative;
  padding-bottom: 100px; /* height of your footer */
 }
+.logged-in {
+    margin-left:80px;
+}
+/* Skinny sidenav */
+#skinny-nav {
+  background-color:white;
+  width: 70px;
+  height:100%;
+  position: fixed;
+  left: 0;
+}
+
+#skinny-nav-list {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  list-style-type: none;
+  padding: 0;
+  width:100%!important;
+}
+
+#skinny-nav-list > li > a {
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-right:20px;
+    color: var(--p-grey);
+    font-size: 1.3rem;
+    width:100%!important;
+}
+.skinny-nav-writing{
+    font-size:10px;
+}
+#skinny-nav-list > li > a > p {
+  position: relative;
+  display: inline;
+  padding-left: 20px;
+  margin: 0;
+  width:100%!important;
+}
+
+#skinny-nav-list > li > a:hover {
+  background-color: rgba(0,0,0,0.08);
+  border-left: 3px solid var(--p-orange);
+}
+
+.skinny-nav-profile {
+  height: 100px;
+  padding-left: 5px;
+  padding-top: 15px;
+}
+
+.skinny-nav-profile > p {
+  display: inline;
+  padding-left: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#skinny-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 997;
+}
+
+/* End of skinny */
 footer {
  position: absolute;
  bottom: 0;
@@ -122,4 +191,7 @@ a:hover {
     background-color:white;
     border-radius: 5px;
     vertical-align: middle;
+}
+.logged-in h1 {
+    font-size:1.8rem;
 }
