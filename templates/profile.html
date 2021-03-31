@@ -3,9 +3,10 @@
 <h1 class="mt-5 ml-4">
     Patient Details
 </h1>
+
 <div class="container-fluid mt-3">
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4">
+        <div class="col-sm-12 col-md-5 col-lg-5">
         <div class="card">
   <div class="card-body">
     <h5 class="card-title">Personal Information</h5>
@@ -14,25 +15,13 @@
     <p class="card-text"><strong>D.O.B: </strong>{{patient.dob}}</p>
     <p class="card-text"><strong>Gender: </strong>{{patient.gender}}</p>
     <p class="card-text"><strong>Ethnicity: </strong>{{patient.ethnicity}}</p>
-  </div>
-</div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Medical Information</h5>
+     <h5 class="card-title">Medical Information</h5>
     <hr>
     <p class="card-text"><strong>Blood Type: </strong>{{patient.blood_type}}</p>
     <p class="card-text"><strong>Smoking Habits: </strong>{{patient.smoking_habits}}</p>
     <p class="card-text"><strong>Alcohol Consumption: </strong>{{patient.drinking_habits}}</p>
     <p class="card-text"><strong>Fitness: </strong>{{patient.exercise_habits}}</p>
-  </div>
-</div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Allergies & Conditions</h5>
+     <h5 class="card-title">Allergies & Conditions</h5>
     <hr>
     <p class="card-text"><strong>Allergies:</strong></p>
     <p class="card-text">{{patient.allergies}}</p>
@@ -40,28 +29,10 @@
     <p class="card-text">{{patient.conditions}}</p>
   </div>
 </div>
-        </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Contact Details</h5>
-    <hr>
-    <p class="card-text"><strong>Full Name: </strong>{{patient.full_name}}</p>
-    <p class="card-text"><strong>Phone Number: </strong>{{patient.phone_number}}</p>
-    <p class="card-text"><strong>Email Address: </strong>{{patient.email}}</p>
-    <p class="card-text"><strong>Address Line 1:</strong> {{patient.AddressLine1}},<br>
-      {% if patient.AddressLine2 %}
-      <strong>Address Line 2:</strong> {{patient.AddressLine2}},<br>
-      {% endif %}
-      <strong>Town:</strong> {{patient.Town}},<br>
-      {% if patient.postcode %}
-      <strong>Postcode: </strong>{{patient.postcode}}<br>
-      {% endif %}</p>
-  </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+    </div>
 </div>
-        </div>
-    </div>
+
 </div>
 {% endblock %}

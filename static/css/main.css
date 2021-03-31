@@ -216,3 +216,7 @@ a:hover {
     background-color: white;
     border-radius: 10px;
 }
+.sidenav-link
+{
+    font-size: 10px;
+}
