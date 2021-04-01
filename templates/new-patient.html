@@ -1,11 +1,12 @@
-{% extends "base.html" %}
+{% extends "login-layout.html" %}
 {% block body %} 
 <h2 class="text-center my-5"> New Patient</h2>
 <form class="new_patient" method="POST" action="{{ url_for('new_patient') }}">
 <div class="row">
 <div class="col-sm-12 col-md-6 col-lg-6">
 <p class="small form">Contact Information</p>
-<input type="text" name="full_name" placeholder="Full Name" class="form-control" required>
+<input type="text" name="first_name" placeholder="First Name" class="form-control" required>
+<input type="text" name="surname" placeholder="Surname" class="form-control" required>
 <input type="email" name="email" placeholder="Email Address"  class="form-control" required>
 <input type="tel" name="phone_number" placeholder="Contact Number" class="form-control"  required>
 <input type = "text" name="AddressLine1" placeholder="Address Line 1" class="form-control"  required>

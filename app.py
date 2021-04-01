@@ -102,7 +102,8 @@ def new_patient():
         mongo.db.patients.insert_one(
             {
                 'patient_id': pid,
-                'full_name': request.form['full_name'],
+                'first_name': request.form['first_name'],
+                'surname': request.form['surname'],
                 'email': request.form['email'],
                 'phone_number': request.form['phone_number'],
                 'AddressLine1': request.form['AddressLine1'],
