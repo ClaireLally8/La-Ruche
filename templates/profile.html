@@ -1,11 +1,28 @@
 {% extends "login-layout.html" %}
 {% block body %}
-<h1 class="mt-5 ml-4">
+<nav class="navbar navbar-expand-lg nav-2">
+  <div class="collapse navbar-collapse" >
+       <a class="nav-link" href="{{ url_for('index') }}">Back<span class="sr-only">(current)</span></a>
+      <p>{{patient.patient_id}}</p>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Patient Profile<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Smart Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Billing</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid mt-3">
+  <h1 class="mt-5 ml-4">
     Patient Details
 </h1>
-
-<div class="container-fluid mt-3">
     <div class="row">
+        
         <div class="col-sm-12 col-md-5 col-lg-5">
         <div class="card">
   <div class="card-body">
@@ -30,7 +47,13 @@
   </div>
 </div>
     </div>
+
     <div class="col-sm-12 col-md-6 col-lg-6">
+           
+</div>
+
+        </div>
+        
     </div>
 </div>
 
