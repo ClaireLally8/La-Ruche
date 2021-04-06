@@ -32,7 +32,7 @@
         <p class="light-head d-none d-md-block">Gender</p>
     </div>
             <div class="col-lg-2 col-md-2">
-        <p class="light-head d-none d-md-block">Status</p>
+        <p class="light-head d-none d-md-block">Tags</p>
     </div>
     </div>
 {% for patients in patients %}
@@ -53,7 +53,7 @@
         <p>{{patients.gender}}</p>
     </div>
         <div class="col-lg-2 col-md-2">
-        <p>XYZ</p>
+        <button type="button" class="btn btn-primary tags"><i class="far fa-edit"></i></button>
     </div>
     </div>
     {% endfor %}
