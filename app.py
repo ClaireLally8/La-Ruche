@@ -145,6 +145,11 @@ def profile(patient_id):
 
 # INCOMPLETE - PLAN IS TO STORE INFORMATION IN A DB COLLECTION LINKED BY
 # USERS ._ID AND SHOW THEIR HISTORY.
+@app.route('/smart_form/<patient_id>', methods=['POST', 'GET'])
+def smart_form(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('smart_form.html', patient=this_patient)
+
 
 
 @app.route('/history')
