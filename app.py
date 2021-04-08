@@ -76,8 +76,6 @@ def register():
     return render_template('register.html')
 
 # Kills the session and renders the login page.
-
-
 @app.route('/logout')
 def logout():
     session['username'] = None
@@ -151,12 +149,6 @@ def smart_form(patient_id):
     return render_template('smart_form.html', patient=this_patient)
 
 
-
-@app.route('/history')
-def history():
-    return render_template('history.html')
-
-
 @app.route('/medication/<patient_id>')
 def medication(patient_id):
     patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
@@ -228,31 +220,6 @@ def delete_medication(medication_id, patient_id):
         'medication.html',
         medications=meds,
         patient=this_patient)
-
-
-@app.route('/symptoms')
-def symptoms():
-    return render_template('symptoms.html')
-
-
-@app.route('/care-plan')
-def care_plan():
-    return render_template('care-plan.html')
-
-
-@app.route('/tests')
-def tests():
-    return render_template('tests.html')
-
-
-@app.route('/reports')
-def reports():
-    return render_template('reports.html')
-
-
-@app.route('/analytics')
-def analytics():
-    return render_template('analytics.html')
 
 
 if __name__ == '__main__':

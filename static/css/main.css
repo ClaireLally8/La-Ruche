@@ -236,3 +236,11 @@ a:hover {
 {
     margin-left: 75%;
 }
+.patient-search
+{
+    width: 25%!important;
+}
+.test
+{
+    display: inline
+}

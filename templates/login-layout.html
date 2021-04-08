@@ -27,18 +27,17 @@
 <!-- Bootstrap row -->
 <div class="main-container">
 <!-- Sidebar navigation -->
-    <div id="skinny-nav-overlay" class="d-none"></div>
+  
     <div id="skinny-nav" class="z-depth-1">
       <div class="skinny-nav-profile d-flex justify-content-center">
           <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/logo-icon.png" alt="Full size logo" height="40" /></a>
       </div>
       <ul id="skinny-nav-list">
-        <li class="mt-3"><a href="#"><img class="pl-3" src ="../static/images/User.png" height="35" ><p class="skinny-nav-writing">Patients</p></a></li>
-        <li class="mt-3"><a href="#"><p class="skinny-nav-writing">Telehealth</p></a></li>
-        <li class="mt-3"><a href="#"><p class="skinny-nav-writing">Analytics</p></a></li>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <li class="mt-3"><a href="#"><p class="skinny-nav-writing">Settings</p></a></li>
-        <li class="mt-5"><a href="{{ url_for('logout') }}"><p class="skinny-nav-writing">Logout</p></a></li>
+         <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/patients.png" alt=""><p class="skinny-nav-writing">Patients</p></a></li>
+        <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/telehealth.png" alt=""><p class="skinny-nav-writing">Telehealth</p></a></li>
+         <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/analytics.png" alt=""><p class="skinny-nav-writing">Analytics</p></a></li>
+        <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/setting.png" alt=""><p class="skinny-nav-writing">Settings</p></a></li>
+         <li class="mt-3 d-flex justify-content-center"><a href="{{ url_for('logout') }}"><img  class="ml-4" src="../static/images/logout.png" alt=""><p class="skinny-nav-writing">Log Out</p></a></li>
       </ul>
     </div>
     <!--/. Sidebar navigation -->
