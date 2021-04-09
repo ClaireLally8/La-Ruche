@@ -33,13 +33,19 @@
     <p class="card-text"><strong>D.O.B: </strong>{{patient.dob}}</p>
     <p class="card-text"><strong>Gender: </strong>{{patient.gender}}</p>
     <p class="card-text"><strong>Ethnicity: </strong>{{patient.ethnicity}}</p>
-     <h5 class="card-title">Medical Information</h5>
+       <div class="d-flex justify-content-between">
+           <h5 class="card-title">Medical Information</h5>
+          <img src="../static/images/edit.png" height="15">
+      </div>
     <hr>
     <p class="card-text"><strong>Blood Type: </strong>{{patient.blood_type}}</p>
     <p class="card-text"><strong>Smoking Habits: </strong>{{patient.smoking_habits}}</p>
     <p class="card-text"><strong>Alcohol Consumption: </strong>{{patient.drinking_habits}}</p>
     <p class="card-text"><strong>Fitness: </strong>{{patient.exercise_habits}}</p>
-     <h5 class="card-title">Allergies & Conditions</h5>
+     <div class="d-flex justify-content-between">
+          <h5 class="card-title">Allergies & Conditions</h5>
+          <img src="../static/images/edit.png" height="15">
+      </div>
     <hr>
     <p class="card-text"><strong>Allergies:</strong></p>
     <p class="card-text">{{patient.allergies}}</p>
