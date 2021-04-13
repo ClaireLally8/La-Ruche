@@ -64,6 +64,47 @@
         </div>
         
     </div>
-    
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Personal Information</h5>
+                
+            </div>
+            <div class="modal-body">
+                <form  method="POST" action="{{ url_for('update_patient',patient_id=patient._id) }}">
+                    <div class="form-group">
+                        <labe>First Name</labe>
+                        <input type="text"  name="first" class="form-control" value="{{patient.first_name}}">
+                    </div>
+                    <div class="form-group">
+                           <labe>Last Name</labe>
+                        <input type="text" name="last" class="form-control" value="{{patient.surname}}">
+                    </div>
+                    <div class="form-group">
+                           <labe>Date of Birth</labe>
+                        <input type="date" name="dob" class="form-control" value="{{patient.dob}}">
+                    </div>
+                     <div class="form-group">
+                           <labe>Gender</labe>
+                        <select id="gender" name="gender" class="form-control" required>
+                        <option value="default" disabled selected>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                           <labe>Date of Birth</labe>
+                        <input type="text" name="ethnicity" class="form-control" value="{{patient.ethnicity}}">
+                    </div>
+ <button class="btn center" type="submit">Update
+      </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

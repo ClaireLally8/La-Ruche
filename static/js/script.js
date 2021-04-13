@@ -1,4 +1,3 @@
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-hamburgerBtn.addEventListener('click', () => {
-    sidemenunav.classList.toggle('open');
-});
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });

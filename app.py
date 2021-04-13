@@ -89,10 +89,9 @@ def search():
     patients = list(mongo.db.patients.find({"$text": {"$search": query}}))
     return render_template("search.html", patients=patients)
 
+
 # Enables the logged in user to create a new patient.  Stores this in the
 # DB under the collection Patients
-
-
 @app.route('/new', methods=['POST', 'GET'])
 def new_patient():
     if request.method == 'POST':
@@ -147,6 +146,22 @@ def profile(patient_id):
 def smart_form(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form.html', patient=this_patient)
+
+@app.route('/edit_patient/<patient_id>', methods=['POST', 'GET'])
+def edit_patient(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('edit_1.html', patient=this_patient)
+
+@app.route('/update_patient/<patient_id>', methods=['POST', 'GET' ])
+def update_patient(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    patients = mongo.db.patients
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"first_name":request.form.get('first')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"surname":request.form.get('last')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"dob":request.form.get('dob')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"gender":request.form.get('gender')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"ethnicity":request.form.get('ethnicity')}})
+    return render_template('profile.html', patient=this_patient)
 
 
 @app.route('/medication/<patient_id>')
