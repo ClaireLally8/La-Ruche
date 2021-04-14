@@ -1,5 +1,6 @@
 {% extends "login-layout.html" %}
 {% block body %}
+
 <nav class="navbar navbar-expand-lg nav-2">
   <div class="collapse navbar-collapse" >
        <a class="nav-link" href="{{ url_for('index') }}"><img src="../static/images/back.png" class="img-fluid"><span class="sr-only">(current)</span></a>
@@ -35,16 +36,16 @@
     <p class="card-text"><strong>Ethnicity: </strong>{{patient.ethnicity}}</p>
        <div class="d-flex justify-content-between">
            <h5 class="card-title">Medical Information</h5>
-          <a href="{{url_for('edit_patient', patient_id=patient._id)}}"> <img  src="../static/images/edit.png"  height="15"> </a>
+          <a href="{{url_for('edit_patient_med', patient_id=patient._id)}}"> <img  src="../static/images/edit.png"  height="15"> </a>
       </div>
     <hr>
     <p class="card-text"><strong>Blood Type: </strong>{{patient.blood_type}}</p>
     <p class="card-text"><strong>Smoking Habits: </strong>{{patient.smoking_habits}}</p>
     <p class="card-text"><strong>Alcohol Consumption: </strong>{{patient.drinking_habits}}</p>
-    <p class="card-text"><strong>Fitness: </strong>{{patient.exercise_habits}}</p>
+    <p class="card-text"><strong>Fitness: </strong>{{patient.exercise_frequency}}</p>
      <div class="d-flex justify-content-between">
           <h5 class="card-title">Allergies & Conditions</h5>
-          <a href="{{url_for('edit_patient', patient_id=patient._id)}}"> <img  src="../static/images/edit.png"  height="15"> </a>
+          <a href="{{url_for('edit_patient_allergy', patient_id=patient._id)}}"> <img  src="../static/images/edit.png"  height="15"> </a>
       </div>
     <hr>
     <p class="card-text"><strong>Allergies:</strong></p>
@@ -69,37 +70,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Personal Information</h5>
+                <h5 class="modal-title">Edit Medical Information</h5>
                 
             </div>
             <div class="modal-body">
-                <form  method="POST" action="{{ url_for('update_patient',patient_id=patient._id) }}">
+                <form  method="POST" action="{{ url_for('update_medical',patient_id=patient._id) }}">
                     <div class="form-group">
-                        <labe>First Name</labe>
-                        <input type="text"  name="first" class="form-control" value="{{patient.first_name}}">
+                        <labe>Blood Type</labe>
+                        <input type="text"  name="blood_type" class="form-control" value="{{patient.blood_type}}">
                     </div>
                     <div class="form-group">
-                           <labe>Last Name</labe>
-                        <input type="text" name="last" class="form-control" value="{{patient.surname}}">
+                           <labe>Smoking Habits</labe>
+                        <input type="text" name="smoking_habits" class="form-control" value="{{patient.smoking_habits}}">
                     </div>
                     <div class="form-group">
-                           <labe>Date of Birth</labe>
-                        <input type="date" name="dob" class="form-control" value="{{patient.dob}}">
+                           <labe>Alcohol Consumption</labe>
+                        <input type="text" name="drinking_habits" class="form-control" value="{{patient.drinking_habits}}">
                     </div>
                      <div class="form-group">
-                           <labe>Gender</labe>
-                        <select id="gender" name="gender" class="form-control" required>
-                        <option value="default" disabled selected>Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
+                           <labe>Fitness</labe>
+                        <input type="text" name="exercise_frequency" class="form-control" value="{{patient.exercise_frequency}}">
                     </div>
-                     <div class="form-group">
-                           <labe>Date of Birth</labe>
-                        <input type="text" name="ethnicity" class="form-control" value="{{patient.ethnicity}}">
-                    </div>
- <button class="btn center" type="submit">Update
+ <button class="btn center" type="submit" id="target" >Update
       </button>
                 </form>
             </div>

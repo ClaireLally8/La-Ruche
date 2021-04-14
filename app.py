@@ -150,9 +150,25 @@ def smart_form(patient_id):
 @app.route('/edit_patient/<patient_id>', methods=['POST', 'GET'])
 def edit_patient(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    return render_template('edit_1.html', patient=this_patient)
+    return render_template('update-personal-info.html', patient=this_patient)
 
 @app.route('/update_patient/<patient_id>', methods=['POST', 'GET' ])
+def update_medical(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    patients = mongo.db.patients
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"blood_type":request.form.get('blood_type')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"smoking_habits":request.form.get('smoking_habits')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"drinking_habits":request.form.get('drinking_habits')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"exercise_frequency":request.form.get('exercise_frequency')}})
+    return render_template('profile.html', patient=this_patient)
+
+@app.route('/edit_med/<patient_id>', methods=['POST', 'GET'])
+def edit_patient_med(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('update-med-info.html', patient=this_patient)
+
+
+@app.route('/update_medical/<patient_id>', methods=['POST', 'GET' ])
 def update_patient(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     patients = mongo.db.patients
@@ -161,6 +177,21 @@ def update_patient(patient_id):
     patients.update({"_id": ObjectId(patient_id)}, { "$set": {"dob":request.form.get('dob')}})
     patients.update({"_id": ObjectId(patient_id)}, { "$set": {"gender":request.form.get('gender')}})
     patients.update({"_id": ObjectId(patient_id)}, { "$set": {"ethnicity":request.form.get('ethnicity')}})
+    return render_template('profile.html', patient=this_patient)
+
+
+@app.route('/edit_allergy/<patient_id>', methods=['POST', 'GET'])
+def edit_patient_allergy(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('update-allergy-info.html', patient=this_patient)
+
+
+@app.route('/update_allergy/<patient_id>', methods=['POST', 'GET' ])
+def update_allergy(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    patients = mongo.db.patients
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"allergies":request.form.get('allergies')}})
+    patients.update({"_id": ObjectId(patient_id)}, { "$set": {"conditions":request.form.get('conditions')}})
     return render_template('profile.html', patient=this_patient)
 
 
