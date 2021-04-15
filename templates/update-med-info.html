@@ -74,7 +74,7 @@
                 
             </div>
             <div class="modal-body">
-                <form  method="POST" action="{{ url_for('update_medical',patient_id=patient._id) }}">
+                <form   method="POST" action="{{ url_for('update_medical',patient_id=patient._id) }}">
                     <div class="form-group">
                         <labe>Blood Type</labe>
                         <input type="text"  name="blood_type" class="form-control" value="{{patient.blood_type}}">
@@ -91,7 +91,7 @@
                            <labe>Fitness</labe>
                         <input type="text" name="exercise_frequency" class="form-control" value="{{patient.exercise_frequency}}">
                     </div>
- <button class="btn center" type="submit" id="target" >Update
+ <button class="btn center primary-button" type="submit" id="target" >Update
       </button>
                 </form>
             </div>

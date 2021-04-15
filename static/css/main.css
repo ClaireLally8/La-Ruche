@@ -128,7 +128,7 @@ h1 {
 }
 h5 {
     font-family: Roboto;
-    font-weight:200!important;
+    font-weight:400!important;
     color:var(--p-purple);
     font-size:16px;
 }
@@ -240,7 +240,9 @@ a:hover {
 {
     width: 25%!important;
 }
+
 .test
 {
-    display: inline
+    overflow-y: scroll;
+    max-height: 500px;
 }
