@@ -238,11 +238,37 @@ a:hover {
 }
 .patient-search
 {
-    width: 25%!important;
+    width: 400px!important;
 }
 
-.test
+.patient-list
 {
     overflow-y: scroll;
     max-height: 500px;
+}
+
+
+.search
+{
+    display: inline;
+}
+
+::-webkit-scrollbar{
+	width: 10px;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: #CBCBCB;
+	outline: 2px solid #FFF;
+	outline-offset: -2px;
+    border: .1px solid #B7B7B7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background-color: #909090;
 }

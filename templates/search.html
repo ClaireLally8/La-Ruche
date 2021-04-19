@@ -1,11 +1,16 @@
 {% extends "login-layout.html" %}
 {% block body %}
 <div class="row mt-5 mb-3">
-  <div class="col-lg-12 col-md-8 col-sm-10 offset-lg-7 offset-md-1 offset-sm-1">
-      <form  class="form-inline" action="{{ url_for('search') }}" method="POST">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 search">
+      <div class="d-flex  justify-content-start mx-4">
+          <h1 class="">Patient search</h1>
+      </div>
+      <div class="d-flex justify-content-end">
+         <form  class="form-inline" action="{{ url_for('search') }}" method="POST">
         <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search for your patient using their first or last name" aria-label="Search" name="query" id="query" minlength="3" required>
          <button type="submit" class="btn primary-button">Search</button>
     </form>
+      </div>
   </div>
 </div>
 <div class="row patient-headings mt-5">
@@ -32,7 +37,7 @@
         <p class="light-head d-none d-md-block">Tags</p>
     </div>
     </div>
-    <div class="test">
+    <div class="patient-list">
 {% for patients in patients %}
 <div class="row  patient-row my-4 py-3 z-depth-1 mx-4">
     <div class="col-lg-2 col-md-2 offset-lg-1">
