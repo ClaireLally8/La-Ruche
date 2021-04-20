@@ -268,8 +268,29 @@ def delete_medication(medication_id, patient_id):
         patient=this_patient)
 
 
+
+@app.route('/consulatation/<patient_id>', methods=['POST', 'GET' ])
+def new_consulatation(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    if request.method == 'POST':
+        mongo.db.consultations.insert_one(
+            {
+                'patient_id': this_patient,
+                'date_of_consulatation': request.form['date_of_consultation'],
+                'physician': request.form['physician'],
+                'reason': request.form['reason'],
+                'symptoms': request.form['symptoms'],
+                'examination': request.form['examination'],
+                'allergies': request.form['allergies'],
+                'order_blood': request.form['order_blood']
+
+            })
+    return render_template('smart_form.html', patient=this_patient)
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+
+
