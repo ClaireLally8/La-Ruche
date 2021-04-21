@@ -272,3 +272,13 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover{
 	background-color: #909090;
 }
+.smart-card
+{
+    width: 100%;
+    background-color: white;
+}
+.smart_nav
+{
+    font-size: 12px;
+    color: #02014f;
+}

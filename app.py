@@ -282,7 +282,9 @@ def new_consulatation(patient_id):
                 'symptoms': request.form['symptoms'],
                 'examination': request.form['examination'],
                 'allergies': request.form['allergies'],
-                'order_blood': request.form['order_blood']
+                'order_blood': request.form['order_blood'],
+                'impression': request.form['impression'],
+                'treatment': request.form['treatment']
 
             })
     return render_template('smart_form.html', patient=this_patient)
