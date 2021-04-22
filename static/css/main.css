@@ -272,6 +272,7 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover{
 	background-color: #909090;
 }
+
 .smart-card
 {
     width: 99%;
@@ -281,4 +282,22 @@ a:hover {
 {
     font-size: 12px;
     color: #02014f;
+}
+
+.smart-label
+{
+    font-size: 12px;
+    color: #02014f;
+}
+.mini-nav
+{
+    border-radius: 5px;
+    border: 1px solid #AABAC7;
+    height: 40px;
+    
+
+}
+.mini-nav-link
+{
+    font-size: 12px;
 }

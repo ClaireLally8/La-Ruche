@@ -1,6 +1,6 @@
 {% extends "login-layout.html" %}
 {% block body %}
-<nav class="navbar navbar-expand-lg nav-2">
+<nav class="navbar navbar-expand nav-2">
   <div class="collapse navbar-collapse" >
        <a class="nav-link" href="{{ url_for('index') }}"><img src="../static/images/back.png" class="img-fluid"><span class="sr-only">(current)</span></a>
     <ul class="navbar-nav ml-auto">
@@ -16,7 +16,7 @@
     </ul>
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-light z-depth-1">
+<nav class="navbar navbar-expand navbar-light">
   <div class="collapse navbar-collapse" id="navbarNav ">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -42,51 +42,62 @@
 </nav>
 <div class="container-fluid mt-3 smart-card">
     <div class="row z-depth-1 my-3">
-       <div class="col-lg-5 my-5">
+       <div class="col-lg-4 offset-lg-1 col-md-4 col-sm-4 col-xs-4 my-5">
     <form  method="POST" action="{{ url_for('new_consulatation',patient_id=patient._id) }}">
+        <input type="hidden" name="id" value="{{patient.patient_id}}">
   <div class="form-group">
-    <label>Date of Consulatation</label>
-    <input type="date" name="date_of_consultation" class="form-control" value="DD-MM-YYYY">
+    <label class="smart-label">Date of Consulatation</label>
+    <input type="date" name="date_of_consultation" class="form-control" value="DD-MM-YYYY" required>
   </div>
   <div class="form-group">
-    <label >Physician</label>
-    <input type="text" name="physician" class="form-control">
+    <label class="smart-label">Physician</label>
+    <input type="text" name="physician" class="form-control" required>
   </div>
   <div class="form-group">
-   <label >Reason for Consulatation</label>
-    <input type="text" name="reason" class="form-control">
+   <label class="smart-label">Reason for Consulatation</label>
+    <input type="text" name="reason" class="form-control" required>
   </div>
   <div class="form-group">
-   <label >Current Symptoms</label>
-    <input type="text" name="symptoms" class="form-control">
+   <label class="smart-label" >Current Symptoms</label>
+    <input type="text" name="symptoms" class="form-control" required>
   </div>
  <div class="form-group">
-    <label>Physical Examination</label>
-    <textarea class="form-control" name="examination" rows="3"></textarea>
+    <label class="smart-label">Physical Examination</label>
+    <textarea class="form-control" name="examination" rows="3" required></textarea>
   </div>
   <div class="form-group">
-   <label >Allergies & Conditions</label>
-    <input type="text"  name="allergies" class="form-control">
+   <label class="smart-label" >Allergies & Conditions</label>
+    <input type="text"  name="allergies" class="form-control" required>
   </div>
   <div>
-      <p>Order a Blood test</p>
+      <p class="smart-label">Order a Blood test</p>
   <div class="form-check form-check-inline">
   <input class="form-check-input  mx-1" type="radio" name="order_blood" id="inlineRadio1" value="Yes">
-  <label class="form-check-label mx-1" for="inlineRadio1">Yes</label>
-   <input class="form-check-input  mx-1" type="radio" name="order_blood" id="inlineRadio2" value="No">
-  <label class="form-check-label  mx-1" for="inlineRadio2">No</label>
+  <label class="form-check-label mx-1 smart-label" for="inlineRadio1">Yes</label>
+   <input class="form-check-input  mx-1 " type="radio" name="order_blood" id="inlineRadio2" value="No" required> 
+  <label class="form-check-label smart-label  mx-1" for="inlineRadio2" >No</label>
 </div>
 </div>
   <button type="submit" class="btn btn-primary">Submit</button>
        </div>
-       <div class="col-7 my-5">
+       <div class="col-lg-4 offset-lg-1 col-md-8 col-sm-8 col-xs-8 my-4">
+           <div class="mini-nav my-5 ">
+            <a class="mx-2 mini-nav-link try">medical history</a>
+            <a class="mx-2 mini-nav-link ">medical history</a>
+            <a class=" mx-2 mini-nav-link">medical history</a>
+            <a class=" mx-2 mini-nav-link">medical history</a>
+        </div>
+           <div class="card">
+               <h1>asdasda</h1>
+               
+           </div>
            <div class="form-group ">
-    <label>Impression</label>
-    <textarea class="form-control" name="impression" rows="3"></textarea>
+    <label class="smart-label">Impression</label>
+    <textarea class="form-control" name="impression" rows="3" required></textarea>
   </div>
   <div class="form-group">
-    <label>Treatment Plan</label>
-    <textarea class="form-control" name="treatment" rows="3"></textarea>
+    <label class="smart-label">Treatment Plan</label>
+    <textarea class="form-control" name="treatment" rows="3" required></textarea>
   </div>
        </div>
        </form>
