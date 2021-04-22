@@ -272,9 +272,6 @@ def delete_medication(medication_id, patient_id):
 @app.route('/consulatation/<patient_id>', methods=['POST', 'GET' ])
 def new_consulatation(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    this_test = mongo.db.consultations.find_one({"patient_id": request.form['id']})
-    print(this_test)
-    print("awdsasdasdasd")
     
     if request.method == 'POST':
         mongo.db.consultations.insert_one(
@@ -291,7 +288,7 @@ def new_consulatation(patient_id):
                 'treatment': request.form['treatment']
 
             })
-    return render_template('smart_form.html', patient=this_patient,consultations=this_test)
+    return render_template('smart_form.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
