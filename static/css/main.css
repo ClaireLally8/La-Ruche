@@ -200,6 +200,10 @@ a:hover {
     border-radius: 5px;
     vertical-align: middle;
 }
+.patient-details
+{
+    height: 700px;
+}
 .logged-in h1 {
     font-size:1.8rem;
 }
@@ -234,7 +238,8 @@ a:hover {
 }
 .timeline
 {
-    margin-left: 75%;
+   height: 700px;
+    overflow-y: scroll;
 }
 .patient-search
 {
@@ -300,4 +305,12 @@ a:hover {
 .mini-nav-link
 {
     font-size: 12px;
+}
+.timeline-info
+{
+    display: inline-block;
+}
+.reason-symptom
+{
+    margin-left: 50%;
 }

@@ -138,7 +138,7 @@ def dashboard(patient_id):
 @app.route('/profile/<patient_id>', methods=['POST', 'GET'])
 def profile(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    return render_template('profile.html', patient=this_patient)
+    return render_template('profile.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 # INCOMPLETE - PLAN IS TO STORE INFORMATION IN A DB COLLECTION LINKED BY
 # USERS ._ID AND SHOW THEIR HISTORY.
@@ -277,7 +277,7 @@ def new_consulatation(patient_id):
         mongo.db.consultations.insert_one(
             {
                 'patient_id': request.form['id'],
-                'date_of_consulatation': request.form['date_of_consultation'],
+                'date_of_consultation': request.form['date_of_consultation'],
                 'physician': request.form['physician'],
                 'reason': request.form['reason'],
                 'symptoms': request.form['symptoms'],

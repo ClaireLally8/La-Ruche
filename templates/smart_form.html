@@ -90,7 +90,8 @@
            <div class="card">
                {% for consult in consultations %}
                 {% if consult.patient_id == patient.patient_id %}
-                <h1>{{consult.date_of_consulatation}}</h1>
+                <p>{{consult.date_of_consultation}}</p>
+                 <p>{{consult.reason}}</p>
                 {% endif %}
                 {% endfor %}
            </div>
@@ -105,6 +106,7 @@
        </div>
        </form>
     </div>
+    
 </div>
 
 
