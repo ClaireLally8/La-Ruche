@@ -23,7 +23,7 @@
         <div class="col-sm-12 col-md-5 col-lg-5">
              <h1 class="mt-5 ml-4">Patient Details</h1>
         <div class="card">
-  <div class="card-body">
+  <div class="card-body patient-details">
         
       <div class="d-flex justify-content-between">
           <h5 class="card-title">Personal Information</h5>
@@ -58,7 +58,17 @@
      <div class="col-sm-12 col-md-5 col-lg-5">
              <h1 class="mt-5 ml-4">Timeline</h1>
         <div class="card">
-  <div class="card-body">
+  <div class="card-body timeline">
+     {% for consult in consultations %}
+                {% if consult.patient_id == patient.patient_id %}
+                <div>
+                    <h6  class="">{{consult.date_of_consultation}}</h6>
+                     <h5  class=" reason-symptom"> {{consult.reason}} : {{consult.symptoms}}</h5>
+                   <p class="reason-symptom">with {{consult.physician}}</p>
+                </div>
+
+                {% endif %}
+                {% endfor %}
 </div>
     </div>
 
@@ -97,6 +107,7 @@
             </div>
         </div>
     </div>
+    
 </div>
 
 {% endblock %}
