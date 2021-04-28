@@ -314,3 +314,12 @@ a:hover {
 {
     margin-left: 50%;
 }
+.smart-timeline
+{
+    height: 150px;
+    overflow: hidden;
+}
+.timeline_modal
+{
+    height: 1000px;
+}

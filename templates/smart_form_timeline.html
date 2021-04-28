@@ -87,7 +87,7 @@
             <a class=" mx-2 mini-nav-link">medical history</a>
             <a class=" mx-2 mini-nav-link">medical history</a>
         </div>
-            <a href="{{ url_for('gettimeline',patient_id=patient._id)}}">
+           <a href="{{ url_for('gettimeline',patient_id=patient._id)}}">
           <div class="card smart-timeline">
                {% for consult in consultations %}
                 {% if consult.patient_id == patient.patient_id %}
@@ -113,4 +113,27 @@
     </div>
     
 </div>
+
+
+
+ <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Timeline</h5>
+            </div>
+            <div class="modal-body">
+                  {% for consult in consultations %}
+                {% if consult.patient_id == patient.patient_id %}
+                <p>{{consult.date_of_consultation}}</p>
+                 <p>{{consult.reason}}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
 {% endblock %}

@@ -145,7 +145,7 @@ def profile(patient_id):
 @app.route('/smart_form/<patient_id>', methods=['POST', 'GET'])
 def smart_form(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    return render_template('smart_form.html', patient=this_patient)
+    return render_template('smart_form.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 @app.route('/edit_patient/<patient_id>', methods=['POST', 'GET'])
 def edit_patient(patient_id):
@@ -277,6 +277,7 @@ def new_consulatation(patient_id):
         mongo.db.consultations.insert_one(
             {
                 'patient_id': request.form['id'],
+                'consultation_type': "visit",
                 'date_of_consultation': request.form['date_of_consultation'],
                 'physician': request.form['physician'],
                 'reason': request.form['reason'],
@@ -289,6 +290,14 @@ def new_consulatation(patient_id):
 
             })
     return render_template('smart_form.html', patient=this_patient,consultations=mongo.db.consultations.find())
+
+
+@app.route('/smartform_timeline/<patient_id>', methods=['POST', 'GET'])
+def gettimeline(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('smart_form_timeline.html', patient=this_patient,consultations=mongo.db.consultations.find())
+
+
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
