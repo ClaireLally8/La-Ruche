@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font Awesome -->
@@ -23,33 +24,40 @@
 
 
   <body>
-<!-- Bootstrap NavBar -->
-<!-- Bootstrap row -->
-<div class="main-container">
-<!-- Sidebar navigation -->
-  
-    <div id="skinny-nav" class="z-depth-1">
-      <div class="skinny-nav-profile d-flex justify-content-center">
+    <!-- Bootstrap NavBar -->
+    <!-- Bootstrap row -->
+    <div class="main-container">
+      <!-- Sidebar navigation -->
+
+      <div id="skinny-nav" class="z-depth-1">
+        <div class="skinny-nav-profile d-flex justify-content-center">
           <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/logo-icon.png" alt="Full size logo" height="40" /></a>
+        </div>
+        <ul id="skinny-nav-list">
+          <li class="mt-3 d-flex justify-content-center"><a href="#"><img class="ml-4" src="../static/images/patients.png" alt="">
+              <p class="skinny-nav-writing">Patients</p>
+            </a></li>
+          <li class="mt-3 d-flex justify-content-center"><a href="#"><img class="ml-4" src="../static/images/telehealth.png" alt="">
+              <p class="skinny-nav-writing">Telehealth</p>
+            </a></li>
+          <li class="mt-3 d-flex justify-content-center"><a href="#"><img class="ml-4" src="../static/images/analytics.png" alt="">
+              <p class="skinny-nav-writing">Analytics</p>
+            </a></li>
+          <li class="mt-3 d-flex justify-content-center"><a href="#"><img class="ml-4" src="../static/images/setting.png" alt="">
+              <p class="skinny-nav-writing">Settings</p>
+            </a></li>
+          <li class="mt-3 d-flex justify-content-center"><a href="{{ url_for('logout') }}"><img class="ml-4" src="../static/images/logout.png" alt="">
+              <p class="skinny-nav-writing">Log Out</p>
+            </a></li>
+        </ul>
       </div>
-      <ul id="skinny-nav-list">
-         <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/patients.png" alt=""><p class="skinny-nav-writing">Patients</p></a></li>
-        <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/telehealth.png" alt=""><p class="skinny-nav-writing">Telehealth</p></a></li>
-         <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/analytics.png" alt=""><p class="skinny-nav-writing">Analytics</p></a></li>
-        <li class="mt-3 d-flex justify-content-center"><a href="#"><img  class="ml-4" src="../static/images/setting.png" alt=""><p class="skinny-nav-writing">Settings</p></a></li>
-         <li class="mt-3 d-flex justify-content-center"><a href="{{ url_for('logout') }}"><img  class="ml-4" src="../static/images/logout.png" alt=""><p class="skinny-nav-writing">Log Out</p></a></li>
-      </ul>
+      <!--/. Sidebar navigation -->
+      <div class="logged-in">
+        {% block body %}{% endblock %}
+      </div>
     </div>
-    <!--/. Sidebar navigation -->
-    <div class="logged-in">
-     {% block body %}{% endblock %}
-    </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->

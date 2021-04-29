@@ -236,7 +236,7 @@
           <i class="fas fa-tablets"></i>
           <p class="text-center pt-2">Take {{medication.amount}} in the Evening for {{medication.length}}</p>
           <p class="text-center"><strong>Notes:</strong> {{medication.notes}}</p>
-<div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between">
             <a class="heading-6 text-right" href="{{ url_for('delete_medication', patient_id=patient._id, medication_id=medication._id) }}">Delete</a>
             <a href="" class="heading-6 text-right" data-toggle="modal" data-target="#modalEveningEdit">Edit</a>
           </div>

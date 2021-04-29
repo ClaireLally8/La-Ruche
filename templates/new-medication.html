@@ -1,60 +1,60 @@
 {% extends "layout.html" %}
 {% block body %}
 <section class="section">
-<h2> New Medicine</h2>
-<div class="container">
-<form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
-<div class="form-group">
-<div class="row">
-<div class="col-sm-12 col-md-6 col-lg-6">
-<input type="text" name="medication_name" placeholder="Medication Name" class="form-control mb-4" required>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-6">
-<input type="text" name="dosage" placeholder="Dosage (in mg)" class="form-control mb-4" required>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-6">
-<input type="text" name="amount" placeholder="Amount to be taken" class="form-control mb-4" required>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-3">
-<input type="date" name="start" placeholder="Start Date" class="form-control mb-4"  required>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-3">
-<input type="date" name="end" placeholder="End Date" class="form-control mb-4"  required>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12 col-md-4 col-lg-4">
-<select id="morning" name="morning" class="form-control mb-4" required>
-<option value="False" disabled selected>Morning?</option>
-    <option value="True">True</option>
-    <option value="False">False</option>
-</select>
-</div>
-<div class="col-sm-12 col-md-4 col-lg-4">
-<select id="afternoon" name="afternoon" class="form-control mb-4" required>
-<option value="False" disabled selected>Afternoon?</option>
-    <option value="True">True</option>
-    <option value="False">False</option>
-</select>
-</div>
-<div class="col-sm-12 col-md-4 col-lg-4">
-<select id="evening" name="evening" class="form-control mb-4" required>
-<option value="False" disabled selected>Evening?</option>
-    <option value="True">True</option>
-    <option value="False">False</option>
-</select>
-</div>
-</div>
-<input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
-<input type="hidden" name="id" value="{{patient.patient_id}}">
-<div class="d-flex justify-content-between mt-3">
-<a href="{{ url_for('medication', patient_id=patient._id) }}" class="btn secondary-button btn-block w-10">Back</a>
-<button type="submit" class="btn primary-button btn-block w-25">Save</button>
-</div>
-</div>
-</form>
-</div>
+  <h2> New Medicine</h2>
+  <div class="container">
+    <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <input type="text" name="medication_name" placeholder="Medication Name" class="form-control mb-4" required>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <input type="text" name="dosage" placeholder="Dosage (in mg)" class="form-control mb-4" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <input type="text" name="amount" placeholder="Amount to be taken" class="form-control mb-4" required>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <input type="date" name="start" placeholder="Start Date" class="form-control mb-4" required>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <input type="date" name="end" placeholder="End Date" class="form-control mb-4" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <select id="morning" name="morning" class="form-control mb-4" required>
+              <option value="False" disabled selected>Morning?</option>
+              <option value="True">True</option>
+              <option value="False">False</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <select id="afternoon" name="afternoon" class="form-control mb-4" required>
+              <option value="False" disabled selected>Afternoon?</option>
+              <option value="True">True</option>
+              <option value="False">False</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <select id="evening" name="evening" class="form-control mb-4" required>
+              <option value="False" disabled selected>Evening?</option>
+              <option value="True">True</option>
+              <option value="False">False</option>
+            </select>
+          </div>
+        </div>
+        <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
+        <input type="hidden" name="id" value="{{patient.patient_id}}">
+        <div class="d-flex justify-content-between mt-3">
+          <a href="{{ url_for('medication', patient_id=patient._id) }}" class="btn secondary-button btn-block w-10">Back</a>
+          <button type="submit" class="btn primary-button btn-block w-25">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </section>
 {% endblock %}

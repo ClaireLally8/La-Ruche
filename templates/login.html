@@ -2,18 +2,18 @@
 {% block body %}
 <div class="row mt-5 mb-3 card mx-5">
   <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-3 offset-md-2 offset-sm-1 mt-5">
-      <img src="static/images/login-logo.png" class="image-fluid my-5 offset-lg-3  offset-md-2 offset-sm-1">
+    <img src="static/images/login-logo.png" class="image-fluid my-5 offset-lg-3  offset-md-2 offset-sm-1">
     <h2 class="text-center">Welcome</h2>
     <p class="text-center">Electronic Medical Records Login for Maternité de Bécédi</p>
     <form method="POST" class="mb-5" action="{{ url_for('login') }}">
-            <label for="username" class="pb-1 pt-3">Username</label>
-            <input type="text" id="username" name="username" class="form-control z-depth-1" placeholder = "Enter your username" required>
-            <label for="password" class="pb-1 pt-3">Password</label>
-            <input type="password" id="password" name="password" class="form-control z-depth-1" placeholder="Enter your password" required>
-          <button class="btn-block mt-5 mb-3 btn primary-button" type="submit">Login</button>
+      <label for="username" class="pb-1 pt-3">Username</label>
+      <input type="text" id="username" name="username" class="form-control z-depth-1" placeholder="Enter your username" required>
+      <label for="password" class="pb-1 pt-3">Password</label>
+      <input type="password" id="password" name="password" class="form-control z-depth-1" placeholder="Enter your password" required>
+      <button class="btn-block mt-5 mb-3 btn primary-button" type="submit">Login</button>
     </form>
-       <p class="text-center forgot-password"><a>Forgot password?</a></p>
-        <br><br>
+    <p class="text-center forgot-password"><a>Forgot password?</a></p>
+    <br><br>
   </div>
 </div>
 

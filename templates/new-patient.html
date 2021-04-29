@@ -1,45 +1,45 @@
 {% extends "login-layout.html" %}
-{% block body %} 
+{% block body %}
 <h2 class="text-center my-5"> New Patient</h2>
 <form class="new_patient" method="POST" action="{{ url_for('new_patient') }}">
-<div class="row">
-<div class="col-sm-12 col-md-6 col-lg-6">
-<p class="small form">Contact Information</p>
-<input type="text" name="first_name" placeholder="First Name" class="form-control" required>
-<input type="text" name="surname" placeholder="Surname" class="form-control" required>
-<input type="email" name="email" placeholder="Email Address"  class="form-control" required>
-<input type="tel" name="phone_number" placeholder="Contact Number" class="form-control"  required>
-<input type = "text" name="AddressLine1" placeholder="Address Line 1" class="form-control"  required>
-<input type = "text" name="AddressLine2" placeholder="Address Line 2" class="form-control" >
-<input type="text" name="Town" placeholder="Town" class="form-control"  required>
-<input type="text" name="postcode" placeholder="Postcode" class="form-control" >
-</div>
-<div class="col-sm-12 col-md-6 col-lg-6">
-<p class="small form">Patient Information</p>
-<input type="date" name="dob" placeholder="Date of Birth" class="form-control"  required>
-<input type="text" name="ethnicity" placeholder="Ethnicity"  class="form-control" required>
-<select id="gender" name="gender" class="form-control" required>
-<option value="default" disabled selected>Gender</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-    <option value="Other">Other</option>
-  </select>
-<select id="blood-type" name="blood_type" class="form-control" required>
-    <option value="default" disabled selected>Blood Type</option>
-    <option value="A">A</option>
-    <option value="AB">AB</option>
-    <option value="O">O</option>
-  </select>
-<input type= "text" name="smoking_habits" placeholder="Smoking Habits" class="form-control" required>
-<input type = "text" name="drinking_habits" placeholder="Drinking Habits" class="form-control" required>
-<input type = "text" name="exercise_frequency" placeholder="Exercise Habits" class="form-control" required>
-<input type = "text" name="allergies" placeholder="Allergies" class="form-control" required>
-<input type = "text" name="conditions" placeholder="Conditions" class="form-control" required>
-</div>
-</div>
-<div class="d-flex justify-content-between mt-3 py-2">
-<a href="{{ url_for('index') }}" class="w-10 btn secondary-button btn-block">Back</a>
-<button type="submit" class="w-25 btn primary-button btn-block">Save</button>
-</div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <p class="small form">Contact Information</p>
+      <input type="text" name="first_name" placeholder="First Name" class="form-control" required>
+      <input type="text" name="surname" placeholder="Surname" class="form-control" required>
+      <input type="email" name="email" placeholder="Email Address" class="form-control" required>
+      <input type="tel" name="phone_number" placeholder="Contact Number" class="form-control" required>
+      <input type="text" name="AddressLine1" placeholder="Address Line 1" class="form-control" required>
+      <input type="text" name="AddressLine2" placeholder="Address Line 2" class="form-control">
+      <input type="text" name="Town" placeholder="Town" class="form-control" required>
+      <input type="text" name="postcode" placeholder="Postcode" class="form-control">
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <p class="small form">Patient Information</p>
+      <input type="date" name="dob" placeholder="Date of Birth" class="form-control" required>
+      <input type="text" name="ethnicity" placeholder="Ethnicity" class="form-control" required>
+      <select id="gender" name="gender" class="form-control" required>
+        <option value="default" disabled selected>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="blood-type" name="blood_type" class="form-control" required>
+        <option value="default" disabled selected>Blood Type</option>
+        <option value="A">A</option>
+        <option value="AB">AB</option>
+        <option value="O">O</option>
+      </select>
+      <input type="text" name="smoking_habits" placeholder="Smoking Habits" class="form-control" required>
+      <input type="text" name="drinking_habits" placeholder="Drinking Habits" class="form-control" required>
+      <input type="text" name="exercise_frequency" placeholder="Exercise Habits" class="form-control" required>
+      <input type="text" name="allergies" placeholder="Allergies" class="form-control" required>
+      <input type="text" name="conditions" placeholder="Conditions" class="form-control" required>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between mt-3 py-2">
+    <a href="{{ url_for('index') }}" class="w-10 btn secondary-button btn-block">Back</a>
+    <button type="submit" class="w-25 btn primary-button btn-block">Save</button>
+  </div>
 </form>
 {% endblock %}
