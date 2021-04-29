@@ -1,6 +1,5 @@
 {% extends "login-layout.html" %}
 {% block body %}
-
 <nav class="navbar navbar-expand-lg nav-2">
   <div class="collapse navbar-collapse">
     <a class="nav-link" href="{{ url_for('index') }}"><img src="../static/images/back.png" class="img-fluid"><span class="sr-only">(current)</span></a>
@@ -17,7 +16,6 @@
     </ul>
   </div>
 </nav>
-
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-sm-12 col-md-5 col-lg-5">
@@ -66,22 +64,17 @@
             <h5 class=" reason-symptom"> {{consult.consultation_type}} : {{consult.symptoms}}</h5>
             <p class="reason-symptom">with {{consult.physician}}</p>
           </div>
-
           {% endif %}
           {% endfor %}
         </div>
       </div>
-
     </div>
-
   </div>
-
   <div id="myModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Edit Personal Information</h5>
-
         </div>
         <div class="modal-body">
           <form method="POST" action="{{ url_for('update_allergy',patient_id=patient._id) }}">
@@ -99,7 +92,5 @@
         </div>
       </div>
     </div>
-
   </div>
-
   {% endblock %}

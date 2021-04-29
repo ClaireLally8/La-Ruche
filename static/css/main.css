@@ -319,7 +319,8 @@ a:hover {
     height: 150px;
     overflow: hidden;
 }
-.timeline_modal
+
+.hello:link
 {
-    height: 1000px;
+     text-decoration: none;
 }

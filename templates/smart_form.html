@@ -41,9 +41,10 @@
   </div>
 </nav>
 <div class="container-fluid mt-3 smart-card">
+    <form method="POST" action="{{ url_for('new_consulatation',patient_id=patient._id) }}">
   <div class="row z-depth-1 my-3">
+       
     <div class="col-lg-4 offset-lg-1 col-md-4 col-sm-4 col-xs-4 my-5">
-      <form method="POST" action="{{ url_for('new_consulatation',patient_id=patient._id) }}">
         <input type="hidden" name="id" value="{{patient.patient_id}}">
         <div class="form-group">
           <label class="smart-label">Date of Consulatation</label>
@@ -87,7 +88,7 @@
         <a class=" mx-2 mini-nav-link">medical history</a>
         <a class=" mx-2 mini-nav-link">medical history</a>
       </div>
-      <a href="{{ url_for('gettimeline',patient_id=patient._id)}}">
+        <a href="{{ url_for('gettimeline',patient_id=patient._id)}}" class="hello">
         <div class="card smart-timeline">
           {% for consult in consultations %}
           {% if consult.patient_id == patient.patient_id %}
@@ -105,12 +106,9 @@
         <label class="smart-label">Treatment Plan</label>
         <textarea class="form-control" name="treatment" rows="3" required></textarea>
       </div>
-
     </div>
 
-    </form>
-
   </div>
-
+    </form>
 </div>
 {% endblock %}
