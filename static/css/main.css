@@ -298,13 +298,19 @@ a:hover {
 {
     border-radius: 5px;
     border: 1px solid #AABAC7;
-    height: 40px;
+   
     
-
+    
 }
 .mini-nav-link
 {
     font-size: 12px;
+    
+}
+.mini-nav-link-active
+{
+    background-color: #5cc9ca;
+    overflow: hidden;
 }
 .timeline-info
 {
@@ -316,11 +322,27 @@ a:hover {
 }
 .smart-timeline
 {
-    height: 150px;
+    height: 180px;
     overflow: hidden;
 }
 
 .hello:link
 {
      text-decoration: none;
+}
+.form-control:focus {
+  border-color: #5cc9ca;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #5cc9ca;
+}
+.modal-close
+{
+    font-size: 15px;
+     color:var(--p-purple)!important;
+}
+@media only screen and (max-width: 773px) {
+  .mini-nav-link
+{
+    font-size: 10px;
+    
+}
 }

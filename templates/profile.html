@@ -61,6 +61,7 @@
           {% if consult.patient_id == patient.patient_id %}
           <div>
             <h6 class="">{{consult.date_of_consultation}}</h6>
+            <h6 class="">{{consult.day_of_consultation}}</h6>
             <h5 class=" reason-symptom"> {{consult.consultation_type}} : {{consult.symptoms}}</h5>
             <p class="reason-symptom">with {{consult.physician}}</p>
           </div>
@@ -71,4 +72,5 @@
       </div>
     </div>
   </div>
+    
   {% endblock %}

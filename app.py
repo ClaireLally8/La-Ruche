@@ -5,6 +5,7 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
+from datetime import datetime as date
 import bcrypt
 if path.exists("env.py"):
     import env
@@ -279,6 +280,7 @@ def new_consulatation(patient_id):
                 'patient_id': request.form['id'],
                 'consultation_type': "visit",
                 'date_of_consultation': request.form['date_of_consultation'],
+                'day_of_consultation': date.today().strftime("%A"),
                 'physician': request.form['physician'],
                 'reason': request.form['reason'],
                 'symptoms': request.form['symptoms'],

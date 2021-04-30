@@ -79,27 +79,42 @@
             <label class="form-check-label smart-label  mx-1" for="inlineRadio2">No</label>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+       <button type="submit" class="btn primary-button my-5">Submit</button>
     </div>
     <div class="col-lg-4 offset-lg-1 col-md-8 col-sm-8 col-xs-8 my-4">
-      <div class="mini-nav my-5 ">
-        <a class="mx-2 mini-nav-link try">medical history</a>
-        <a class="mx-2 mini-nav-link ">medical history</a>
-        <a class=" mx-2 mini-nav-link">medical history</a>
-        <a class=" mx-2 mini-nav-link">medical history</a>
+      <div class="mini-nav my-5 container-fluid">
+          <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mini-nav-link-active">
+                   <a class="mini-nav-link">Medical History</a>
+              </div>
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                   <a class="mini-nav-link">Surgical History</a>
+              </div>
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                   <a class="mini-nav-link">Social History</a>
+              </div>
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                   <a class="mini-nav-link">Consulatations</a>
+              </div>
+          </div>
       </div>
         <a href="{{ url_for('gettimeline',patient_id=patient._id)}}" class="hello">
         <div class="card smart-timeline">
           {% for consult in consultations %}
           {% if consult.patient_id == patient.patient_id %}
-          <p>{{consult.date_of_consultation}}</p>
-          <p>{{consult.reason}}</p>
+           <div>
+            <h6 class="">{{consult.date_of_consultation}}</h6>
+            <h6 class="">{{consult.day_of_consultation}}</h6>
+            <h5 class=" reason-symptom"> {{consult.consultation_type}} : {{consult.symptoms}}</h5>
+            <p class="reason-symptom">with {{consult.physician}}</p>
+          </div>
+
           {% endif %}
           {% endfor %}
         </div>
       </a>
       <div class="form-group ">
-        <label class="smart-label">Impression</label>
+        <label class="smart-label mt-4">Impression</label>
         <textarea class="form-control" name="impression" rows="3" required></textarea>
       </div>
       <div class="form-group">
@@ -118,6 +133,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Timeline</h5>
+         <a class="modal-close text-right"  href="{{url_for('smart_form', patient_id=patient._id)}}">Close</a>
       </div>
       <div class="modal-body smart-form-timeline">
       </div>
