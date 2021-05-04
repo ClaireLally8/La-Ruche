@@ -299,7 +299,15 @@ def gettimeline(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_timeline.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
+@app.route('/smartform_surgical/<patient_id>', methods=['POST', 'GET'])
+def smart_form_surgical(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('smart_form_surgical.html', patient=this_patient)
 
+@app.route('/smartform_social/<patient_id>', methods=['POST', 'GET'])
+def smart_form_social(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('smart_form_social.html', patient=this_patient)
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'

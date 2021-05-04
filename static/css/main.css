@@ -297,14 +297,12 @@ a:hover {
 .mini-nav
 {
     border-radius: 5px;
-    border: 1px solid #AABAC7;
-   
-    
-    
+    border: 1px solid #AABAC7; 
 }
 .mini-nav-link
 {
     font-size: 12px;
+    color: black;
     
 }
 .mini-nav-link-active
@@ -330,6 +328,7 @@ a:hover {
 {
      text-decoration: none;
 }
+
 .form-control:focus {
   border-color: #5cc9ca;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #5cc9ca;

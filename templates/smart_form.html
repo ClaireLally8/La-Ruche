@@ -88,10 +88,10 @@
                    <a class="mini-nav-link">Medical History</a>
               </div>
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                   <a class="mini-nav-link">Surgical History</a>
+                   <a class="mini-nav-link" href="{{url_for('smart_form_surgical', patient_id=patient._id)}}">Surgical History</a>
               </div>
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                   <a class="mini-nav-link">Social History</a>
+                   <a class="mini-nav-link" ref="{{url_for('smart_form_social', patient_id=patient._id)}}">Social History</a>
               </div>
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                    <a class="mini-nav-link">Consulatations</a>
