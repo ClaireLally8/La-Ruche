@@ -10,43 +10,30 @@
             <input type="text" name="medication_name" placeholder="Medication Name" class="form-control mb-4" required>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-6">
-            <input type="text" name="dosage" placeholder="Dosage (in mg)" class="form-control mb-4" required>
+            <input type="text" name="Route" placeholder="Route" class="form-control mb-4" required>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-6">
-            <input type="text" name="amount" placeholder="Amount to be taken" class="form-control mb-4" required>
-          </div>
           <div class="col-sm-12 col-md-6 col-lg-3">
             <input type="date" name="start" placeholder="Start Date" class="form-control mb-4" required>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-3">
             <input type="date" name="end" placeholder="End Date" class="form-control mb-4" required>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <select id="morning" name="morning" class="form-control mb-4" required>
-              <option value="False" disabled selected>Morning?</option>
-              <option value="True">True</option>
-              <option value="False">False</option>
-            </select>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <input type="text" name="morning" placeholder="Amount to be taken morning" class="form-control mb-4" required>
           </div>
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <select id="afternoon" name="afternoon" class="form-control mb-4" required>
-              <option value="False" disabled selected>Afternoon?</option>
-              <option value="True">True</option>
-              <option value="False">False</option>
-            </select>
+           <div class="col-sm-12 col-md-12 col-lg-6">
+            <input type="text" name="day" placeholder="Amount to be taken day" class="form-control mb-4" required>
           </div>
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <select id="evening" name="evening" class="form-control mb-4" required>
-              <option value="False" disabled selected>Evening?</option>
-              <option value="True">True</option>
-              <option value="False">False</option>
-            </select>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <input type="text" name="evening" placeholder="Amount to be taken evening" class="form-control mb-4" required>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <input type="text" name="night" placeholder="Amount to be taken night" class="form-control mb-4" required>
           </div>
         </div>
+      
         <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
         <input type="hidden" name="id" value="{{patient.patient_id}}">
         <div class="d-flex justify-content-between mt-3">
