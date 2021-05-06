@@ -143,17 +143,17 @@ def profile(patient_id):
 
 # INCOMPLETE - PLAN IS TO STORE INFORMATION IN A DB COLLECTION LINKED BY
 # USERS ._ID AND SHOW THEIR HISTORY.
-@app.route('/smart_form/<patient_id>', methods=['POST', 'GET'])
+@app.route('/smart/form/<patient_id>', methods=['POST', 'GET'])
 def smart_form(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
-@app.route('/edit_patient/<patient_id>', methods=['POST', 'GET'])
+@app.route('/edit/patient/<patient_id>', methods=['POST', 'GET'])
 def edit_patient(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('update-personal-info.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
-@app.route('/update_patient/<patient_id>', methods=['POST', 'GET' ])
+@app.route('/update/patient/<patient_id>', methods=['POST', 'GET' ])
 def update_medical(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     patients = mongo.db.patients
@@ -163,13 +163,13 @@ def update_medical(patient_id):
     patients.update({"_id": ObjectId(patient_id)}, { "$set": {"exercise_frequency":request.form.get('exercise_frequency')}})
     return render_template('profile.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
-@app.route('/edit_med/<patient_id>', methods=['POST', 'GET'])
+@app.route('/edit/med/<patient_id>', methods=['POST', 'GET'])
 def edit_patient_med(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('update-med-info.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 
-@app.route('/update_medical/<patient_id>', methods=['POST', 'GET' ])
+@app.route('/update/medical/<patient_id>', methods=['POST', 'GET' ])
 def update_patient(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     patients = mongo.db.patients
@@ -181,13 +181,13 @@ def update_patient(patient_id):
     return render_template('profile.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 
-@app.route('/edit_allergy/<patient_id>', methods=['POST', 'GET'])
+@app.route('/edit/allergy/<patient_id>', methods=['POST', 'GET'])
 def edit_patient_allergy(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('update-allergy-info.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 
-@app.route('/update_allergy/<patient_id>', methods=['POST', 'GET' ])
+@app.route('/update/allergy/<patient_id>', methods=['POST', 'GET' ])
 def update_allergy(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     patients = mongo.db.patients
@@ -206,7 +206,7 @@ def medication(patient_id):
         patient=patient)
 
 
-@app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
+@app.route('/new/meds/<patient_id>', methods=['POST', 'GET'])
 def new_medicine(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     if request.method == 'POST':
@@ -294,22 +294,22 @@ def new_consulatation(patient_id):
     return render_template('smart_form.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
 
-@app.route('/smartform_timeline/<patient_id>', methods=['POST', 'GET'])
+@app.route('/smartform/timeline/<patient_id>', methods=['POST', 'GET'])
 def gettimeline(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_timeline.html', patient=this_patient,consultations=mongo.db.consultations.find())
 
-@app.route('/smartform_surgical/<patient_id>', methods=['POST', 'GET'])
+@app.route('/smartform/surgical/<patient_id>', methods=['POST', 'GET'])
 def smart_form_surgical(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_surgical.html', patient=this_patient)
 
-@app.route('/smartform_social/<patient_id>', methods=['POST', 'GET'])
+@app.route('/smartform/social/<patient_id>', methods=['POST', 'GET'])
 def smart_form_social(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_social.html', patient=this_patient)
 
-@app.route('/smartform_consultation/<patient_id>', methods=['POST', 'GET'])
+@app.route('/smartform/consultation/<patient_id>', methods=['POST', 'GET'])
 def smart_form_consultation(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_consultation.html', patient=this_patient)
