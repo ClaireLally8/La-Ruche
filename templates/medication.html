@@ -4,61 +4,35 @@
 <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
   <h6 class="heading-6 mb-4">Add Medication</h6>
 </a>
-
-<div class="row patient-headings mt-5">
-  <div class="col-lg-2 col-md-2">
-  </div>
-</div>
 <div class="row patient-headings mt-5 mx-5">
-  <div class="col-lg-2 col-md-2 ">
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center ">
     <p class="light-head d-none d-md-block ">Medication</p>
   </div>
-  <div class="col-lg-2 col-md-3">
-    <p class="light-head d-none d-md-block">Period</p>
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Duration</p>
   </div>
-  <div class="col-lg-2 col-md-3">
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">Route</p>
   </div>
-  <div class="col-lg-1 col-md-2 mx-3">
-    <p class="light-head d-none d-md-block">Morning</p>
-  </div>
-  <div class="col-lg-1 col-md-2  mx-3">
-    <p class="light-head d-none d-md-block">Day</p>
-  </div>
-  <div class="col-lg-1 col-md-2  mx-3">
-    <p class="light-head d-none d-md-block">Evening</p>
-  </div>
-  <div class="col-lg-1 col-md-2  mx-3">
-    <p class="light-head d-none d-md-block">Night</p>
+   <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Dosage</p>
   </div>
 </div>
-
 <div class="patient-list">
   {% for medication in medications %}
     {% if medication.patient_id == patient.patient_id %}
-  <div class="row  patient-row my-4 py-3 z-depth-1 mx-4">
-    <div class="col-lg-2 col-md-2">
+  <div class="row  patient-row my-4 py-3 z-depth-1 mx-5">
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
          <p>{{medication.medication_name}}</p>
     </div>
-    <div class="col-lg-2 col-md-2">
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
        <p class="startend">{{medication.start}}:{{medication.end}}</p>
     </div>
-    <div class="col-lg-2 col-md-1">
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
       {{medication.Route}}
     </div>
-    <img src="static/images/line.svg" class="img-fluid ">
-    <div class="col-lg-1 col-md-2 mx-3">
-      {{medication.morning}}
-    </div>
-    <div class="col-lg-1 col-md-2 mx-3">
-       {{medication.day}}
-    </div>
-    
-    <div class="col-lg-1 col-md-2 mx-3">
-         {{medication.evening}}
-    </div>
-    <div class="col-lg-1 col-md-2 mx-3">
-         {{medication.night}}
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+      {{medication.dosage}}
     </div>
   </div>
    {% endif %}

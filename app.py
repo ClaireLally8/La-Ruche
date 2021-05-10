@@ -217,10 +217,7 @@ def new_medicine(patient_id):
                 'Route': request.form['Route'],
                 'start': request.form['start'],
                 'end': request.form['end'],
-                'morning': request.form['morning'],
-                'day': request.form['day'],
-                'evening': request.form['evening'],
-                'night': request.form['night'],
+                'dosage': request.form['dosage'],
                 'complete': False
             })
         meds = list(mongo.db.medication.find())
@@ -244,10 +241,6 @@ def edit_medication(medication_id, patient_id):
         'dosage': request.form['dosage'],
         'start': request.form['start'],
         'end': request.form['end'],
-        'amount': request.form['amount'],
-        'morning': request.form['morning'],
-        'afternoon': request.form['afternoon'],
-        'evening': request.form['evening'],
         'notes': request.form['notes'],
         'complete': False
     })
