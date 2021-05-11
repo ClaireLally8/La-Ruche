@@ -1,26 +1,70 @@
 {% extends "layout.html" %}
 {% block body %}
-<section class="section">
-  <h2> New Medicine</h2>
-  <div class="container">
-    <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
+<h2 class="text-center my-5">Medication for {{patient.full_name}}</h2>
+<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <h6 class="heading-6 mb-4">Add Medication</h6>
+</a>
+<div class="row patient-headings mt-5 mx-5">
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center ">
+    <p class="light-head d-none d-md-block ">Medication</p>
+  </div>
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Duration</p>
+  </div>
+  <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Route</p>
+  </div>
+   <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Dosage</p>
+  </div>
+</div>
+<div class="patient-list">
+  {% for medication in medications %}
+    {% if medication.patient_id == patient.patient_id %}
+  <div class="row  patient-row my-4 py-3 z-depth-1 mx-5">
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+         <p>{{medication.medication_name}}</p>
+    </div>
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+       <p class="startend">{{medication.start}}:{{medication.end}}</p>
+    </div>
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+      {{medication.Route}}
+    </div>
+    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
+      {{medication.dosage}}
+    </div>
+  </div>
+   {% endif %}
+  {% endfor %}
+</div>
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Personal Information</h5>
+        </div>
+        <div class="modal-body">
+         <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
       <div class="form-group">
         <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="col-sm-12 col-md-6 col-lg-12">
             <input type="text" name="medication_name" placeholder="Medication Name" class="form-control mb-4" required>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="col-sm-12 col-md-6 col-lg-12">
             <input type="text" name="Route" placeholder="Route" class="form-control mb-4" required>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="col-sm-12 col-md-6 col-lg-12">
             <input type="date" name="start" placeholder="Start Date" class="form-control mb-4" required>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="col-sm-12 col-md-6 col-lg-12">
             <input type="date" name="end" placeholder="End Date" class="form-control mb-4" required>
           </div>
-          <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="col-sm-12 col-md-12 col-lg-12">
             <input type="text" name="dosage" placeholder="Dosage" class="form-control mb-4" required>
           </div>
         </div>
@@ -33,6 +77,16 @@
         </div>
       </div>
     </form>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+
 {% endblock %}
+
+
+
+
+
+
+
