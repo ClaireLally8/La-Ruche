@@ -1,9 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
 <h2 class="text-center my-5">Medication for {{patient.full_name}}</h2>
-<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
-  <h6 class="heading-6 mb-4">Add Medication</h6>
-</a>
 <div class="row patient-headings mt-5 mx-5">
   <div class="col-lg-3 col-md-3 d-flex justify-content-center ">
     <p class="light-head d-none d-md-block ">Medication</p>
@@ -38,13 +35,23 @@
    {% endif %}
   {% endfor %}
 </div>
+ <div class="float-right ">
+        <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <img src="../static/images/new_tag.png" alt="New Medication" >
+</a>
+    </div>
+     <div class="col-lg-1 float-right">
+        <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <img src="../static/images/new_med.png" alt="New Medication" >
+</a>
+    </div>
 
 
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Personal Information</h5>
+          <h5 class="modal-title">Add Medication</h5>
         </div>
         <div class="modal-body">
          <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
@@ -72,7 +79,6 @@
         <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
         <input type="hidden" name="id" value="{{patient.patient_id}}">
         <div class="d-flex justify-content-between mt-3">
-          <a href="{{ url_for('medication', patient_id=patient._id) }}" class="btn secondary-button btn-block w-10">Back</a>
           <button type="submit" class="btn primary-button btn-block w-25">Save</button>
         </div>
       </div>
@@ -81,6 +87,9 @@
       </div>
     </div>
   </div>
+
+
+
 
 {% endblock %}
 

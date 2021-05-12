@@ -1,9 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
 <h2 class="text-center my-5">Medication for {{patient.full_name}}</h2>
-<a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
-  <h6 class="heading-6 mb-4">Add Medication</h6>
-</a>
 <div class="row patient-headings mt-5 mx-5">
   <div class="col-lg-3 col-md-3 d-flex justify-content-center ">
     <p class="light-head d-none d-md-block ">Medication</p>
@@ -38,5 +35,14 @@
    {% endif %}
   {% endfor %}
 </div>
-
+  <div class="float-right ">
+        <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <img src="../static/images/new_tag.png" alt="New Medication" >
+</a>
+    </div>
+     <div class="col-lg-1 float-right">
+        <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
+  <img src="../static/images/new_med.png" alt="New Medication" >
+</a>
+    </div>
 {% endblock %}
