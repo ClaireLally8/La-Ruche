@@ -91,6 +91,15 @@ def search():
     return render_template("search.html", patients=patients)
 
 
+@app.route("/search_med/<patient_id>", methods=["GET", "POST"])
+def search_med(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    query = request.form.get("query")
+    print(query)
+    meds = list(mongo.db.medication.find({"$text": {"$search": query}}))
+    return render_template("medication.html", patient=this_patient, medications=meds)
+
+
 # Enables the logged in user to create a new patient.  Stores this in the
 # DB under the collection Patients
 @app.route('/new', methods=['POST', 'GET'])
@@ -206,7 +215,7 @@ def medication(patient_id):
         patient=patient)
 
 
-@app.route('/new/meds/<patient_id>', methods=['POST', 'GET'])
+@app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
 def new_medicine(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     meds = list(mongo.db.medication.find())
