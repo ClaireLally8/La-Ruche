@@ -41,6 +41,7 @@
   {% for patients in patients %}
   <div class="row  patient-row my-4 py-3 z-depth-1 mx-4">
     <div class="col-lg-2 col-md-2 offset-lg-1">
+         <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.patient_id}}</a></p>
     </div>
     <img src="static/images/line.svg" class="img-fluid ">
     <div class="col-lg-2 col-md-2">

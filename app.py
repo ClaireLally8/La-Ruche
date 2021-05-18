@@ -105,7 +105,10 @@ def search_med(patient_id):
 @app.route('/new', methods=['POST', 'GET'])
 def new_patient():
     if request.method == 'POST':
-        pid = uuid.uuid4().hex.upper()
+        pid = 1
+        col = mongo.db.patients
+        for doc in col.find():
+            pid = pid+1
         mongo.db.patients.insert_one(
             {
                 'patient_id': pid,
