@@ -223,7 +223,7 @@ def current_medication(patient_id):
     today = date.today()
     d3 = today.strftime("%Y-%m-%d")
     print(d3)
-    meds = list(mongo.db.medication.find({ "end": { "$gt":d3 } },{ "start": { "$lt":d3 } } ))
+    meds = list(mongo.db.medication.find({"end": {"$gte": d3},"start": {"$lte": d3}}))
     return render_template(
         'medication.html',
         medications=meds,
