@@ -217,6 +217,31 @@ def medication(patient_id):
         medications=meds,
         patient=patient)
 
+@app.route('/current-medication/<patient_id>')
+def current_medication(patient_id):
+    patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    today = date.today()
+    d3 = today.strftime("%Y-%m-%d")
+    print(d3)
+    meds = list(mongo.db.medication.find({ "end": { "$gt":d3 } },{ "start": { "$lt":d3 } } ))
+    return render_template(
+        'medication.html',
+        medications=meds,
+        patient=patient)
+
+@app.route('/past-medication/<patient_id>')
+def past_medication(patient_id):
+    patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    today = date.today()
+    d3 = today.strftime("%Y-%m-%d")
+    print(d3)
+    meds = list(mongo.db.medication.find( { "end": { "$lt":d3 } } ))
+    return render_template(
+        'medication.html',
+        medications=meds,
+        patient=patient)
+
+
 
 @app.route('/newmeds/<patient_id>', methods=['POST', 'GET'])
 def new_medicine(patient_id):
