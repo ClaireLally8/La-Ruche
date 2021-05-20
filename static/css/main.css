@@ -350,3 +350,18 @@ a:hover {
 {
     font-size: 14px!important;
 }
+.nav-pills
+{
+    background-color: white;
+    width: 199px;
+    border-radius: 10px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: var(--p-teal);
+}
+.smartformnav
+{
+   width: 71%!important;
+}

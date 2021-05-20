@@ -225,7 +225,7 @@ def current_medication(patient_id):
     print(d3)
     meds = list(mongo.db.medication.find({"end": {"$gte": d3},"start": {"$lte": d3}}))
     return render_template(
-        'medication.html',
+        'current_medication.html',
         medications=meds,
         patient=patient)
 
@@ -237,7 +237,7 @@ def past_medication(patient_id):
     print(d3)
     meds = list(mongo.db.medication.find( { "end": { "$lt":d3 } } ))
     return render_template(
-        'medication.html',
+        'past_medication.html',
         medications=meds,
         patient=patient)
 

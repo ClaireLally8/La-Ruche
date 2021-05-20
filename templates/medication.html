@@ -41,10 +41,20 @@
   </div>
 </nav>
  <div>
-        <a href="{{ url_for('medication', patient_id=patient._id) }}" class="my-3">all</a>
-         <a href="{{ url_for('current_medication', patient_id=patient._id) }}" class="my-3">Current</a>
-          <a href="{{ url_for('past_medication', patient_id=patient._id) }}" class="my-3">Past</a>
-</a>
+
+    <ul class="nav nav-pills mx-5 my-5 z-depth-1">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url_for('medication', patient_id=patient._id) }}">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('current_medication', patient_id=patient._id) }}">Current</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('past_medication', patient_id=patient._id) }}">Past</a>
+  </li>
+</ul>
+           
+     </div>
 <div class="d-flex justify-content-end mx-5 my-5">
       <form class="form-inline" action="{{ url_for('search_med',patient_id=patient._id) }}" method="POST">
         <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search medication" aria-label="Search" name="query" id="query" minlength="3" required>

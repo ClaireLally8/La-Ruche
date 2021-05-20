@@ -5,10 +5,10 @@
     <a class="nav-link" href="{{ url_for('index') }}"><img src="../static/images/back.png" class="img-fluid"><span class="sr-only">(current)</span></a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="../static/images/patient-profile.png" class="img-fluid"><span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=""><img src="../static/images/patientprofile.png" class="img-fluid"><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('smart_form', patient_id=patient._id)}}"><img src="../static/images/smart-form.png" class="img-fluid"> </a>
+        <a class="nav-link" href="{{url_for('smart_form', patient_id=patient._id)}}"><img src="../static/images/smartform-active.png" class="img-fluid"> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><img src="../static/images/billing.png" class="img-fluid"></a>
@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="navbarNav ">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link smart_nav" href="#">Consultation</a>
+        <a class="nav-link smart_nav" href="{{url_for('smart_form', patient_id=patient._id)}}">Consultation</a>
       </li>
       <li class="nav-item">
         <a class="nav-link smart_nav" href="#">Laboratory Data</a>
@@ -40,24 +40,27 @@
     </ul>
   </div>
 </nav>
- <ul class="nav nav-pills mx-5 my-5 z-depth-1">
+ <div>
+
+    <ul class="nav nav-pills mx-5 my-5 z-depth-1">
   <li class="nav-item">
-    <a class="nav-link active" href="{{ url_for('medication', patient_id=patient._id) }}">All</a>
+    <a class="nav-link" href="{{ url_for('medication', patient_id=patient._id) }}">All</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ url_for('current_medication', patient_id=patient._id) }}">Current</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ url_for('past_medication', patient_id=patient._id) }}">Past</a>
+    <a class="nav-link active" href="{{ url_for('past_medication', patient_id=patient._id) }}">Past</a>
   </li>
 </ul>
+           
+     </div>
 <div class="d-flex justify-content-end mx-5 my-5">
       <form class="form-inline" action="{{ url_for('search_med',patient_id=patient._id) }}" method="POST">
         <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search medication" aria-label="Search" name="query" id="query" minlength="3" required>
         <button type="submit" class="btn primary-button">Search</button>
       </form>
     </div>
-    
 <div class="row patient-headings mt-5 mx-5">
   <div class="col-lg-3 col-md-3 d-flex justify-content-center ">
     <p class="light-head d-none d-md-block ">Medication</p>
@@ -102,46 +105,4 @@
   <img src="../static/images/new_med.png" alt="New Medication" >
 </a>
     </div>
-
-
-    <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add Medication</h5>
-        </div>
-        <div class="modal-body">
-         <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="medication_name" placeholder="Medication Name" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="Route" placeholder="Route" class="form-control mb-4" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="date" name="start" placeholder="Start Date" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="date" name="end" placeholder="End Date" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <input type="text" name="dosage" placeholder="Dosage" class="form-control mb-4" required>
-          </div>
-        </div>
-      
-        <input type="text" name="notes" placeholder="Instructions" class="form-control mb-4">
-        <input type="hidden" name="id" value="{{patient.patient_id}}">
-        <div class="d-flex justify-content-between mt-3">
-          <button type="submit" class="btn primary-button btn-block w-25">Save</button>
-        </div>
-      </div>
-    </form>
-        </div>
-      </div>
-    </div>
-  </div>
 {% endblock %}
