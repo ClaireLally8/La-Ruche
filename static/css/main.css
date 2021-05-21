@@ -364,8 +364,10 @@ a:hover {
 .smartformnav
 {
    width: 100%!important;
+   margin-left: 0!important;
 }
 .secondnav
 {
     background-color: white!important;
+    
 }

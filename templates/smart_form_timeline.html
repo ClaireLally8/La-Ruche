@@ -3,10 +3,10 @@
 <nav class="navbar navbar-expand nav-2">
   <div class="collapse navbar-collapse">
     <a class="nav-link" href="{{ url_for('index') }}"><img src="../static/images/back.png" class="img-fluid"><span class="sr-only">(current)</span></a>
+       <p class="mt-3"> Patient ID: {{patient.patient_id}}</p>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#"><img src="../static/images/patientprofile.png" class="img-fluid"><span class="sr-only">(current)</span></a>
-         <p class="mt-3"> Patient ID: {{patient.patient_id}}</p>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('smart_form', patient_id=patient._id)}}"><img src="../static/images/smartform-active.png" class="img-fluid"> </a>
@@ -83,22 +83,20 @@
        <button type="submit" class="btn primary-button my-5">Submit</button>
     </div>
     <div class="col-lg-4 offset-lg-1 col-md-8 col-sm-8 col-xs-8 my-4">
-      <div class="mini-nav my-5 container-fluid">
-          <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mini-nav-link-active">
-                   <a class="mini-nav-link" href="#">Medical History</a>
-              </div>
-               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                   <a class="mini-nav-link" href="{{url_for('smart_form_surgical', patient_id=patient._id)}}">Surgical History</a>
-              </div>
-               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                   <a class="mini-nav-link"  href="{{url_for('smart_form_social', patient_id=patient._id)}}">Social History</a>
-              </div>
-               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                   <a class="mini-nav-link" href="{{url_for('smart_form_consultation', patient_id=patient._id)}}">Consulatations</a>
-              </div>
-          </div>
-      </div>
+       <ul class="nav nav-pills mx-5 my-5 z-depth-1 smartformnav">
+                 <li class="nav-item">
+    <a class="nav-link active" href="{{url_for('smart_form', patient_id=patient._id)}}">Medical History</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="{{url_for('smart_form_surgical', patient_id=patient._id)}}">Surgical History</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url_for('smart_form_social', patient_id=patient._id)}}">Social History</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url_for('smart_form_consultation', patient_id=patient._id)}}">Consulatations</a>
+  </li>
+</ul>
         <a href="{{ url_for('gettimeline',patient_id=patient._id)}}" class="hello">
         <div class="card smart-timeline">
           {% for consult in consultations %}
