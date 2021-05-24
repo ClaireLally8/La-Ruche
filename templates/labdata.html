@@ -24,7 +24,7 @@
         <a class="nav-link smart_nav" href="{{url_for('smart_form', patient_id=patient._id)}}">Consultation</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link smart_nav" href="{{url_for('labdata', patient_id=patient._id)}}">Laboratory Data</a>
+        <a class="nav-link smart_nav" href="#">Laboratory Data</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link smart_nav" href="#">Medications <span class="sr-only">(current)</span></a>
@@ -77,24 +77,6 @@
   </div>
 </div>
 <div class="patient-list">
-  {% for medication in medications %}
-    {% if medication.patient_id == patient.patient_id %}
-  <div class="row  patient-row my-4 py-3 z-depth-1 mx-5">
-    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
-         <p>{{medication.medication_name}}</p>
-    </div>
-    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
-       <p class="startend">{{medication.start}}:{{medication.end}}</p>
-    </div>
-    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
-      {{medication.Route}}
-    </div>
-    <div class="col-lg-3 col-md-3 d-flex justify-content-center">
-      {{medication.dosage}}
-    </div>
-  </div>
-   {% endif %}
-  {% endfor %}
 </div>
   <div class="float-right ">
         <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">

@@ -343,6 +343,13 @@ def smart_form_consultation(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('smart_form_consultation.html', patient=this_patient)
 
+
+@app.route('/lab-data/<patient_id>', methods=['POST', 'GET'])
+def labdata(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    return render_template('labdata.html', patient=this_patient)
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
