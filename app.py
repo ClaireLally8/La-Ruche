@@ -302,7 +302,6 @@ def delete_medication(medication_id, patient_id):
 @app.route('/consulatation/<patient_id>', methods=['POST', 'GET' ])
 def new_consulatation(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    
     if request.method == 'POST':
         mongo.db.consultations.insert_one(
             {
@@ -348,6 +347,26 @@ def smart_form_consultation(patient_id):
 def labdata(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     return render_template('labdata.html', patient=this_patient)
+
+
+@app.route('/labdata/<patient_id>', methods=['POST', 'GET'])
+def new_labdata(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    if request.method == 'POST':
+        mongo.db.medication.insert_one(
+            {
+                'patient_id': request.form['id'],
+                'medication_name': request.form['medication_name'],
+                'Route': request.form['Route'],
+                'start': request.form['start'],
+                'end': request.form['end'],
+                'dosage': request.form['dosage'],
+                'complete': False
+            })
+        return render_template('labdata.html',labdata=data,patient=this_patient)
+
+    return render_template('new-labdata.html', patient=this_patient, labdata=data)
 
 
 if __name__ == '__main__':
