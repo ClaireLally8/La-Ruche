@@ -354,17 +354,14 @@ def new_labdata(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     data = list(mongo.db.labdata.find())
     if request.method == 'POST':
-        mongo.db.medication.insert_one(
+        mongo.db.labdata.insert_one(
             {
                 'patient_id': request.form['id'],
-                'medication_name': request.form['medication_name'],
-                'Route': request.form['Route'],
-                'start': request.form['start'],
-                'end': request.form['end'],
-                'dosage': request.form['dosage'],
-                'complete': False
+                'Type': request.form['Type'],
+                'Date': request.form['Date'],
+                'Status': request.form['Status']
             })
-        return render_template('labdata.html',labdata=data,patient=this_patient)
+        return render_template('labdata.html', labdata=data, patient=this_patient)
 
     return render_template('new-labdata.html', patient=this_patient, labdata=data)
 

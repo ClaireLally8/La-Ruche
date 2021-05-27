@@ -94,7 +94,7 @@
           <h5 class="modal-title">Add Laboratory Data</h5>
         </div>
         <div class="modal-body">
-         <form class="new_patient" method="POST" action="{{ url_for('new_medicine', patient_id=patient._id) }}">
+         <form class="new_patient" method="POST" action="{{ url_for('new_labdata', patient_id=patient._id) }}">
       <div class="form-group">
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-12">
@@ -106,7 +106,7 @@
             <input type="date" name="Date" placeholder="Date" class="form-control mb-4" required>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="date" name="Status" placeholder="Status" class="form-control mb-4" required>
+            <input type="text" name="Status" placeholder="Status" class="form-control mb-4" required>
           </div>
           
         </div>
