@@ -95,7 +95,6 @@ def search():
 def search_med(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     query = request.form.get("query")
-    print(query)
     meds = list(mongo.db.medication.find({"$text": {"$search": query}}))
     return render_template("medication.html", patient=this_patient, medications=meds)
 
@@ -346,7 +345,8 @@ def smart_form_consultation(patient_id):
 @app.route('/lab-data/<patient_id>', methods=['POST', 'GET'])
 def labdata(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    return render_template('labdata.html', patient=this_patient)
+    data = list(mongo.db.labdata.find())
+    return render_template('labdata.html', patient=this_patient,labdata=data)
 
 
 @app.route('/labdata/<patient_id>', methods=['POST', 'GET'])
@@ -364,6 +364,18 @@ def new_labdata(patient_id):
         return render_template('labdata.html', labdata=data, patient=this_patient)
 
     return render_template('new-labdata.html', patient=this_patient, labdata=data)
+
+
+
+@app.route("/search-lab", methods=["GET", "POST"])
+def searchlab(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    query = request.form.get("query")
+    data = list(mongo.db.labdata.find({"$text": {"$search": query}}))
+    return render_template("labdata.html", patient=this_patient , labdata=data)
+
+
+
 
 
 if __name__ == '__main__':
