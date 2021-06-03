@@ -349,6 +349,18 @@ def labdata(patient_id):
     return render_template('labdata.html', patient=this_patient,labdata=data)
 
 
+@app.route('/lab-data-current/<patient_id>', methods=['POST', 'GET'])
+def labdata_current(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    return render_template('labdata_current.html', patient=this_patient,labdata=data)
+
+@app.route('/lab-data-past/<patient_id>', methods=['POST', 'GET'])
+def labdata_past(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    return render_template('labdata_past.html', patient=this_patient,labdata=data)
+
 @app.route('/labdata/<patient_id>', methods=['POST', 'GET'])
 def new_labdata(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})

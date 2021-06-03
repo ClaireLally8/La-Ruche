@@ -45,10 +45,10 @@
 
     <ul class="nav nav-pills mx-5 my-5 z-depth-1">
   <li class="nav-item">
-    <a class="nav-link active" href="{{url_for('labdata', patient_id=patient._id)}}">All</a>
+    <a class="nav-link" href="{{url_for('labdata', patient_id=patient._id)}}">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url_for('labdata_current', patient_id=patient._id)}}">Current</a>
+    <a class="nav-link active" href="{{url_for('labdata_current', patient_id=patient._id)}}">Current</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url_for('labdata_past', patient_id=patient._id)}}">Past</a>
@@ -76,6 +76,7 @@
 <div class="patient-list">
      {% for data in labdata %}
     {% if data.patient_id == patient.patient_id %}
+     {% if data.Status == "Ordered" %}
   <div class="row  patient-row my-4 py-3 z-depth-1 mx-5">
     <div class="col-lg-4 col-md-4 d-flex justify-content-center">
          <p>{{data.Type}}</p>
@@ -87,6 +88,7 @@
       {{data.Status}}
     </div>
   </div>
+  {% endif %}
    {% endif %}
   {% endfor %}
 </div>
