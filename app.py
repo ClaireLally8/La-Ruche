@@ -388,6 +388,35 @@ def searchlab(patient_id):
 
 
 
+@app.route('/preventative/<patient_id>', methods=['POST', 'GET'])
+def preventative(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    preventative = list(mongo.db.preventative.find())
+    return render_template('preventative.html', patient=this_patient,preventative=preventative)
+
+
+
+@app.route('/new-preventative/<patient_id>', methods=['POST', 'GET'])
+def new_preventative(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    preventative = list(mongo.db.preventative.find())
+    if request.method == 'POST':
+        mongo.db.preventative.insert_one(
+            {
+                'patient_id': request.form['id'],
+                'MedName': request.form['MedName'],
+                'Date': request.form['Date'],
+                'Type': request.form['Type'],
+                'Container': request.form['Container'],
+                'State': request.form['State']
+
+            })
+        return render_template('preventative.html', preventative=preventative, patient=this_patient)
+
+    return render_template('new-preventative.html', patient=this_patient, preventative=preventative)
+
+
+
 
 
 if __name__ == '__main__':

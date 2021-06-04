@@ -45,13 +45,13 @@
 
     <ul class="nav nav-pills mx-5 my-5 z-depth-1">
   <li class="nav-item">
-    <a class="nav-link active" href="{{url_for('labdata', patient_id=patient._id)}}">All</a>
+    <a class="nav-link active" href="">Immunizations</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url_for('labdata_current', patient_id=patient._id)}}">Current</a>
+    <a class="nav-link" href="">Screenings</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url_for('labdata_past', patient_id=patient._id)}}">Past</a>
+    <a class="nav-link" href="">Education</a>
   </li>
 </ul>
            
@@ -63,40 +63,52 @@
       </form>
     </div>
 <div class="row patient-headings mt-5 mx-5">
-  <div class="col-lg-4 col-md-4 d-flex justify-content-center ">
-    <p class="light-head d-none d-md-block ">Type</p>
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center ">
+    <p class="light-head d-none d-md-block ">Medication Name</p>
   </div>
-  <div class="col-lg-4 col-md-4 d-flex justify-content-center">
-    <p class="light-head d-none d-md-block">Date</p>
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block"> Immunization Date</p>
   </div>
-  <div class="col-lg-4 col-md-4 d-flex justify-content-center">
-    <p class="light-head d-none d-md-block">Status</p>
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Type</p>
+  </div>
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">Container</p>
+  </div>
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+    <p class="light-head d-none d-md-block">State</p>
   </div>
 </div>
 <div class="patient-list">
-     {% for data in labdata %}
-    {% if data.patient_id == patient.patient_id %}
+     {% for preventative in preventative %}
+    {% if preventative.patient_id == patient.patient_id %}
   <div class="row  patient-row my-4 py-3 z-depth-1 mx-5">
-    <div class="col-lg-4 col-md-4 d-flex justify-content-center">
-         <p>{{data.Type}}</p>
+    <div class="col-lg-2 col-md-4 d-flex justify-content-center">
+         <p>{{preventative.MedName}}</p>
     </div>
-    <div class="col-lg-4 col-md-4 d-flex justify-content-center">
-       <p class="startend">{{data.Date}}</p>
+    <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+       <p class="startend">{{preventative.Date}}</p>
     </div>
-    <div class="col-lg-4 col-md-4 d-flex justify-content-center">
-      {{data.Status}}
+    <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+      {{preventative.Type}}
+    </div>
+     <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+      {{preventative.Container}}
+    </div>
+     <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+      {{preventative.State}}
     </div>
   </div>
    {% endif %}
   {% endfor %}
 </div>
   <div class="float-right ">
-        <a href="{{ url_for('new_labdata', patient_id=patient._id) }}" class="my-3">
+        <a href="{{ url_for('new_preventative', patient_id=patient._id) }}" class="my-3">
   <img src="../static/images/new_tag.png" alt="New Medication" >
 </a>
     </div>
      <div class="col-lg-1 float-right">
-        <a href="{{ url_for('new_labdata', patient_id=patient._id) }}" class="my-3">
+        <a href="{{ url_for('new_preventative', patient_id=patient._id) }}" class="my-3">
   <img src="../static/images/new_med.png" alt="New Medication" >
 </a>
     </div>
