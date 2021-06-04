@@ -371,3 +371,18 @@ a:hover {
     background-color: white!important;
     
 }
+.preventative-nav
+{
+    width: 370px!important;
+}
+
+.zoom
+{
+     transform: scale(1.01);
+}
+
+.hidden
+{
+    display: none;
+    visibility: hidden;
+}

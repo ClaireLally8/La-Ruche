@@ -58,7 +58,7 @@
      </div>
 <div class="d-flex justify-content-end mx-5 my-5">
       <form class="form-inline" action="{{url_for('searchlab',patient_id=patient._id)}}" method="POST">
-        <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search medication" aria-label="Search" name="query" id="query" minlength="3" required>
+        <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search" aria-label="Search" name="query" id="query" minlength="3" required>
         <button type="submit" class="btn primary-button">Search</button>
       </form>
     </div>
@@ -92,11 +92,17 @@
     <div class="col-lg-2 col-md-2 d-flex justify-content-center">
       {{preventative.Type}}
     </div>
-     <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+     <div class="col-lg-1 col-md-2 d-flex justify-content-center">
       {{preventative.Container}}
     </div>
      <div class="col-lg-2 col-md-2 d-flex justify-content-center">
       {{preventative.State}}
+    </div>
+     <div class="col-lg-1 col-md-1 d-flex justify-content-center editimg">
+        <a  >
+             <img src="../static/images/Group 188.png" class="img-fluid hidden editimg" >
+        </a>
+        
     </div>
   </div>
    {% endif %}

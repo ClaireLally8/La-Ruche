@@ -19,3 +19,10 @@ $(document).ready(function() {
     
 });
 
+ $( ".patient-row" ).click(function() {
+     $(".patient-row").removeClass("zoom");
+     $(".editimg").addClass('hidden');
+    $(this).addClass("zoom");
+    $(".editimg",this).removeClass('hidden');
+   
+});
