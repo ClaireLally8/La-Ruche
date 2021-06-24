@@ -379,13 +379,12 @@ def new_labdata(patient_id):
 
 
 
-@app.route("/search-lab", methods=["GET", "POST"])
-def searchlab(patient_id):
+@app.route("/search-lab/<patient_id>", methods=["GET", "POST"])
+def search_lab(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     query = request.form.get("query")
     data = list(mongo.db.labdata.find({"$text": {"$search": query}}))
-    return render_template("labdata.html", patient=this_patient , labdata=data)
-
+    return render_template("labdata.html", patient=this_patient, labdata=data)
 
 
 @app.route('/preventative/<patient_id>', methods=['POST', 'GET'])
@@ -393,6 +392,14 @@ def preventative(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     preventative = list(mongo.db.preventative.find())
     return render_template('preventative.html', patient=this_patient,preventative=preventative)
+
+
+@app.route("/search-lab/<patient_id>", methods=["GET", "POST"])
+def search_pre(patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    query = request.form.get("query")
+    preventative = list(mongo.db.preventative.find({"$text": {"$search": query}}))
+    return render_template("preventative.html", patient=this_patient, preventative=preventative)
 
 
 

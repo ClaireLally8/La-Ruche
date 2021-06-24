@@ -56,9 +56,9 @@
 </ul>
            
      </div>
-<div class="d-flex justify-content-end mx-5 my-5">
-      <form class="form-inline" action="{{url_for('searchlab',patient_id=patient._id)}}" method="POST">
-        <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search medication" aria-label="Search" name="query" id="query" minlength="3" required>
+    <div class="d-flex justify-content-end mx-5 my-5">
+      <form class="form-inline" action="{{ url_for('search_lab',patient_id=patient._id) }}" method="POST">
+        <input class="form-control z-depth-1 patient-search" type="text" placeholder="Search" aria-label="Search" name="query" id="query" minlength="3" required>
         <button type="submit" class="btn primary-button">Search</button>
       </form>
     </div>
