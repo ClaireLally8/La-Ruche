@@ -286,7 +286,7 @@ def edit_medication(medication_id, patient_id):
         patient=this_patient)
 
 
-@app.route('/delete/<patient_id>/<medication_id>')
+@app.route('/delete/<patient_id>_<medication_id>')
 def delete_medication(medication_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     meds = list(mongo.db.medication.find())
@@ -365,10 +365,12 @@ def labdata_past(patient_id):
 def new_labdata(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     data = list(mongo.db.labdata.find())
+    lid = uuid.uuid4().hex.upper()
     if request.method == 'POST':
         mongo.db.labdata.insert_one(
             {
                 'patient_id': request.form['id'],
+                'labdata_id': lid,
                 'Type': request.form['Type'],
                 'Date': request.form['Date'],
                 'Status': request.form['Status']
@@ -421,6 +423,14 @@ def new_preventative(patient_id):
         return render_template('preventative.html', preventative=preventative, patient=this_patient)
 
     return render_template('new-preventative.html', patient=this_patient, preventative=preventative)
+
+
+@app.route('/delete/<patient_id>_<labdata_id>')
+def delete_labdata(labdata_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    mongo.db.labdata.remove({'_id': ObjectId(labdata_id)})
+    return render_template('ladata.html',labdata=data,patient=this_patient)
 
 
 
