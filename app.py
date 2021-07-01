@@ -286,7 +286,7 @@ def edit_medication(medication_id, patient_id):
         patient=this_patient)
 
 
-@app.route('/delete/<patient_id>_<medication_id>')
+@app.route('/delete-medication/<patient_id>_<medication_id>')
 def delete_medication(medication_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     meds = list(mongo.db.medication.find())
@@ -425,14 +425,19 @@ def new_preventative(patient_id):
     return render_template('new-preventative.html', patient=this_patient, preventative=preventative)
 
 
-@app.route('/delete/<patient_id>_<labdata_id>')
+@app.route('/delete-labdata/<patient_id>_<labdata_id>')
 def delete_labdata(labdata_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     data = list(mongo.db.labdata.find())
     mongo.db.labdata.remove({'_id': ObjectId(labdata_id)})
-    return render_template('ladata.html',labdata=data,patient=this_patient)
+    return render_template('labdata.html',labdata=data,patient=this_patient)
 
-
+@app.route('/delete-preventative/<patient_id>_<preventative_id>')
+def delete_preventative(preventative_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    preventative = list(mongo.db.preventative.find())
+    mongo.db.preventative.remove({'_id': ObjectId(preventative_id)})
+    return render_template('preventative.html',preventative=preventative,patient=this_patient)
 
 
 

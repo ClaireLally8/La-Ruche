@@ -100,7 +100,9 @@
     </div>
      <div class="col-lg-1 col-md-1 d-flex justify-content-center editimg">
         <a  >
-             <img src="../static/images/Group 188.png" class="img-fluid hidden editimg" >
+          <a  >
+            <a class="nav-link"   href="{{ url_for('delete_preventative', patient_id=patient._id, preventative_id=preventative._id) }}"><img src="../static/images/Group 188.png" class="img-fluid hidden editimg" ></a>
+        </a>
         </a>
         
     </div>
