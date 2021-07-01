@@ -265,21 +265,23 @@ def new_medicine(patient_id):
     return render_template('new-medication.html', patient=this_patient, medications=meds)
 
 
-@app.route('/updated/<patient_id>/<medication_id>', methods=['POST'])
+@app.route('/edit-medication/<patient_id>_<medication_id>', methods=['POST', 'GET'])
 def edit_medication(medication_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    meds = list(mongo.db.medication.find({'_id': ObjectId(medication_id)}))
+    return render_template('update-medication.html', patient=this_patient, medications=meds)
+
+
+
+@app.route('/update/<patient_id>/<medication_id>', methods=['POST'])
+def update_medication(medication_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     meds = list(mongo.db.medication.find())
     medication = mongo.db.medication
-    medication.update({'_id': ObjectId(medication_id)},
-    {
-        'patient_id': request.form['id'],
-        'medication_name': request.form['medication_name'],
-        'dosage': request.form['dosage'],
-        'start': request.form['start'],
-        'end': request.form['end'],
-        'notes': request.form['notes'],
-        'complete': False
-    })
+    medication.update({"_id": ObjectId(medication_id)}, { "$set": {"medication_name":request.form.get('medication_name')}})
+    medication.update({"_id": ObjectId(medication_id)}, { "$set": {"Route":request.form.get('Route')}})
+    medication.update({"_id": ObjectId(medication_id)}, { "$set": {"start":request.form.get('start')}})
+    medication.update({"_id": ObjectId(medication_id)}, { "$set": {"dosage":request.form.get('dosage')}})
     return render_template(
         'medication.html',
         medications=meds,

@@ -101,8 +101,47 @@
         
     </div>
   </div>
+
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit medication</h5>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{ url_for('update_medication', patient_id=patient._id, medication_id=medication._id) }}">
+            <div class="form-group">
+              <labe>medication name</labe>
+              <input type="text" name="medication_name" class="form-control" value="{{medication.medication_name}}">
+            </div>
+            <div class="form-group">
+              <labe>Route</labe>
+              <input type="text" name="Route" class="form-control" value="{{medication.Route}}">
+            </div>
+            <div class="form-group">
+              <labe>start date</labe>
+              <input type="date" name="start" class="form-control" value="{{medication.start}}">
+            </div>
+            <div class="form-group">
+              <labe>end date</labe>
+              <input type="date" name="end" class="form-control" value="{{medication.end}}">
+            </div>
+            <div class="form-group">
+              <labe>dosage</labe>
+              <input type="text" name="dosage" class="form-control" value="{{medication.dosage}}">
+            </div>
+            <button class="btn center primary-button" type="submit" id="target">Update
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
    {% endif %}
   {% endfor %}
+
+
 </div>
   <div class="float-right ">
         <a href="{{ url_for('new_medicine', patient_id=patient._id) }}" class="my-3">
@@ -114,4 +153,7 @@
   <img src="../static/images/new_med.png" alt="New Medication" >
 </a>
     </div>
+
+
+   
 {% endblock %}
