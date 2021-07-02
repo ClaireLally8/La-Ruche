@@ -470,7 +470,7 @@ def update_preventative(preventative_id, patient_id):
         patient=this_patient)
 
 
-@app.route('/delete-labdata/<patient_id>_<preventative_id>')
+@app.route('/delete-labdata/<patient_id>_<labdata_id>')
 def delete_labdata(labdata_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     data = list(mongo.db.labdata.find())
