@@ -372,7 +372,6 @@ def new_labdata(patient_id):
         mongo.db.labdata.insert_one(
             {
                 'patient_id': request.form['id'],
-                'labdata_id': lid,
                 'Type': request.form['Type'],
                 'Date': request.form['Date'],
                 'Status': request.form['Status']
@@ -390,6 +389,27 @@ def search_lab(patient_id):
     data = list(mongo.db.labdata.find({"$text": {"$search": query}}))
     return render_template("labdata.html", patient=this_patient, labdata=data)
 
+@app.route('/edit-labdata/<patient_id>_<labdata_id>', methods=['POST', 'GET'])
+def edit_labdata(labdata_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find({'_id': ObjectId(labdata_id)}))
+    return render_template('update-labdata.html', patient=this_patient, labdata=data)
+
+
+
+@app.route('/update-labdata/<patient_id>/<labdata_id>', methods=['POST'])
+def update_labdata(labdata_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    labdata = mongo.db.labdata
+    labdata.update({"_id": ObjectId(labdata_id)}, { "$set": {"Type":request.form.get('Type')}})
+    labdata.update({"_id": ObjectId(labdata_id)}, { "$set": {"Date":request.form.get('Date')}})
+    labdata.update({"_id": ObjectId(labdata_id)}, { "$set": {"Status":request.form.get('Status')}})
+    return render_template(
+        'labdata.html',
+         labdata=data,
+        patient=this_patient)
+
 
 @app.route('/preventative/<patient_id>', methods=['POST', 'GET'])
 def preventative(patient_id):
@@ -398,7 +418,7 @@ def preventative(patient_id):
     return render_template('preventative.html', patient=this_patient,preventative=preventative)
 
 
-@app.route("/search-lab/<patient_id>", methods=["GET", "POST"])
+@app.route("/search-preventative/<patient_id>", methods=["GET", "POST"])
 def search_pre(patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     query = request.form.get("query")
@@ -426,8 +446,31 @@ def new_preventative(patient_id):
 
     return render_template('new-preventative.html', patient=this_patient, preventative=preventative)
 
+@app.route('/edit-preventative/<patient_id>_<preventative_id>', methods=['POST', 'GET'])
+def edit_preventative(preventative_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    pre = list(mongo.db.preventative.find({'_id': ObjectId(preventative_id)}))
+    return render_template('update-preventative.html', patient=this_patient, preventative=pre)
 
-@app.route('/delete-labdata/<patient_id>_<labdata_id>')
+
+
+@app.route('/update-preventative/<patient_id>/<preventative_id>', methods=['POST'])
+def update_preventative(preventative_id, patient_id):
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    pre = list(mongo.db.preventative.find())
+    preventative = mongo.db.preventative
+    preventative.update({"_id": ObjectId(preventative_id)}, { "$set": {"MedName":request.form.get('MedName')}})
+    preventative.update({"_id": ObjectId(preventative_id)}, { "$set": {"Date":request.form.get('Date')}})
+    preventative.update({"_id": ObjectId(preventative_id)}, { "$set": {"Type":request.form.get('Type')}})
+    preventative.update({"_id": ObjectId(preventative_id)}, { "$set": {"Container":request.form.get('Container')}})
+    preventative.update({"_id": ObjectId(preventative_id)}, { "$set": {"State":request.form.get('State')}})
+    return render_template(
+        'preventative.html',
+         preventative=pre,
+        patient=this_patient)
+
+
+@app.route('/delete-labdata/<patient_id>_<preventative_id>')
 def delete_labdata(labdata_id, patient_id):
     this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     data = list(mongo.db.labdata.find())

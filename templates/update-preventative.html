@@ -63,13 +63,13 @@
       </form>
     </div>
 <div class="row patient-headings mt-5 mx-5">
-  <div class="col-lg-2 col-md-2 d-flex justify-content-center ">
+  <div class="col-lg-3 col-md-2 d-flex justify-content-center ">
     <p class="light-head d-none d-md-block ">Medication Name</p>
   </div>
   <div class="col-lg-2 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block"> Immunization Date</p>
   </div>
-  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+  <div class="col-lg-3 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">Type</p>
   </div>
   <div class="col-lg-2 col-md-2 d-flex justify-content-center">
@@ -86,7 +86,7 @@
     <div class="col-lg-2 col-md-4 d-flex justify-content-center">
          <p>{{preventative.MedName}}</p>
     </div>
-    <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+    <div class="col-lg-3 col-md-2 d-flex justify-content-center">
        <p class="startend">{{preventative.Date}}</p>
     </div>
     <div class="col-lg-2 col-md-2 d-flex justify-content-center">
@@ -97,6 +97,54 @@
     </div>
      <div class="col-lg-2 col-md-2 d-flex justify-content-center">
       {{preventative.State}}
+    </div>
+     <div class="col-lg-1 col-md-1 d-flex justify-content-center editimg">
+        <a  >
+          <a  >
+            <a  href="{{ url_for('delete_preventative', patient_id=patient._id, preventative_id=preventative._id) }}">
+              delete
+          </a>
+          <a  href="{{ url_for('edit_preventative', patient_id=patient._id, preventative_id=preventative._id) }}">edit
+       </a>
+        </a>
+        </a>
+        
+    </div>
+  </div>
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit medication</h5>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{ url_for('update_preventative', patient_id=patient._id, preventative_id=preventative._id) }}">
+            <div class="form-group">
+              <labe>Date</labe>
+              <input type="date" name="Date" class="form-control" value="{{preventative.Date}}">
+            </div>
+            <div class="form-group">
+              <labe>Type</labe>
+              <input type="text" name="Type" class="form-control" value="{{preventative.Type}}">
+            </div>
+            <div class="form-group">
+              <labe>Medication Name</labe>
+              <input type="text" name="MedName" class="form-control" value="{{preventative.MedName}}">
+            </div>
+            <div class="form-group">
+              <labe>Container</labe>
+              <input type="text" name="Container" class="form-control" value="{{preventative.Container}}">
+            </div>
+            <div class="form-group">
+              <labe>State</labe>
+              <input type="text" name="State" class="form-control" value="{{preventative.State}}">
+            </div>
+            <button class="btn center primary-button" type="submit" id="target">Update
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
    {% endif %}
@@ -112,40 +160,4 @@
   <img src="../static/images/new_med.png" alt="New Medication" >
 </a>
     </div>
-    <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add Preventative</h5>
-        </div>
-        <div class="modal-body">
-         <form class="new_patient" method="POST" action="{{ url_for('new_preventative', patient_id=patient._id) }}">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="MedName" placeholder="Medication Name" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="date" name="Date" placeholder="Date" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="Type" placeholder="Type" class="form-control mb-4" required>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="Container" placeholder="Container" class="form-control mb-4" required>
-          </div>
-           <div class="col-sm-12 col-md-6 col-lg-12">
-            <input type="text" name="State" placeholder="State" class="form-control mb-4" required>
-          </div>
-        </div>
-        <input type="hidden" name="id" value="{{patient.patient_id}}">
-        <div class="d-flex justify-content-between mt-3">
-          <button type="submit" class="btn primary-button btn-block w-25">Save</button>
-        </div>
-      </div>
-    </form>
-        </div>
-      </div>
-    </div>
-  </div>
 {% endblock %}
