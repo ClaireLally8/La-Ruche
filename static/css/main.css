@@ -236,6 +236,11 @@ a:hover {
     height: 100%;
     
 }
+.editimg
+{
+    height: 20px;
+    width: 20px;
+}
 .timeline
 {
    height: 700px;

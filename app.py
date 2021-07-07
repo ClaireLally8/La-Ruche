@@ -15,9 +15,7 @@ app = Flask(__name__)
 # Defining variables database and MongoDB url
 app.config["MONGO_DBNAME"] = os.getenv('MONGO_DBNAME')
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
-
 mongo = PyMongo(app)
-
 # The initial page that is loaded upon first accessing the application
 
 

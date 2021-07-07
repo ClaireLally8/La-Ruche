@@ -26,7 +26,7 @@
   <div class="col-lg-2 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">D.O.B</p>
   </div>
-  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
+  <div class="col-lg-1 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">Gender</p>
   </div>
 </div>
@@ -34,23 +34,27 @@
   {% for patients in patients %}
   <div class="row  patient-row my-4 py-3 z-depth-1 mx-4">
     <div class="col-lg-3 col-md-2">
-         <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.patient_id}}</a></p>
+         <p>{{patients.patient_id}}</p>
     </div>
     <img src="static/images/line.svg" class="img-fluid ">
     <div class="col-lg-2 col-md-2 ">
-      <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.first_name}}</a></p>
+      <p>{{patients.first_name}}</p>
     </div>
     <img src="static/images/line.svg" class="img-fluid">
-    <div class="col-lg-2 col-md-1">
-      <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.surname}}</a></p>
+    <div class="col-lg-2 col-md-2">
+      <p>{{patients.surname}}</p>
     </div>
     <img src="static/images/line.svg" class="img-fluid ">
     <div class="col-lg-2 col-md-2">
       <p>{{patients.dob}}</p>
     </div>
     <img src="static/images/line.svg" class="img-fluid">
-    <div class="col-lg-2 col-md-2">
+    <div class="col-lg-1 col-md-1">
       <p>{{patients.gender}}</p>
+    </div>
+    <div class="col-lg-1 col-md-1">
+      <a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}"><img src="../static/images/edit.png" class="editimg hidden mt-2 ml-5"></a>
+      
     </div>
   </div>
   {% endfor %}
