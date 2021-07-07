@@ -13,42 +13,35 @@
     </div>
   </div>
 </div>
-<div class="row patient-headings mt-5">
-  <div class="col-lg-2 col-md-2">
-  </div>
-</div>
 <div class="row patient-headings mt-5 mx-5">
-  <div class="col-lg-2 col-md-2 offset-lg-1">
+  <div class="col-lg-3 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block ">Patient ID</p>
   </div>
-  <div class="col-lg-2 col-md-3">
+  <div class="col-lg-2 col-md-3 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">First Name</p>
   </div>
-  <div class="col-lg-1 col-md-3">
+  <div class="col-lg-2 col-md-3 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">Surname</p>
   </div>
-  <div class="col-lg-2 col-md-2">
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">D.O.B</p>
   </div>
-  <div class="col-lg-2 col-md-2">
+  <div class="col-lg-2 col-md-2 d-flex justify-content-center">
     <p class="light-head d-none d-md-block">Gender</p>
-  </div>
-  <div class="col-lg-2 col-md-2">
-    <p class="light-head d-none d-md-block">Tags</p>
   </div>
 </div>
 <div class="patient-list">
   {% for patients in patients %}
   <div class="row  patient-row my-4 py-3 z-depth-1 mx-4">
-    <div class="col-lg-2 col-md-2 offset-lg-1">
+    <div class="col-lg-3 col-md-2">
          <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.patient_id}}</a></p>
     </div>
     <img src="static/images/line.svg" class="img-fluid ">
-    <div class="col-lg-2 col-md-2">
+    <div class="col-lg-2 col-md-2 ">
       <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.first_name}}</a></p>
     </div>
     <img src="static/images/line.svg" class="img-fluid">
-    <div class="col-lg-1 col-md-1">
+    <div class="col-lg-2 col-md-1">
       <p><a class="td-link" href="{{url_for('profile', patient_id=patients._id)}}">{{patients.surname}}</a></p>
     </div>
     <img src="static/images/line.svg" class="img-fluid ">
@@ -58,9 +51,6 @@
     <img src="static/images/line.svg" class="img-fluid">
     <div class="col-lg-2 col-md-2">
       <p>{{patients.gender}}</p>
-    </div>
-    <img src="static/images/line.svg" class="img-fluid">
-    <div class="col-lg-2 col-md-2">
     </div>
   </div>
   {% endfor %}
