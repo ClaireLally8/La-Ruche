@@ -99,6 +99,11 @@
    {% endif %}
   {% endfor %}
 
+  <form method="POST" action="{{ url_for('create',patient_id=patient._id) }}" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{patient.patient_id}}">
+    <input type="file" name="profile_image">
+    <input type="submit" name="submit">
+    </form>
 </div>
   <div class="float-right ">
         <a href="#" class="my-3">
