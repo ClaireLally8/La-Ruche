@@ -91,13 +91,16 @@ def search():
 
 @app.route('/create/<patient_id>',methods=['POST'])
 def create(patient_id):
-    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    pid = uuid.uuid4().hex.upper()+".png"
-    data = list(mongo.db.labdata.find())
     profile_image = request.files['profile_image']
-    mongo.save_file(pid,profile_image)
-    mongo.db.files.insert({'patient_id': request.form['id'],'profile_image_name':pid})
-    return render_template('labdata.html', patient=this_patient,labdata=data)
+    test = mongo.db.files.find_one({"profile_image_name": profile_image.filename,"patient_id": request.form['id']})
+    this_patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
+    data = list(mongo.db.labdata.find())
+    if not test:
+        mongo.save_file(profile_image.filename,profile_image)
+        mongo.db.files.insert({'patient_id': request.form['id'],'profile_image_name':profile_image.filename})
+        return render_template('labdata.html', patient=this_patient,labdata=data)
+    else:
+        return "<h1>error</h1>"
     
 
 @app.route('/file/<filename>')
