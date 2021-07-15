@@ -98,16 +98,19 @@
   </div>
    {% endif %}
   {% endfor %}
-  {% for file in files %}
-  <p>{{file.profile_image_name}}</p>
-  {% endfor %}
-  <form method="POST" action="{{ url_for('create',patient_id=patient._id) }}" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="{{patient.patient_id}}">
-    <input type="file" name="profile_image">
-    <input type="submit" name="submit">
-    </form>
 </div>
 
+<div class="card">
+  <h1 class="text-center my-5">Patient files</h1>
+  {% for file in files %}
+  <a href="{{url_for('file', filename=file.profile_image_name)}}"><p class="text-center">{{file.profile_image_name}}</p></a>
+  {% endfor %}
+    <form  method="POST" action="{{ url_for('create',patient_id=patient._id) }}" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{patient.patient_id}}">
+        <input type="file" class="d-inline" name="profile_image">
+        <input type="submit" name="submit" class="btn primary-button d-inline">
+    </form>
+</div>
 
 
   <div class="float-right ">
